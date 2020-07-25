@@ -48,7 +48,7 @@ ISCOMMENT  EQ(CMTFLG,1)                       :S(CONTCM)
 CONTCM     OUTPUT = '\lnie'
            OUTPUT = CMT '\endln'
            CMTFLG = 1                         :(READ)
-ISEJC      OUTPUT = '\vfill\break'                      :(NEWPG)
+ISEJC      OUTPUT = '\vfill\break'            :(NEWPG)
 ISTIL      ENTRY TITSEG
            &ANCHOR = 0
 MLOOP      MAINTL ' ' =                         :S(MLOOP)

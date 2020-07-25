@@ -15,8 +15,8 @@
 \def\lnie{\begingroup * \hskip3em\tt\deactivate\obeywhitespace}
 \def\endln{\endgroup\par}
 \def\asmac#1#2{\noindent\hskip#1em\begingroup\it#2\endgroup\par}
-\def\ifmac#1#2{\vskip6pt\hrule\vskip3pt
-  \noindent\begingroup\hskip#1em\it if\ \bf #2\endgroup\par\vskip1pt}
+\def\ifmac#1#2{
+  \noindent\begingroup\hskip#1em{\it if\ \bf #2}\endgroup\par\vskip1pt}
 \def\inst#1#2#3#4{\begingroup
       \hbox{\hbox to 0.5in{\tt #1\hfill}
       \hbox to 2.9in{\hbox to 2.5em{\bf #2\hfill}{\tt #3}\hfill}

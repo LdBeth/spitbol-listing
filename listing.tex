@@ -14666,16 +14666,16 @@ fail message for stack fail section\endln
 \endln
 \inst{endso}{dac}{b$scl}{stack overflow in garbage collector}
 \inst{}{dac}{b$scl}{stack overflow in garbage collector}
-\inst{}{dtc}{/stack overflow}{garbage collection/}
+\inst{}{dtc}{/stack overflow in}{garbage collection/}
 \lnie
 \endln
 \lnie
 string constant for time up\endln
 \lnie
 \endln
-\inst{endtu}{dac}{/stack overflow}{}
-\inst{}{dac}{/stack overflow}{}
-\inst{}{dtc}{/stack overflow}{}
+\inst{endtu}{dac}{/stack overflow inin}{}
+\inst{}{dac}{/stack overflow ininin}{}
+\inst{}{dtc}{/stack overflow inininin}{}
 \vfill\break
 
 \lnie
@@ -14709,7 +14709,7 @@ listing header message\endln
 \endln
 \inst{headr}{dac}{b$scl}{}
 \inst{}{dac}{b$scl}{}
-\inst{}{dtc}{/macro spitbol v}{3.7/}
+\inst{}{dtc}{/macro spitbol version}{3.7/}
 \lnie
 \endln
 \inst{headv}{dac}{b$scl}{for exit() version no. check}
@@ -15149,10 +15149,10 @@ profiler message strings\endln
 \inst{}{dtc}{ch$ex}{}
 \inst{pfms2}{dac}{ch$ex}{}
 \inst{}{dac}{ch$ex}{}
-\inst{}{dtc}{/stmt    number}{    -- execution time --/}
-\inst{pfms3}{dac}{/stmt    number}{    -- execution time --/}
-\inst{}{dac}{/stmt    number}{    -- execution time --/}
-\inst{}{dtc}{/number  executi}{ total(msec) per excn(mcsec)/}
+\inst{}{dtc}{/stmt    number of}{    -- execution time --/}
+\inst{pfms3}{dac}{/stmt    number ofof}{    -- execution time --/}
+\inst{}{dac}{/stmt    number ofofof}{    -- execution time --/}
+\inst{}{dtc}{/number  executions}{ total(msec) per excn(mcsec)/}
 \asmac{fi}
 \lnie
 \endln
@@ -17808,8 +17808,8 @@ merge here to process next pointer on list\endln
 merge here to process next section of stack list\endln
 \lnie
 \endln
-\inst{rlaj2}{bgt}{wa,rlend(xl),rla}{ok if past end of section}
-\inst{}{blt}{wa,rlstr(xl),rla}{or if before start of section}
+\inst{rlaj2}{bgt}{wa,rlend(xl),rlaj3}{ok if past end of section}
+\inst{}{blt}{wa,rlstr(xl),rlaj3}{or if before start of section}
 \inst{}{add}{rladj(xl),wa}{within section, add adjustment}
 \inst{}{mov}{wa,(xr)}{return updated ptr to memory}
 \inst{}{brn}{rlaj4}{done with this pointer}
@@ -18099,7 +18099,7 @@ cdblk\endln
 \endln
 \inst{rld07}{mov}{cdlen(xr),wa}{load length}
 \inst{}{mov}{*cdfal,wb}{set offset}
-\inst{}{bne}{(xr),=b$cdc,rld0}{jump back if not complex goto}
+\inst{}{bne}{(xr),=b$cdc,rld04}{jump back if not complex goto}
 \inst{}{mov}{*cdcod,wb}{do not process cdfal word}
 \inst{}{brn}{rld04}{jump back}
 \lnie
@@ -18165,7 +18165,7 @@ the dfblk in turn contains a pointer to an scblk within\endln
 static.\endln
 \lnie
 \endln
-\inst{rld11}{bne}{ffofs(xr),*pdfld}{skip dfblk if not first field}
+\inst{rld11}{bne}{ffofs(xr),*pdfld,rld12}{skip dfblk if not first field}
 \inst{}{mov}{xr,-(xs)}{save xr}
 \inst{}{mov}{ffdfp(xr),xr}{load old ptr to dfblk}
 \inst{}{add}{rldst,xr}{current location of dfblk}
@@ -18671,7 +18671,7 @@ so that dname is above dnamb\endln
 insert text for error 329 in error message table\endln
 \lnie
 \endln
-\inst{}{erb}{329,requested ma}{too large}
+\inst{}{erb}{329,requested maxlngth}{too large}
 \asmac{fi}
 \inst{ini08}{mov}{=endmo,xr}{point to failure message}
 \inst{}{mov}{endml,wa}{message length}
@@ -18845,7 +18845,7 @@ prepare now to start execution\endln
 set default input record length\endln
 \lnie
 \endln
-\inst{inix0}{bgt}{cswin,=iniln,ini}{skip if not default -in72 used}
+\inst{inix0}{bgt}{cswin,=iniln,inix1}{skip if not default -in72 used}
 \inst{}{mov}{=inils,cswin}{else use default record length}
 \lnie
 \endln
@@ -18971,8 +18971,8 @@ binary plus (addition)\endln
 \endln
 \inst{o$add}{ent}{}{entry point}
 \inst{}{jsr}{arith}{fetch arithmetic operands}
-\inst{}{err}{001,addition lef}{operand is not numeric}
-\inst{}{err}{002,addition rig}{operand is not numeric}
+\inst{}{err}{001,addition left}{operand is not numeric}
+\inst{}{err}{002,addition right}{operand is not numeric}
 \ifmac{.cnra}
 \asmac{else}
 \inst{}{ppm}{oadd1}{jump if real operands}
@@ -18985,7 +18985,7 @@ here to add two integers\endln
 \endln
 \inst{}{adi}{icval(xl)}{add right operand to left}
 \inst{}{ino}{exint}{return integer if no overflow}
-\inst{}{erb}{003,addition cau}{integer overflow}
+\inst{}{erb}{003,addition caused}{integer overflow}
 \ifmac{.cnra}
 \asmac{else}
 \lnie
@@ -18996,7 +18996,7 @@ here to add two reals\endln
 \endln
 \inst{oadd1}{adr}{rcval(xl)}{add right operand to left}
 \inst{}{rno}{exrea}{return real if no overflow}
-\inst{}{erb}{261,addition cau}{real overflow}
+\inst{}{erb}{261,addition caused}{real overflow}
 \asmac{fi}
 \vfill\break
 
@@ -19009,7 +19009,7 @@ unary plus (affirmation)\endln
 \inst{o$aff}{ent}{}{entry point}
 \inst{}{mov}{(xs)+,xr}{load operand}
 \inst{}{jsr}{gtnum}{convert to numeric}
-\inst{}{err}{004,affirmation}{is not numeric}
+\inst{}{err}{004,affirmation operand}{is not numeric}
 \inst{}{mov}{xr,-(xs)}{result if converted to numeric}
 \inst{}{lcw}{xr}{get next code word}
 \inst{}{bri}{(xr)}{execute it}
@@ -19024,7 +19024,7 @@ binary bar (alternation)\endln
 \inst{o$alt}{ent}{}{entry point}
 \inst{}{mov}{(xs)+,xr}{load right operand}
 \inst{}{jsr}{gtpat}{convert to pattern}
-\inst{}{err}{005,alternation}{operand is not pattern}
+\inst{}{err}{005,alternation right}{operand is not pattern}
 \lnie
 \endln
 \lnie
@@ -19036,7 +19036,7 @@ merge here from special (left alternation) case\endln
 \inst{}{mov}{xr,xl}{save address of alternative node}
 \inst{}{mov}{(xs)+,xr}{load left operand}
 \inst{}{jsr}{gtpat}{convert to pattern}
-\inst{}{err}{006,alternation}{operand is not pattern}
+\inst{}{err}{006,alternation left}{operand is not pattern}
 \inst{}{beq}{xr,=p$alt,oalt2}{jump if left arg is alternation}
 \inst{}{mov}{xr,pthen(xl)}{set left operand as successor}
 \inst{}{mov}{xl,-(xs)}{stack result}
@@ -19056,7 +19056,7 @@ the result is more efficient if we make the replacement\endln
 (a / b) / c = a / (b / c)\endln
 \lnie
 \endln
-\inst{oalt2}{mov}{parm1(xr),pthen(}{build the (b / c) node}
+\inst{oalt2}{mov}{parm1(xr),pthen(xl)}{build the (b / c) node}
 \inst{}{mov}{pthen(xr),-(xs)}{set a as new left arg}
 \inst{}{mov}{xl,xr}{set (b / c) as new right arg}
 \inst{}{brn}{oalt1}{merge back to build a / (b / c)}
@@ -19113,14 +19113,14 @@ here to use central array reference routine\endln
 here if we have a vector reference\endln
 \lnie
 \endln
-\inst{oaon2}{bne}{(xr),=b$icl,oaon}{use long routine if not integer}
+\inst{oaon2}{bne}{(xr),=b$icl,oaon1}{use long routine if not integer}
 \inst{}{ldi}{icval(xr)}{load integer subscript value}
 \inst{}{mfi}{wa,exfal}{copy as address int, fail if ovflo}
 \inst{}{bze}{wa,exfal}{fail if zero}
 \inst{}{add}{=vcvlb,wa}{compute offset in words}
 \inst{}{wtb}{wa}{convert to bytes}
 \inst{}{mov}{wa,(xs)}{complete name on stack}
-\inst{}{blt}{wa,vclen(xl),oao}{exit if subscript not too large}
+\inst{}{blt}{wa,vclen(xl),oaon4}{exit if subscript not too large}
 \inst{}{brn}{exfal}{else fail}
 \lnie
 \endln
@@ -19172,13 +19172,13 @@ here to use central array reference routine\endln
 here if we have a vector reference\endln
 \lnie
 \endln
-\inst{oaov2}{bne}{(xr),=b$icl,oaov}{use long routine if not integer}
+\inst{oaov2}{bne}{(xr),=b$icl,oaov1}{use long routine if not integer}
 \inst{}{ldi}{icval(xr)}{load integer subscript value}
 \inst{}{mfi}{wa,exfal}{move as one word int, fail if ovflo}
 \inst{}{bze}{wa,exfal}{fail if zero}
 \inst{}{add}{=vcvlb,wa}{compute offset in words}
 \inst{}{wtb}{wa}{convert to bytes}
-\inst{}{bge}{wa,vclen(xl),exf}{fail if subscript too large}
+\inst{}{bge}{wa,vclen(xl),exfal}{fail if subscript too large}
 \inst{}{jsr}{acess}{access value}
 \inst{}{ppm}{exfal}{fail if access fails}
 \inst{}{mov}{xr,-(xs)}{stack result}
@@ -19228,7 +19228,7 @@ compilation error\endln
 \lnie
 \endln
 \inst{o$cer}{ent}{}{entry point}
-\inst{}{erb}{007,compilation}{encountered during execution}
+\inst{}{erb}{007,compilation error}{encountered during execution}
 \vfill\break
 
 \lnie
@@ -19338,11 +19338,11 @@ merge here when left argument is not a string\endln
 \lnie
 \endln
 \inst{ocnc6}{jsr}{gtpat}{convert left arg to pattern}
-\inst{}{err}{008,concatenatio}{left operand is not a string or pattern}
+\inst{}{err}{008,concatenation}{left operand is not a string or pattern}
 \inst{}{mov}{xr,-(xs)}{save result on stack}
 \inst{}{mov}{xl,xr}{point to right operand}
 \inst{}{jsr}{gtpat}{convert to pattern}
-\inst{}{err}{009,concatenatio}{right operand is not a string or pattern}
+\inst{}{err}{009,concatenation}{right operand is not a string or pattern}
 \inst{}{mov}{xr,xl}{move for pconc}
 \inst{}{mov}{(xs)+,xr}{reload left operand ptr}
 \inst{}{jsr}{pconc}{concatenate patterns}
@@ -19372,7 +19372,7 @@ merge back here after conversion\endln
 \inst{}{beq}{wa,=b$rcl,ocom3}{jump if real}
 \asmac{fi}
 \inst{}{jsr}{gtnum}{else convert to numeric}
-\inst{}{err}{010,negation ope}{is not numeric}
+\inst{}{err}{010,negation operand}{is not numeric}
 \inst{}{brn}{ocom1}{back to check cases}
 \lnie
 \endln
@@ -19383,7 +19383,7 @@ here to complement integer\endln
 \inst{ocom2}{ldi}{icval(xr)}{load integer value}
 \inst{}{ngi}{}{negate}
 \inst{}{ino}{exint}{return integer if no overflow}
-\inst{}{erb}{011,negation cau}{integer overflow}
+\inst{}{erb}{011,negation caused}{integer overflow}
 \ifmac{.cnra}
 \asmac{else}
 \lnie
@@ -19406,8 +19406,8 @@ binary slash (division)\endln
 \endln
 \inst{o$dvd}{ent}{}{entry point}
 \inst{}{jsr}{arith}{fetch arithmetic operands}
-\inst{}{err}{012,division lef}{operand is not numeric}
-\inst{}{err}{013,division rig}{operand is not numeric}
+\inst{}{err}{012,division left}{operand is not numeric}
+\inst{}{err}{013,division right}{operand is not numeric}
 \ifmac{.cnra}
 \asmac{else}
 \inst{}{ppm}{odvd2}{jump if real operands}
@@ -19420,7 +19420,7 @@ here to divide two integers\endln
 \endln
 \inst{}{dvi}{icval(xl)}{divide left operand by right}
 \inst{}{ino}{exint}{result ok if no overflow}
-\inst{}{erb}{014,division cau}{integer overflow}
+\inst{}{erb}{014,division caused}{integer overflow}
 \ifmac{.cnra}
 \asmac{else}
 \lnie
@@ -19431,7 +19431,7 @@ here to divide two reals\endln
 \endln
 \inst{odvd2}{dvr}{rcval(xl)}{divide left operand by right}
 \inst{}{rno}{exrea}{return real if no overflow}
-\inst{}{erb}{262,division cau}{real overflow}
+\inst{}{erb}{262,division caused}{real overflow}
 \asmac{fi}
 \vfill\break
 
@@ -19444,14 +19444,14 @@ exponentiation\endln
 \inst{o$exp}{ent}{}{entry point}
 \inst{}{mov}{(xs)+,xr}{load exponent}
 \inst{}{jsr}{gtnum}{convert to number}
-\inst{}{err}{015,exponentiati}{right operand is not numeric}
+\inst{}{err}{015,exponentiation}{right operand is not numeric}
 \inst{}{mov}{xr,xl}{move exponent to xl}
 \inst{}{mov}{(xs)+,xr}{load base}
 \inst{}{jsr}{gtnum}{convert to numeric}
-\inst{}{err}{016,exponentiati}{left operand is not numeric}
+\inst{}{err}{016,exponentiation}{left operand is not numeric}
 \ifmac{.cnra}
 \asmac{else}
-\inst{}{beq}{(xl),=b$rcl,oexp}{jump if real exponent}
+\inst{}{beq}{(xl),=b$rcl,oexp7}{jump if real exponent}
 \asmac{fi}
 \inst{}{ldi}{icval(xl)}{load exponent}
 \inst{}{ilt}{oex12}{jump if negative exponent}
@@ -19488,7 +19488,7 @@ loop to perform exponentiation\endln
 here if integer overflow\endln
 \lnie
 \endln
-\inst{oexp2}{erb}{017,exponentiati}{caused integer overflow}
+\inst{oexp2}{erb}{017,exponentiation}{caused integer overflow}
 \vfill\break
 
 \lnie
@@ -19517,7 +19517,7 @@ here to exponentiate a real to an integer power\endln
 here for error of 0**0 or 0.0**0\endln
 \lnie
 \endln
-\inst{oexp4}{erb}{018,exponentiati}{result is undefined}
+\inst{oexp4}{erb}{018,exponentiation}{result is undefined}
 \ifmac{.cnra}
 \asmac{else}
 \lnie
@@ -19536,7 +19536,7 @@ loop to perform exponentiation\endln
 here if real overflow\endln
 \lnie
 \endln
-\inst{oexp6}{erb}{266,exponentiati}{caused real overflow}
+\inst{oexp6}{erb}{266,exponentiation}{caused real overflow}
 \lnie
 \endln
 \lnie
@@ -19544,7 +19544,7 @@ here with real exponent in (xl), numeric base in (xr)\endln
 \lnie
 \endln
 \ifmac{.cmth}
-\inst{oexp7}{beq}{(xr),=b$rcl,oexp}{jump if base real}
+\inst{oexp7}{beq}{(xr),=b$rcl,oexp8}{jump if base real}
 \inst{}{ldi}{icval(xr)}{load integer base}
 \inst{}{itr}{}{convert to real}
 \inst{}{jsr}{rcbld}{create real in (xr)}
@@ -19605,9 +19605,9 @@ here with positive base in ra and (xr), exponent in (xl)\endln
 here for non-integral exponent with negative base\endln
 \lnie
 \endln
-\inst{oex11}{erb}{311,exponentiati}{of negative base to non-integral power}
+\inst{oex11}{erb}{311,exponentiation}{of negative base to non-integral power}
 \asmac{else}
-\inst{oexp7}{erb}{267,exponentiati}{right operand is real not integer}
+\inst{oexp7}{erb}{267,exponentiation}{right operand is real not integer}
 \asmac{fi}
 \asmac{fi}
 \lnie
@@ -19624,7 +19624,7 @@ here with negative integer exponent in ia\endln
 \inst{}{mov}{(xs)+,xr}{restore base value}
 \inst{}{brn}{oexp7}{process real exponent}
 \asmac{else}
-\inst{oex12}{erb}{019,exponentiati}{right operand is negative}
+\inst{oex12}{erb}{019,exponentiation}{right operand is negative}
 \asmac{fi}
 \vfill\break
 
@@ -19653,7 +19653,7 @@ failure during evaluation of a complex or direct goto\endln
 \lnie
 \endln
 \inst{o$fif}{ent}{}{entry point}
-\inst{}{erb}{020,goto evaluat}{failure}
+\inst{}{erb}{020,goto evaluation}{failure}
 \vfill\break
 
 \lnie
@@ -19666,7 +19666,7 @@ function call (more than one argument)\endln
 \inst{}{lcw}{wa}{load number of arguments}
 \inst{}{lcw}{xr}{load function vrblk pointer}
 \inst{}{mov}{vrfnc(xr),xl}{load function pointer}
-\inst{}{bne}{wa,fargs(xl),cfu}{use central routine if wrong num}
+\inst{}{bne}{wa,fargs(xl),cfunc}{use central routine if wrong num}
 \inst{}{bri}{(xl)}{jump to function if arg count ok}
 \vfill\break
 
@@ -19686,7 +19686,7 @@ function name error\endln
 here for error\endln
 \lnie
 \endln
-\inst{ofne1}{erb}{021,function cal}{by name returned a value}
+\inst{ofne1}{erb}{021,function called}{by name returned a value}
 \vfill\break
 
 \lnie
@@ -19699,7 +19699,7 @@ function call (single argument)\endln
 \inst{}{lcw}{xr}{load function vrblk pointer}
 \inst{}{mov}{=num01,wa}{set number of arguments to one}
 \inst{}{mov}{vrfnc(xr),xl}{load function pointer}
-\inst{}{bne}{wa,fargs(xl),cfu}{use central routine if wrong num}
+\inst{}{bne}{wa,fargs(xl),cfunc}{use central routine if wrong num}
 \inst{}{bri}{(xl)}{jump to function if arg count ok}
 \vfill\break
 
@@ -19708,7 +19708,7 @@ call to undefined function\endln
 \lnie
 \endln
 \inst{o$fun}{ent}{}{entry point}
-\inst{}{erb}{022,undefined fu}{called}
+\inst{}{erb}{022,undefined function}{called}
 \vfill\break
 
 \lnie
@@ -19787,7 +19787,7 @@ details of the structure which is constructed.\endln
 \inst{}{mov}{xr,xl}{save ptr to node}
 \inst{}{mov}{(xs),xr}{load left argument}
 \inst{}{jsr}{gtpat}{convert to pattern}
-\inst{}{err}{025,immediate as}{left operand is not pattern}
+\inst{}{err}{025,immediate assignment}{left operand is not pattern}
 \inst{}{mov}{xr,(xs)}{save ptr to left operand pattern}
 \inst{}{mov}{=p$ima,wb}{set pcode for first node}
 \inst{}{jsr}{pbild}{build p$ima node}
@@ -19912,8 +19912,8 @@ binary asterisk (multiplication)\endln
 \endln
 \inst{o$mlt}{ent}{}{entry point}
 \inst{}{jsr}{arith}{fetch arithmetic operands}
-\inst{}{err}{026,multiplicati}{left operand is not numeric}
-\inst{}{err}{027,multiplicati}{right operand is not numeric}
+\inst{}{err}{026,multiplication}{left operand is not numeric}
+\inst{}{err}{027,multiplication}{right operand is not numeric}
 \ifmac{.cnra}
 \asmac{else}
 \inst{}{ppm}{omlt1}{jump if real operands}
@@ -19926,7 +19926,7 @@ here to multiply two integers\endln
 \endln
 \inst{}{mli}{icval(xl)}{multiply left operand by right}
 \inst{}{ino}{exint}{return integer if no overflow}
-\inst{}{erb}{028,multiplicati}{caused integer overflow}
+\inst{}{erb}{028,multiplication}{caused integer overflow}
 \ifmac{.cnra}
 \asmac{else}
 \lnie
@@ -19937,7 +19937,7 @@ here to multiply two reals\endln
 \endln
 \inst{omlt1}{mlr}{rcval(xl)}{multiply left operand by right}
 \inst{}{rno}{exrea}{return real if no overflow}
-\inst{}{erb}{263,multiplicati}{caused real overflow}
+\inst{}{erb}{263,multiplication}{caused real overflow}
 \asmac{fi}
 \vfill\break
 
@@ -20003,7 +20003,7 @@ use of undefined operator\endln
 \lnie
 \endln
 \inst{o$oun}{ent}{}{entry point}
-\inst{}{erb}{029,undefined op}{referenced}
+\inst{}{erb}{029,undefined operator}{referenced}
 \vfill\break
 
 \lnie
@@ -20028,7 +20028,7 @@ details of the structure which is constructed.\endln
 \inst{}{mov}{xr,xl}{save ptr to node}
 \inst{}{mov}{(xs),xr}{load left operand}
 \inst{}{jsr}{gtpat}{convert to pattern}
-\inst{}{err}{030,pattern assi}{left operand is not pattern}
+\inst{}{err}{030,pattern assignment}{left operand is not pattern}
 \inst{}{mov}{xr,(xs)}{save ptr to left operand pattern}
 \inst{}{mov}{=p$paa,wb}{set pcode for p$paa node}
 \inst{}{jsr}{pbild}{build p$paa node}
@@ -20146,7 +20146,7 @@ entries have been made (see end of match routine p$nth)\endln
 \endln
 \inst{o$rpl}{ent}{}{entry point}
 \inst{}{jsr}{gtstg}{convert replacement val to string}
-\inst{}{err}{031,pattern repl}{right operand is not a string}
+\inst{}{err}{031,pattern replacement}{right operand is not a string}
 \lnie
 \endln
 \lnie
@@ -20156,7 +20156,7 @@ get result length and allocate result scblk\endln
 \inst{}{mov}{(xs),xl}{load subject string pointer}
 \ifmac{.cnbf}
 \asmac{else}
-\inst{}{beq}{(xl),=b$bct,orpl}{branch if buffer assignment}
+\inst{}{beq}{(xl),=b$bct,orpl4}{branch if buffer assignment}
 \asmac{fi}
 \inst{}{add}{sclen(xl),wa}{add subject string length}
 \inst{}{add}{num02(xs),wa}{add starting cursor}
@@ -20321,8 +20321,8 @@ binary minus (subtraction)\endln
 \endln
 \inst{o$sub}{ent}{}{entry point}
 \inst{}{jsr}{arith}{fetch arithmetic operands}
-\inst{}{err}{032,subtraction}{operand is not numeric}
-\inst{}{err}{033,subtraction}{operand is not numeric}
+\inst{}{err}{032,subtraction left}{operand is not numeric}
+\inst{}{err}{033,subtraction right}{operand is not numeric}
 \ifmac{.cnra}
 \asmac{else}
 \inst{}{ppm}{osub1}{jump if real operands}
@@ -20335,7 +20335,7 @@ here to subtract two integers\endln
 \endln
 \inst{}{sbi}{icval(xl)}{subtract right operand from left}
 \inst{}{ino}{exint}{return integer if no overflow}
-\inst{}{erb}{034,subtraction}{integer overflow}
+\inst{}{erb}{034,subtraction caused}{integer overflow}
 \ifmac{.cnra}
 \asmac{else}
 \lnie
@@ -20346,7 +20346,7 @@ here to subtract two reals\endln
 \endln
 \inst{osub1}{sbr}{rcval(xl)}{subtract right operand from left}
 \inst{}{rno}{exrea}{return real if no overflow}
-\inst{}{erb}{264,subtraction}{real overflow}
+\inst{}{erb}{264,subtraction caused}{real overflow}
 \asmac{fi}
 \vfill\break
 
@@ -20379,7 +20379,7 @@ else by a technique such as setting kverl to zero.\endln
 \lnie
 \endln
 \inst{o$unf}{ent}{}{entry point}
-\inst{}{erb}{035,unexpected f}{in -nofail mode}
+\inst{}{erb}{035,unexpected failure}{in -nofail mode}
 \vfill\break
 {\bf spitbol--\rm block action routines}
 \vskip1em
@@ -20781,9 +20781,9 @@ here to convert to file\endln
 \inst{}{mov}{wc,befof}{save offset}
 \inst{}{mov}{(xt),-(xs)}{stack arg pointer}
 \inst{}{jsr}{iofcb}{convert to fcb}
-\inst{}{err}{298,external fun}{argument is not file}
-\inst{}{err}{298,external fun}{argument is not file}
-\inst{}{err}{298,external fun}{argument is not file}
+\inst{}{err}{298,external function}{argument is not file}
+\inst{}{err}{298,external function}{argument is not file}
+\inst{}{err}{298,external function}{argument is not file}
 \inst{}{mov}{wa,xr}{point to fcb}
 \inst{}{mov}{(xs)+,xt}{reload entry pointer}
 \inst{}{brn}{befc5}{jump to merge}
@@ -20796,7 +20796,7 @@ here to convert to string\endln
 \endln
 \inst{befc2}{mov}{(xt),-(xs)}{stack arg ptr}
 \inst{}{jsr}{gtstg}{convert argument to string}
-\inst{}{err}{039,external fun}{argument is not a string}
+\inst{}{err}{039,external function}{argument is not a string}
 \inst{}{brn}{befc6}{jump to merge}
 \vfill\break
 
@@ -20813,7 +20813,7 @@ here to convert an integer\endln
 \inst{befc3}{mov}{(xt),xr}{load next argument}
 \inst{}{mov}{wc,befof}{save offset}
 \inst{}{jsr}{gtint}{convert to integer}
-\inst{}{err}{040,external fun}{argument is not integer}
+\inst{}{err}{040,external function}{argument is not integer}
 \ifmac{.cnra}
 \asmac{else}
 \inst{}{brn}{befc5}{merge with real case}
@@ -20826,7 +20826,7 @@ here to convert a real\endln
 \inst{befc4}{mov}{(xt),xr}{load next argument}
 \inst{}{mov}{wc,befof}{save offset}
 \inst{}{jsr}{gtrea}{convert to real}
-\inst{}{err}{265,external fun}{argument is not real}
+\inst{}{err}{265,external function}{argument is not real}
 \asmac{fi}
 \lnie
 \endln
@@ -20859,8 +20859,8 @@ here after converting all the arguments\endln
 \inst{}{mov}{fargs(xl),wa}{get number of args}
 \inst{}{jsr}{sysex}{call routine to call external fnc}
 \inst{}{ppm}{exfal}{fail if failure}
-\inst{}{err}{327,calling exte}{function - not found}
-\inst{}{err}{326,calling exte}{function - bad argument type}
+\inst{}{err}{327,calling external}{function - not found}
+\inst{}{err}{326,calling external}{function - bad argument type}
 \ifmac{.cexp}
 \inst{}{wtb}{wa}{convert number of args to bytes}
 \inst{}{add}{wa,xs}{remove arguments from stack}
@@ -20883,7 +20883,7 @@ first defend against non-standard null string returned\endln
 \endln
 \inst{}{mov}{efrsl(xl),wb}{get result type id}
 \inst{}{bnz}{wb,befa8}{branch if not unconverted}
-\inst{}{bne}{(xr),=b$scl,befc}{jump if not a string}
+\inst{}{bne}{(xr),=b$scl,befc8}{jump if not a string}
 \inst{}{bze}{sclen(xr),exnul}{return null if null}
 \lnie
 \endln
@@ -20930,7 +20930,7 @@ store type word in result\endln
 merge for unconverted result\endln
 \lnie
 \endln
-\inst{bef11}{beq}{(xr),=b$scl,bef1}{branch if string result}
+\inst{bef11}{beq}{(xr),=b$scl,bef12}{branch if string result}
 \inst{}{jsr}{blkln}{get length of block}
 \inst{}{mov}{xr,xl}{copy address of old block}
 \inst{}{jsr}{alloc}{allocate dynamic block same size}
@@ -20997,7 +20997,7 @@ to call a field function and extract a field value/name.\endln
 \inst{}{mov}{xl,xr}{copy ffblk pointer}
 \inst{}{lcw}{wc}{load next code word}
 \inst{}{mov}{(xs),xl}{load pdblk pointer}
-\inst{}{bne}{(xl),=b$pdt,bffc}{jump if not pdblk at all}
+\inst{}{bne}{(xl),=b$pdt,bffc2}{jump if not pdblk at all}
 \inst{}{mov}{pddfp(xl),wa}{load dfblk pointer from pdblk}
 \lnie
 \endln
@@ -21005,7 +21005,7 @@ to call a field function and extract a field value/name.\endln
 loop to find correct ffblk for this pdblk\endln
 \lnie
 \endln
-\inst{bffc1}{beq}{wa,ffdfp(xr),bff}{jump if this is the correct ffblk}
+\inst{bffc1}{beq}{wa,ffdfp(xr),bffc3}{jump if this is the correct ffblk}
 \inst{}{mov}{ffnxt(xr),xr}{else link to next ffblk on chain}
 \inst{}{bnz}{xr,bffc1}{loop back if another entry to check}
 \lnie
@@ -21014,7 +21014,7 @@ loop to find correct ffblk for this pdblk\endln
 here for bad argument\endln
 \lnie
 \endln
-\inst{bffc2}{erb}{041,field functi}{argument is wrong datatype}
+\inst{bffc2}{erb}{041,field function}{argument is wrong datatype}
 \vfill\break
 
 \lnie
@@ -21031,7 +21031,7 @@ here after locating correct ffblk\endln
 \inst{}{beq}{wc,=ofne$,bffc5}{jump if called by name}
 \inst{}{add}{wa,xl}{else point to value field}
 \inst{}{mov}{(xl),xr}{load value}
-\inst{}{bne}{(xr),=b$trt,bffc}{jump if not trapped}
+\inst{}{bne}{(xr),=b$trt,bffc4}{jump if not trapped}
 \inst{}{sub}{wa,xl}{else restore name base,offset}
 \inst{}{mov}{wc,(xs)}{save next code word over pdblk ptr}
 \inst{}{jsr}{acess}{access value}
@@ -21194,7 +21194,7 @@ loop to find old value of function\endln
 \endln
 \inst{bpf01}{mov}{xl,wb}{save pointer}
 \inst{}{mov}{vrval(xl),xl}{load value}
-\inst{}{beq}{(xl),=b$trt,bpf0}{loop if trblk}
+\inst{}{beq}{(xl),=b$trt,bpf01}{loop if trblk}
 \lnie
 \endln
 \lnie
@@ -21232,7 +21232,7 @@ loop through possible trblk chain to find value\endln
 \endln
 \inst{bpf03}{mov}{xl,wc}{save pointer}
 \inst{}{mov}{vrval(xl),xl}{load next value}
-\inst{}{beq}{(xl),=b$trt,bpf0}{loop back if trblk}
+\inst{}{beq}{(xl),=b$trt,bpf03}{loop back if trblk}
 \lnie
 \endln
 \lnie
@@ -21273,7 +21273,7 @@ loop through possible trblk chain to find value\endln
 \endln
 \inst{bpf06}{mov}{xl,wc}{save pointer}
 \inst{}{mov}{vrval(xl),xl}{load next value}
-\inst{}{beq}{(xl),=b$trt,bpf0}{loop back if trblk}
+\inst{}{beq}{(xl),=b$trt,bpf06}{loop back if trblk}
 \lnie
 \endln
 \lnie
@@ -21301,7 +21301,7 @@ here after processing arguments and locals\endln
 \asmac{else}
 \inst{bpf07}{zer}{xr}{zero reg xr in case}
 \inst{}{bze}{kvpfl,bpf7c}{skip if profiling is off}
-\inst{}{beq}{kvpfl,=num02,bpf}{branch on type of profile}
+\inst{}{beq}{kvpfl,=num02,bpf7a}{branch on type of profile}
 \lnie
 \endln
 \lnie
@@ -21366,7 +21366,7 @@ here to actually jump to function\endln
 \inst{bpf08}{mov}{pfcod(xl),xr}{point to vrblk of entry label}
 \inst{}{mov}{vrlbl(xr),xr}{point to target code}
 \inst{}{beq}{xr,=stndl,bpf17}{test for undefined label}
-\inst{}{bne}{(xr),=b$trt,bpf8}{jump if not trapped}
+\inst{}{bne}{(xr),=b$trt,bpf8a}{jump if not trapped}
 \inst{}{mov}{trlbl(xr),xr}{else load ptr to real label code}
 \inst{bpf8a}{bri}{(xr)}{off to execute function}
 \lnie
@@ -21448,7 +21448,7 @@ here after dealing with one argument\endln
 \endln
 \inst{}{mov}{(xs),wb}{restore argument counter}
 \inst{}{icv}{wb}{increment argument counter}
-\inst{}{blt}{wb,fargs(xl),bpf}{loop if more to print}
+\inst{}{blt}{wb,fargs(xl),bpf12}{loop if more to print}
 \lnie
 \endln
 \lnie
@@ -21482,7 +21482,7 @@ here if calling a function whose entry label is undefined\endln
 \lnie
 \endln
 \inst{bpf17}{mov}{num02(xs),flptr}{reset so exfal can return to evalx}
-\inst{}{erb}{286,function cal}{to undefined entry label}
+\inst{}{erb}{286,function call}{to undefined entry label}
 \ifmac{.cnra}
 \asmac{else}
 \vfill\break
@@ -21625,7 +21625,7 @@ of a protected (pattern valued) natural variable.\endln
 \lnie
 \endln
 \inst{b$vre}{ent}{}{entry point}
-\inst{}{erb}{042,attempt to c}{value of protected variable}
+\inst{}{erb}{042,attempt to change}{value of protected variable}
 \vfill\break
 
 \lnie
@@ -22788,7 +22788,7 @@ parm1                 character argument\endln
 \inst{}{mov}{r$pms,xl}{else point to subject string}
 \inst{}{plc}{xl,wb}{point to current character}
 \inst{}{lch}{wa,(xl)}{load current character}
-\inst{}{bne}{wa,parm1(xr),fai}{fail if no match}
+\inst{}{bne}{wa,parm1(xr),failp}{fail if no match}
 \inst{}{icv}{wb}{else bump cursor}
 \inst{}{brn}{succp}{and succeed}
 \vfill\break
@@ -22838,7 +22838,7 @@ parm1                 expression pointer\endln
 \endln
 \inst{p$ayd}{ent}{bl$p1}{p1blk}
 \inst{}{jsr}{evals}{evaluate string argument}
-\inst{}{err}{043,any evaluate}{argument is not a string}
+\inst{}{err}{043,any evaluated}{argument is not a string}
 \inst{}{ppm}{failp}{fail if evaluation failure}
 \inst{}{ppm}{pany1}{merge multi-char case if ok}
 \vfill\break
@@ -22967,7 +22967,7 @@ parm1                 expression pointer\endln
 \endln
 \inst{p$bkd}{ent}{bl$p1}{p1blk}
 \inst{}{jsr}{evals}{evaluate string expression}
-\inst{}{err}{044,break evalua}{argument is not a string}
+\inst{}{err}{044,break evaluated}{argument is not a string}
 \inst{}{ppm}{failp}{fail if evaluation fails}
 \inst{}{ppm}{pbrk1}{merge with multi-char case if ok}
 \vfill\break
@@ -22996,7 +22996,7 @@ loop to scan till break character found\endln
 \lnie
 \endln
 \inst{pbks1}{lch}{wa,(xl)+}{load next char, bump pointer}
-\inst{}{beq}{wa,parm1(xr),suc}{succeed if break character found}
+\inst{}{beq}{wa,parm1(xr),succp}{succeed if break character found}
 \inst{}{icv}{wb}{else push cursor}
 \inst{}{bct}{wc,pbks1}{loop back if more to go}
 \inst{}{brn}{failp}{fail if end of string, no break chr}
@@ -23092,7 +23092,7 @@ parm1                 expression pointer\endln
 \endln
 \inst{p$bxd}{ent}{bl$p1}{p1blk}
 \inst{}{jsr}{evals}{evaluate string argument}
-\inst{}{err}{045,breakx evalu}{argument is not a string}
+\inst{}{err}{045,breakx evaluated}{argument is not a string}
 \inst{}{ppm}{failp}{fail if evaluation fails}
 \inst{}{ppm}{pbrk1}{merge with break if all ok}
 \vfill\break
@@ -23168,7 +23168,7 @@ here if result of expression is not a pattern\endln
 \inst{}{mov}{xl,-(xs)}{else stack result}
 \inst{}{mov}{xr,xl}{save node pointer}
 \inst{}{jsr}{gtstg}{convert result to string}
-\inst{}{err}{046,expression d}{not evaluate to pattern}
+\inst{}{err}{046,expression does}{not evaluate to pattern}
 \inst{}{mov}{xr,wc}{copy string pointer}
 \inst{}{mov}{xl,xr}{restore node pointer}
 \inst{}{mov}{wc,xl}{copy string pointer again}
@@ -23497,8 +23497,8 @@ parm1                 expression pointer\endln
 \endln
 \inst{p$lnd}{ent}{bl$p1}{p1blk}
 \inst{}{jsr}{evali}{evaluate integer argument}
-\inst{}{err}{047,len evaluate}{argument is not integer}
-\inst{}{err}{048,len evaluate}{argument is negative or too large}
+\inst{}{err}{047,len evaluated}{argument is not integer}
+\inst{}{err}{048,len evaluated}{argument is negative or too large}
 \inst{}{ppm}{failp}{fail if evaluation fails}
 \inst{}{ppm}{plen1}{merge with normal circuit if ok}
 \vfill\break
@@ -23515,7 +23515,7 @@ parm1                 expression pointer\endln
 \endln
 \inst{p$nad}{ent}{bl$p1}{p1blk}
 \inst{}{jsr}{evals}{evaluate string argument}
-\inst{}{err}{049,notany evalu}{argument is not a string}
+\inst{}{err}{049,notany evaluated}{argument is not a string}
 \inst{}{ppm}{failp}{fail if evaluation fails}
 \inst{}{ppm}{pnay1}{merge with multi-char case if ok}
 \vfill\break
@@ -23535,7 +23535,7 @@ parm1                 character argument\endln
 \inst{}{mov}{r$pms,xl}{else point to subject string}
 \inst{}{plc}{xl,wb}{point to current character in strin}
 \inst{}{lch}{wa,(xl)}{load current character}
-\inst{}{beq}{wa,parm1(xr),fai}{fail if match}
+\inst{}{beq}{wa,parm1(xr),failp}{fail if match}
 \inst{}{icv}{wb}{else bump cursor}
 \inst{}{brn}{succp}{and succeed}
 \vfill\break
@@ -23799,7 +23799,7 @@ pos (integer argument)\endln
 parm1                 integer argument\endln
 \lnie
 \endln
-\inst{}{beq}{wb,parm1(xr),suc}{succeed if at right location}
+\inst{}{beq}{wb,parm1(xr),succp}{succeed if at right location}
 \inst{}{bnz}{wb,failp}{don't look further if cursor not 0}
 \inst{}{mov}{pmhbs,xt}{get history stack base ptr}
 \inst{}{bne}{xr,-(xt),failp}{fail if pos is not first node}
@@ -23809,7 +23809,7 @@ parm1                 integer argument\endln
 expression argument circuit merges here\endln
 \lnie
 \endln
-\inst{ppos2}{bne}{-(xt),=nduna,fai}{ fail if not unanchored mode}
+\inst{ppos2}{bne}{-(xt),=nduna,failp}{ fail if not unanchored mode}
 \inst{}{mov}{parm1(xr),wb}{get desired cursor position}
 \inst{}{bgt}{wb,pmssl,exfal}{abort if off end}
 \inst{}{mov}{wb,num02(xt)}{fake number of unanchored moves}
@@ -23828,13 +23828,13 @@ parm1                 expression pointer\endln
 \endln
 \inst{p$psd}{ent}{bl$p1}{p1blk}
 \inst{}{jsr}{evali}{evaluate integer argument}
-\inst{}{err}{050,pos evaluate}{argument is not integer}
-\inst{}{err}{051,pos evaluate}{argument is negative or too large}
+\inst{}{err}{050,pos evaluated}{argument is not integer}
+\inst{}{err}{051,pos evaluated}{argument is negative or too large}
 \inst{}{ppm}{failp}{fail if evaluation fails}
 \inst{}{ppm}{ppos1}{process expression case}
 \lnie
 \endln
-\inst{ppos1}{beq}{wb,parm1(xr),suc}{succeed if at right location}
+\inst{ppos1}{beq}{wb,parm1(xr),succp}{succeed if at right location}
 \inst{}{bnz}{wb,failp}{don't look further if cursor not 0}
 \inst{}{bnz}{evlif,failp}{fail if complex argument}
 \inst{}{mov}{pmhbs,xt}{get history stack base ptr}
@@ -23983,15 +23983,15 @@ parm1                 expression pointer\endln
 \endln
 \inst{p$rpd}{ent}{bl$p1}{p1blk}
 \inst{}{jsr}{evali}{evaluate integer argument}
-\inst{}{err}{052,rpos evaluat}{argument is not integer}
-\inst{}{err}{053,rpos evaluat}{argument is negative or too large}
+\inst{}{err}{052,rpos evaluated}{argument is not integer}
+\inst{}{err}{053,rpos evaluated}{argument is negative or too large}
 \inst{}{ppm}{failp}{fail if evaluation fails}
 \inst{}{ppm}{prps1}{merge with normal case if ok}
 \lnie
 \endln
 \inst{prps1}{mov}{pmssl,wc}{get length of string}
 \inst{}{sub}{wb,wc}{get number of characters remaining}
-\inst{}{beq}{wc,parm1(xr),suc}{succeed if at right location}
+\inst{}{beq}{wc,parm1(xr),succp}{succeed if at right location}
 \inst{}{bnz}{wb,failp}{don't look further if cursor not 0}
 \inst{}{bnz}{evlif,failp}{fail if complex argument}
 \inst{}{mov}{pmhbs,xt}{get history stack base ptr}
@@ -24023,7 +24023,7 @@ parm1                 integer argument\endln
 \endln
 \inst{}{mov}{pmssl,wc}{get length of string}
 \inst{}{sub}{wb,wc}{get number of characters remaining}
-\inst{}{beq}{wc,parm1(xr),suc}{succeed if at right location}
+\inst{}{beq}{wc,parm1(xr),succp}{succeed if at right location}
 \inst{}{bnz}{wb,failp}{don't look further if cursor not 0}
 \inst{}{mov}{pmhbs,xt}{get history stack base ptr}
 \inst{}{bne}{xr,-(xt),failp}{fail if rpos is not first node}
@@ -24033,9 +24033,9 @@ parm1                 integer argument\endln
 expression argument merges here\endln
 \lnie
 \endln
-\inst{prps2}{bne}{-(xt),=nduna,fai}{ fail if not unanchored mode}
+\inst{prps2}{bne}{-(xt),=nduna,failp}{ fail if not unanchored mode}
 \inst{}{mov}{pmssl,wb}{point to end of string}
-\inst{}{blt}{wb,parm1(xr),fai}{fail if string not long enough}
+\inst{}{blt}{wb,parm1(xr),failp}{fail if string not long enough}
 \inst{}{sub}{parm1(xr),wb}{else set new cursor}
 \inst{}{mov}{wb,num02(xt)}{fake number of unanchored moves}
 \inst{}{brn}{succp}{continue match with adjusted cursor}
@@ -24060,7 +24060,7 @@ expression argument case merges here\endln
 \endln
 \inst{prtb1}{mov}{wb,wc}{save initial cursor}
 \inst{}{mov}{pmssl,wb}{point to end of string}
-\inst{}{blt}{wb,parm1(xr),fai}{fail if string not long enough}
+\inst{}{blt}{wb,parm1(xr),failp}{fail if string not long enough}
 \inst{}{sub}{parm1(xr),wb}{else set new cursor}
 \inst{}{bge}{wb,wc,succp}{and succeed if not too far already}
 \inst{}{brn}{failp}{in which case, fail}
@@ -24078,8 +24078,8 @@ parm1                 expression pointer\endln
 \endln
 \inst{p$rtd}{ent}{bl$p1}{p1blk}
 \inst{}{jsr}{evali}{evaluate integer argument}
-\inst{}{err}{054,rtab evaluat}{argument is not integer}
-\inst{}{err}{055,rtab evaluat}{argument is negative or too large}
+\inst{}{err}{054,rtab evaluated}{argument is not integer}
+\inst{}{err}{055,rtab evaluated}{argument is negative or too large}
 \inst{}{ppm}{failp}{fail if evaluation fails}
 \inst{}{ppm}{prtb1}{merge with normal case if success}
 \vfill\break
@@ -24096,7 +24096,7 @@ parm1                 expression pointer\endln
 \endln
 \inst{p$spd}{ent}{bl$p1}{p1blk}
 \inst{}{jsr}{evals}{evaluate string argument}
-\inst{}{err}{056,span evaluat}{argument is not a string}
+\inst{}{err}{056,span evaluated}{argument is not a string}
 \inst{}{ppm}{failp}{fail if evaluation fails}
 \inst{}{ppm}{pspn1}{merge with multi-char case if ok}
 \vfill\break
@@ -24179,7 +24179,7 @@ loop to scan matching characters\endln
 \lnie
 \endln
 \inst{psps1}{lch}{wa,(xl)+}{load next character, bump pointer}
-\inst{}{bne}{wa,parm1(xr),psp}{jump if no match}
+\inst{}{bne}{wa,parm1(xr),psps2}{jump if no match}
 \inst{}{icv}{wb}{else push cursor}
 \inst{}{bct}{wc,psps1}{and loop unless end of string}
 \lnie
@@ -24269,7 +24269,7 @@ parm1                 integer argument\endln
 expression argument case merges here\endln
 \lnie
 \endln
-\inst{ptab1}{bgt}{wb,parm1(xr),fai}{fail if too far already}
+\inst{ptab1}{bgt}{wb,parm1(xr),failp}{fail if too far already}
 \inst{}{mov}{parm1(xr),wb}{else set new cursor position}
 \inst{}{ble}{wb,pmssl,succp}{succeed if not off end}
 \inst{}{brn}{failp}{else fail}
@@ -24287,8 +24287,8 @@ parm1                 expression pointer\endln
 \endln
 \inst{p$tbd}{ent}{bl$p1}{p1blk}
 \inst{}{jsr}{evali}{evaluate integer argument}
-\inst{}{err}{057,tab evaluate}{argument is not integer}
-\inst{}{err}{058,tab evaluate}{argument is negative or too large}
+\inst{}{err}{057,tab evaluated}{argument is not integer}
+\inst{}{err}{058,tab evaluated}{argument is negative or too large}
 \inst{}{ppm}{failp}{fail if evaluation fails}
 \inst{}{ppm}{ptab1}{merge with normal case if ok}
 \vfill\break
@@ -24402,7 +24402,7 @@ merge here if execution terminates in error\endln
 here if no error had occured\endln
 \lnie
 \endln
-\inst{labo3}{erb}{036,goto abort w}{no preceding error}
+\inst{labo3}{erb}{036,goto abort with}{no preceding error}
 \vfill\break
 
 \lnie
@@ -24422,7 +24422,7 @@ merge here after execution error\endln
 \inst{}{bze}{xr,lcnt3}{jump if no previous error}
 \inst{}{zer}{r$cnt}{clear flag}
 \inst{}{mov}{xr,r$cod}{else store as new code block ptr}
-\inst{}{bne}{(xr),=b$cdc,lcnt}{jump if not complex go}
+\inst{}{bne}{(xr),=b$cdc,lcnt2}{jump if not complex go}
 \inst{}{mov}{stxoc,wa}{get offset of error}
 \inst{}{bge}{wa,stxof,lcnt4}{jump if error in goto evaluation}
 \lnie
@@ -24443,7 +24443,7 @@ here if no previous error\endln
 \lnie
 \endln
 \inst{lcnt3}{icv}{errft}{fatal error}
-\inst{}{erb}{037,goto continu}{with no preceding error}
+\inst{}{erb}{037,goto continue}{with no preceding error}
 \lnie
 \endln
 \lnie
@@ -24453,7 +24453,7 @@ cannot continue back to failure goto!\endln
 \lnie
 \endln
 \inst{lcnt4}{icv}{errft}{fatal error}
-\inst{}{erb}{332,goto continu}{with error in failure goto}
+\inst{}{erb}{332,goto continue}{with error in failure goto}
 \vfill\break
 
 \lnie
@@ -24516,8 +24516,8 @@ scontinue\endln
 \inst{}{mov}{r$cnt,xr}{load continuation code block ptr}
 \inst{}{bze}{xr,lscn2}{jump if no previous error}
 \inst{}{zer}{r$cnt}{clear flag}
-\inst{}{bne}{kvert,=nm320,lsc}{error must be user interrupt}
-\inst{}{beq}{kvert,=nm321,lsc}{detect scontinue loop}
+\inst{}{bne}{kvert,=nm320,lscn1}{error must be user interrupt}
+\inst{}{beq}{kvert,=nm321,lscn2}{detect scontinue loop}
 \inst{}{mov}{xr,r$cod}{else store as new code block ptr}
 \inst{}{add}{stxoc,xr}{add resume offset}
 \inst{}{lcp}{xr}{load code pointer}
@@ -24530,7 +24530,7 @@ here if no user interrupt\endln
 \lnie
 \endln
 \inst{lscn1}{icv}{errft}{fatal error}
-\inst{}{erb}{331,goto scontin}{with no user interrupt}
+\inst{}{erb}{331,goto scontinue}{with no user interrupt}
 \lnie
 \endln
 \lnie
@@ -24538,7 +24538,7 @@ here if in scontinue loop or if no previous error\endln
 \lnie
 \endln
 \inst{lscn2}{icv}{errft}{fatal error}
-\inst{}{erb}{321,goto scontin}{with no preceding error}
+\inst{}{erb}{321,goto scontinue}{with no preceding error}
 \vfill\break
 
 \lnie
@@ -24548,7 +24548,7 @@ undefined label\endln
 \lnie
 \endln
 \inst{l$und}{ent}{}{entry point}
-\inst{}{erb}{038,goto undefin}{label}
+\inst{}{erb}{038,goto undefined}{label}
 \vfill\break
 {\bf spitbol--\rm predefined snobol4 functions}
 \vskip1em
@@ -24621,7 +24621,7 @@ abs\endln
 \inst{}{ige}{exixr}{no change if not negative}
 \inst{}{ngi}{}{produce absolute value}
 \inst{}{ino}{exint}{return integer if no overflow}
-\inst{}{erb}{xxx,abs caused i}{overflow}
+\inst{}{erb}{xxx,abs caused integer}{overflow}
 \ifmac{.cnra}
 \asmac{else}
 \lnie
@@ -24634,7 +24634,7 @@ here to process real argument\endln
 \inst{}{rge}{exixr}{no change if not negative}
 \inst{}{ngr}{}{produce absolute value}
 \inst{}{rno}{exrea}{return real if no overflow}
-\inst{}{erb}{xxx,abs caused r}{overflow}
+\inst{}{erb}{xxx,abs caused real}{overflow}
 \asmac{fi}
 \asmac{fi}
 \ifmac{.c370}
@@ -24647,9 +24647,9 @@ and\endln
 \inst{s$and}{ent}{}{entry point}
 \inst{}{mnz}{wb}{signal two arguments}
 \inst{}{jsr}{sbool}{call string boolean routine}
-\inst{}{err}{xxx,and first ar}{is not a string}
-\inst{}{err}{xxx,and second a}{is not a string}
-\inst{}{err}{xxx,and argument}{not same length}
+\inst{}{err}{xxx,and first argument}{is not a string}
+\inst{}{err}{xxx,and second argument}{is not a string}
+\inst{}{err}{xxx,and arguments}{not same length}
 \inst{}{ppm}{exits}{null string arguments}
 \lnie
 \endln
@@ -24693,7 +24693,7 @@ append\endln
 \inst{s$apn}{ent}{}{entry point}
 \inst{}{mov}{(xs)+,xl}{get append argument}
 \inst{}{mov}{(xs)+,xr}{get bcblk}
-\inst{}{beq}{(xr),=b$bct,sapn}{ok if first arg is bcblk}
+\inst{}{beq}{(xr),=b$bct,sapn1}{ok if first arg is bcblk}
 \inst{}{erb}{275,append first}{argument is not a buffer}
 \lnie
 \endln
@@ -24702,7 +24702,7 @@ here to do the append\endln
 \lnie
 \endln
 \inst{sapn1}{jsr}{apndb}{do the append}
-\inst{}{err}{276,append secon}{argument is not a string}
+\inst{}{err}{276,append second}{argument is not a string}
 \inst{}{ppm}{exfal}{no room - fail}
 \inst{}{brn}{exnul}{exit with null result}
 \vfill\break
@@ -24756,7 +24756,7 @@ merge here to call function (wa = number of arguments)\endln
 here for invalid first argument\endln
 \lnie
 \endln
-\inst{sapp3}{erb}{060,apply first}{is not natural variable name}
+\inst{sapp3}{erb}{060,apply first arg}{is not natural variable name}
 \vfill\break
 
 \lnie
@@ -24785,7 +24785,7 @@ start of pattern matching section for structure formed.\endln
 \inst{}{mov}{(xs),xr}{load arbno argument}
 \inst{}{mov}{wa,(xs)}{stack alternative node pointer}
 \inst{}{jsr}{gtpat}{get arbno argument as pattern}
-\inst{}{err}{061,arbno argume}{is not pattern}
+\inst{}{err}{061,arbno argument}{is not pattern}
 \inst{}{jsr}{pconc}{concat arg with p$abc node}
 \inst{}{mov}{xr,xl}{remember ptr to concd patterns}
 \inst{}{mov}{=p$aba,wb}{pcode for p$aba}
@@ -24806,16 +24806,16 @@ arg\endln
 \endln
 \inst{s$arg}{ent}{}{entry point}
 \inst{}{jsr}{gtsmi}{get second arg as small integer}
-\inst{}{err}{062,arg second a}{is not integer}
+\inst{}{err}{062,arg second argument}{is not integer}
 \inst{}{ppm}{exfal}{fail if out of range or negative}
 \inst{}{mov}{xr,wa}{save argument number}
 \inst{}{mov}{(xs)+,xr}{load first argument}
 \inst{}{jsr}{gtnvr}{locate vrblk}
 \inst{}{ppm}{sarg1}{jump if not natural variable}
 \inst{}{mov}{vrfnc(xr),xr}{else load function block pointer}
-\inst{}{bne}{(xr),=b$pfc,sarg}{jump if not program defined}
+\inst{}{bne}{(xr),=b$pfc,sarg1}{jump if not program defined}
 \inst{}{bze}{wa,exfal}{fail if arg number is zero}
-\inst{}{bgt}{wa,fargs(xr),exf}{fail if arg number is too large}
+\inst{}{bgt}{wa,fargs(xr),exfal}{fail if arg number is too large}
 \inst{}{wtb}{wa}{else convert to byte offset}
 \inst{}{add}{wa,xr}{point to argument selected}
 \inst{}{mov}{pfagb(xr),xr}{load argument vrblk pointer}
@@ -24826,7 +24826,7 @@ arg\endln
 here if 1st argument is bad\endln
 \lnie
 \endln
-\inst{sarg1}{erb}{063,arg first ar}{is not program function name}
+\inst{sarg1}{erb}{063,arg first argument}{is not program function name}
 \vfill\break
 
 \lnie
@@ -24866,7 +24866,7 @@ here if first argument is not an integer\endln
 \endln
 \inst{sar02}{mov}{xr,-(xs)}{replace argument on stack}
 \inst{}{jsr}{xscni}{initialize scan of first argument}
-\inst{}{err}{064,array first}{is not integer or string}
+\inst{}{err}{064,array first argument}{is not integer or string}
 \inst{}{ppm}{exnul}{dummy (unused) null string exit}
 \inst{}{mov}{r$xsc,-(xs)}{save prototype pointer}
 \inst{}{mov}{xl,-(xs)}{save default value}
@@ -24900,7 +24900,7 @@ here we have a colon ending a low bound\endln
 \lnie
 \endln
 \inst{}{jsr}{gtint}{convert low bound}
-\inst{}{err}{065,array first}{lower bound is not integer}
+\inst{}{err}{065,array first argument}{lower bound is not integer}
 \inst{}{ldi}{icval(xr)}{load value of low bound}
 \inst{}{sti}{arsvl}{store low bound value}
 \inst{}{mov}{=ch$cm,wc}{set delimiter one = comma}
@@ -24920,7 +24920,7 @@ merge here to process upper bound\endln
 \lnie
 \endln
 \inst{sar04}{jsr}{gtint}{convert high bound to integer}
-\inst{}{err}{066,array first}{upper bound is not integer}
+\inst{}{err}{066,array first argument}{upper bound is not integer}
 \inst{}{ldi}{icval(xr)}{get high bound}
 \inst{}{sbi}{arsvl}{subtract lower bound}
 \inst{}{iov}{sar10}{bad dimension if overflow}
@@ -25049,14 +25049,14 @@ here after filling in bounds information (end pass two)\endln
 here for bad dimension\endln
 \lnie
 \endln
-\inst{sar10}{erb}{067,array dimens}{is zero, negative or out of range}
+\inst{sar10}{erb}{067,array dimension}{is zero, negative or out of range}
 \lnie
 \endln
 \lnie
 here if array is too large\endln
 \lnie
 \endln
-\inst{sar11}{erb}{068,array size e}{maximum permitted}
+\inst{sar11}{erb}{068,array size exceeds}{maximum permitted}
 \vfill\break
 
 \ifmac{.cmth}
@@ -25069,7 +25069,7 @@ atan\endln
 \inst{s$atn}{ent}{}{entry point}
 \inst{}{mov}{(xs)+,xr}{get argument}
 \inst{}{jsr}{gtrea}{convert to real}
-\inst{}{err}{301,atan argumen}{not numeric}
+\inst{}{err}{301,atan argument}{not numeric}
 \inst{}{ldr}{rcval(xr)}{load accumulator with argument}
 \inst{}{atn}{}{take arctangent}
 \inst{}{brn}{exrea}{overflow, out of range not possible}
@@ -25087,13 +25087,13 @@ backspace\endln
 \endln
 \inst{s$bsp}{ent}{}{entry point}
 \inst{}{jsr}{iofcb}{call fcblk routine}
-\inst{}{err}{316,backspace ar}{is not a suitable name}
-\inst{}{err}{316,backspace ar}{is not a suitable name}
-\inst{}{err}{317,backspace fi}{does not exist}
+\inst{}{err}{316,backspace argument}{is not a suitable name}
+\inst{}{err}{316,backspace argument}{is not a suitable name}
+\inst{}{err}{317,backspace file}{does not exist}
 \inst{}{jsr}{sysbs}{call backspace file function}
-\inst{}{err}{317,backspace fi}{does not exist}
-\inst{}{err}{318,backspace fi}{does not permit backspace}
-\inst{}{err}{319,backspace ca}{non-recoverable error}
+\inst{}{err}{317,backspace file}{does not exist}
+\inst{}{err}{318,backspace file}{does not permit backspace}
+\inst{}{err}{319,backspace caused}{non-recoverable error}
 \inst{}{brn}{exnul}{return null as result}
 \vfill\break
 
@@ -25116,8 +25116,8 @@ buffer\endln
 \inst{}{mfi}{wa,sbf02}{move with overflow check}
 \inst{}{jsr}{alobf}{allocate the buffer}
 \inst{}{jsr}{apndb}{copy it in}
-\inst{}{err}{270,buffer secon}{argument is not a string or buffer}
-\inst{}{err}{271,buffer initi}{value too big for allocation}
+\inst{}{err}{270,buffer second}{argument is not a string or buffer}
+\inst{}{err}{271,buffer initial}{value too big for allocation}
 \inst{}{brn}{exsid}{exit setting idval}
 \lnie
 \endln
@@ -25132,7 +25132,7 @@ here for invalid allocation size\endln
 here for allocation size integer overflow\endln
 \lnie
 \endln
-\inst{sbf02}{erb}{273,buffer size}{value of maxlngth keyword}
+\inst{sbf02}{erb}{273,buffer size exceeds}{value of maxlngth keyword}
 \vfill\break
 
 \asmac{fi}
@@ -25147,7 +25147,7 @@ break\endln
 \inst{}{mov}{=p$brk,xl}{pcode for multi-char case}
 \inst{}{mov}{=p$bkd,wc}{pcode for expression case}
 \inst{}{jsr}{patst}{call common routine to build node}
-\inst{}{err}{069,break argume}{is not a string or expression}
+\inst{}{err}{069,break argument}{is not a string or expression}
 \inst{}{mov}{xr,-(xs)}{stack result}
 \inst{}{lcw}{xr}{get next code word}
 \inst{}{bri}{(xr)}{execute it}
@@ -25170,7 +25170,7 @@ of pattern matching section for structure formed.\endln
 \inst{}{mov}{=p$brk,xl}{pcode for multi-char argument}
 \inst{}{mov}{=p$bxd,wc}{pcode for expression case}
 \inst{}{jsr}{patst}{call common routine to build node}
-\inst{}{err}{070,breakx argum}{is not a string or expression}
+\inst{}{err}{070,breakx argument}{is not a string or expression}
 \lnie
 \endln
 \lnie
@@ -25198,7 +25198,7 @@ char\endln
 \endln
 \inst{s$chr}{ent}{}{entry point}
 \inst{}{jsr}{gtsmi}{convert arg to integer}
-\inst{}{err}{281,char argumen}{not integer}
+\inst{}{err}{281,char argument}{not integer}
 \inst{}{ppm}{schr1}{too big error exit}
 \inst{}{bge}{wc,=cfp$a,schr1}{see if out of range of host set}
 \inst{}{mov}{=num01,wa}{if not set scblk allocation}
@@ -25218,7 +25218,7 @@ char\endln
 here if char argument is out of range\endln
 \lnie
 \endln
-\inst{schr1}{erb}{282,char argumen}{not in range}
+\inst{schr1}{erb}{282,char argument}{not in range}
 \vfill\break
 
 \ifmac{.cmth}
@@ -25231,7 +25231,7 @@ chop\endln
 \inst{s$chp}{ent}{}{entry point}
 \inst{}{mov}{(xs)+,xr}{get argument}
 \inst{}{jsr}{gtrea}{convert to real}
-\inst{}{err}{302,chop argumen}{not numeric}
+\inst{}{err}{302,chop argument}{not numeric}
 \inst{}{ldr}{rcval(xr)}{load accumulator with argument}
 \inst{}{chp}{}{truncate to integer valued real}
 \inst{}{brn}{exrea}{no overflow possible}
@@ -25246,7 +25246,7 @@ clear\endln
 \endln
 \inst{s$clr}{ent}{}{entry point}
 \inst{}{jsr}{xscni}{initialize to scan argument}
-\inst{}{err}{071,clear argume}{is not a string}
+\inst{}{err}{071,clear argument}{is not a string}
 \inst{}{ppm}{sclr2}{jump if null}
 \lnie
 \endln
@@ -25261,7 +25261,7 @@ the list are flagged by setting vrget of vrblk to zero.\endln
 \inst{}{mnz}{wa}{skip/trim blanks in prototype}
 \inst{}{jsr}{xscan}{scan next variable name}
 \inst{}{jsr}{gtnvr}{locate vrblk}
-\inst{}{err}{072,clear argume}{has null variable name}
+\inst{}{err}{072,clear argument}{has null variable name}
 \inst{}{zer}{vrget(xr)}{else flag by zeroing vrget field}
 \inst{}{bnz}{wa,sclr1}{loop back if stopped by comma}
 \lnie
@@ -25312,7 +25312,7 @@ here to set value of a variable to null\endln
 protected variables (arb, etc) are exempt\endln
 \lnie
 \endln
-\inst{sclr5}{beq}{vrsto(xr),=b$vre}{check for protected variable}
+\inst{sclr5}{beq}{vrsto(xr),=b$vre,sclr4}{check for protected variable}
 \inst{}{mov}{xr,xl}{copy vrblk pointer}
 \lnie
 \endln
@@ -25322,7 +25322,7 @@ loop to locate value at end of possible trblk chain\endln
 \endln
 \inst{sclr6}{mov}{xl,wa}{save block pointer}
 \inst{}{mov}{vrval(xl),xl}{load next value field}
-\inst{}{beq}{(xl),=b$trt,sclr}{loop back if trapped}
+\inst{}{beq}{(xl),=b$trt,sclr6}{loop back if trapped}
 \lnie
 \endln
 \lnie
@@ -25359,7 +25359,7 @@ collect\endln
 \inst{s$col}{ent}{}{entry point}
 \inst{}{mov}{(xs)+,xr}{load argument}
 \inst{}{jsr}{gtint}{convert to integer}
-\inst{}{err}{073,collect argu}{is not integer}
+\inst{}{err}{073,collect argument}{is not integer}
 \inst{}{ldi}{icval(xr)}{load collect argument}
 \inst{}{sti}{clsvi}{save collect argument}
 \inst{}{zer}{wb}{set no move up}
@@ -25393,7 +25393,7 @@ compl\endln
 \inst{}{zer}{wb}{signal one argument}
 \inst{}{jsr}{sbool}{call string boolean routine}
 \inst{}{ppm}{}{only one argument, cannot get here}
-\inst{}{err}{xxx,compl argume}{is not a string}
+\inst{}{err}{xxx,compl argument}{is not a string}
 \inst{}{ppm}{}{cannot have two strings unequal}
 \inst{}{ppm}{exits}{null string argument}
 \lnie
@@ -25428,7 +25428,7 @@ convert\endln
 \inst{}{jsr}{flstg}{fold lower case to upper case}
 \asmac{fi}
 \inst{}{mov}{(xs),xl}{load first argument}
-\inst{}{bne}{(xl),=b$pdt,scv0}{jump if not program defined}
+\inst{}{bne}{(xl),=b$pdt,scv01}{jump if not program defined}
 \lnie
 \endln
 \lnie
@@ -25458,7 +25458,7 @@ loop through table entries\endln
 \endln
 \inst{scv02}{mov}{(xl)+,xr}{load next table entry, bump pointer}
 \inst{}{bze}{xr,exfal}{fail if zero marking end of list}
-\inst{}{bne}{wc,sclen(xr),scv}{jump if wrong length}
+\inst{}{bne}{wc,sclen(xr),scv05}{jump if wrong length}
 \inst{}{mov}{xl,cnvtp}{else store table pointer}
 \inst{}{plc}{xr}{point to chars of table entry}
 \inst{}{mov}{(xs),xl}{load pointer to string argument}
@@ -25563,7 +25563,7 @@ here to convert to real\endln
 here to convert to name\endln
 \lnie
 \endln
-\inst{scv09}{beq}{(xr),=b$nml,exix}{return if already a name}
+\inst{scv09}{beq}{(xr),=b$nml,exixr}{return if already a name}
 \inst{}{jsr}{gtnvr}{else try string to name convert}
 \inst{}{ppm}{exfal}{fail if conversion not possible}
 \inst{}{brn}{exvnm}{else exit building nmblk for vrblk}
@@ -25600,7 +25600,7 @@ original table.  see c3.762.\endln
 \inst{}{ppm}{exfal}{fail if empty table}
 \inst{}{ppm}{exfal}{fail if not convertible}
 \inst{}{mov}{(xs)+,xl}{reload original arg}
-\inst{}{bne}{(xl),=b$tbt,exsi}{exit if original not a table}
+\inst{}{bne}{(xl),=b$tbt,exsid}{exit if original not a table}
 \inst{}{mov}{xr,-(xs)}{sort the intermediate array}
 \inst{}{mov}{=nulls,-(xs)}{on first column}
 \inst{}{zer}{wa}{sort ascending}
@@ -25645,7 +25645,7 @@ convert (continued)\endln
 here to convert an array to table\endln
 \lnie
 \endln
-\inst{}{bne}{arndm(xr),=num02}{fail if not 2-dim array}
+\inst{}{bne}{arndm(xr),=num02,exfal}{fail if not 2-dim array}
 \inst{}{ldi}{ardm2(xr)}{load dim 2}
 \inst{}{sbi}{intv2}{subtract 2 to compare}
 \inst{}{ine}{exfal}{fail if dim2 not 2}
@@ -25683,7 +25683,7 @@ loop to copy elements from array to table\endln
 \lnie
 \endln
 \inst{scv21}{mov}{num01(xs),xl}{point to arblk}
-\inst{}{beq}{wb,arlen(xl),scv}{jump if all moved}
+\inst{}{beq}{wb,arlen(xl),scv24}{jump if all moved}
 \inst{}{add}{wb,xl}{else point to current location}
 \inst{}{add}{*num02,wb}{bump offset}
 \inst{}{mov}{(xl),xr}{load subscript name}
@@ -25701,7 +25701,7 @@ loop to chase down trblk chain for value\endln
 \lnie
 \endln
 \inst{scv22}{mov}{trval(xl),xl}{point to next value}
-\inst{}{beq}{(xl),=b$trt,scv2}{loop back if trapped}
+\inst{}{beq}{(xl),=b$trt,scv22}{loop back if trapped}
 \lnie
 \endln
 \lnie
@@ -25800,7 +25800,7 @@ here if argument is already a buffer\endln
 second argument not string or null\endln
 \lnie
 \endln
-\inst{scv29}{erb}{074,convert seco}{argument is not a string}
+\inst{scv29}{erb}{074,convert second}{argument is not a string}
 \lnie
 \endln
 \lnie
@@ -25839,8 +25839,8 @@ data\endln
 \endln
 \inst{s$dat}{ent}{}{entry point}
 \inst{}{jsr}{xscni}{prepare to scan argument}
-\inst{}{err}{075,data argumen}{is not a string}
-\inst{}{err}{076,data argumen}{is null}
+\inst{}{err}{075,data argument}{is not a string}
+\inst{}{err}{076,data argument}{is null}
 \lnie
 \endln
 \lnie
@@ -25852,7 +25852,7 @@ scan out datatype name\endln
 \inst{}{mnz}{wa}{skip/trim blanks in prototype}
 \inst{}{jsr}{xscan}{scan datatype name}
 \inst{}{bnz}{wa,sdat1}{skip if left paren found}
-\inst{}{erb}{077,data argumen}{is missing a left paren}
+\inst{}{erb}{077,data argument}{is missing a left paren}
 \lnie
 \endln
 \lnie
@@ -25875,7 +25875,7 @@ here after scanning datatype name\endln
 \inst{}{mov}{(xs),xr}{get name ptr}
 \inst{}{zer}{xl}{scrub dud register}
 \inst{}{jsr}{gtnvr}{locate vrblk for datatype name}
-\inst{}{err}{078,data argumen}{has null datatype name}
+\inst{}{err}{078,data argument}{has null datatype name}
 \inst{}{mov}{xr,datdv}{save vrblk pointer for datatype}
 \inst{}{mov}{xs,datxs}{store starting stack value}
 \inst{}{zer}{wb}{zero count of field names}
@@ -25890,7 +25890,7 @@ loop to scan field names and stack vrblk pointers\endln
 \inst{}{mnz}{wa}{skip/trim blanks in prototype}
 \inst{}{jsr}{xscan}{scan next field name}
 \inst{}{bnz}{wa,sdat3}{jump if delimiter found}
-\inst{}{erb}{079,data argumen}{is missing a right paren}
+\inst{}{erb}{079,data argument}{is missing a right paren}
 \lnie
 \endln
 \lnie
@@ -25898,7 +25898,7 @@ here after scanning out one field name\endln
 \lnie
 \endln
 \inst{sdat3}{jsr}{gtnvr}{locate vrblk for field name}
-\inst{}{err}{080,data argumen}{has null field name}
+\inst{}{err}{080,data argument}{has null field name}
 \inst{}{mov}{xr,-(xs)}{stack vrblk pointer}
 \inst{}{icv}{wb}{increment counter}
 \inst{}{beq}{wa,=num02,sdat2}{loop back if stopped by comma}
@@ -25983,7 +25983,7 @@ successive decrementation of the pdblk length (in wc).\endln
 \inst{}{mov}{xr,xl}{copy ffblk pointer for dffnc}
 \inst{}{mov}{(xs),xr}{load vrblk pointer for field}
 \inst{}{mov}{vrfnc(xr),xr}{load current function pointer}
-\inst{}{bne}{(xr),=b$ffc,sdat}{skip if not currently a field func}
+\inst{}{bne}{(xr),=b$ffc,sdat6}{skip if not currently a field func}
 \lnie
 \endln
 \lnie
@@ -26029,7 +26029,7 @@ date\endln
 \inst{s$dte}{ent}{}{entry point}
 \inst{}{mov}{(xs)+,xr}{load argument}
 \inst{}{jsr}{gtint}{convert to an integer}
-\inst{}{err}{330,date argumen}{is not integer}
+\inst{}{err}{330,date argument}{is not integer}
 \inst{}{jsr}{sysdt}{call system date routine}
 \inst{}{mov}{num01(xl),wa}{load length for sbstr}
 \inst{}{bze}{wa,exnul}{return null if length is zero}
@@ -26092,7 +26092,7 @@ loop to scan argument names and stack vrblk pointers\endln
 \inst{}{mnz}{wa}{skip/trim blanks in prototype}
 \inst{}{jsr}{xscan}{scan out next argument name}
 \inst{}{bnz}{wa,sdf04}{skip if delimiter found}
-\inst{}{erb}{085,null arg nam}{or missing ) in define first arg.}
+\inst{}{erb}{085,null arg name}{or missing ) in define first arg.}
 \vfill\break
 
 \lnie
@@ -26212,7 +26212,7 @@ now deal with label\endln
 here for erroneous label\endln
 \lnie
 \endln
-\inst{sdf12}{erb}{086,define funct}{entry point is not defined label}
+\inst{sdf12}{erb}{086,define function}{entry point is not defined label}
 \vfill\break
 
 \lnie
@@ -26224,7 +26224,7 @@ detach\endln
 \inst{s$det}{ent}{}{entry point}
 \inst{}{mov}{(xs)+,xr}{load argument}
 \inst{}{jsr}{gtvar}{locate variable}
-\inst{}{err}{087,detach argum}{is not appropriate name}
+\inst{}{err}{087,detach argument}{is not appropriate name}
 \inst{}{jsr}{dtach}{detach i/o association from name}
 \inst{}{brn}{exnul}{return null result}
 \vfill\break
@@ -26251,8 +26251,8 @@ dump\endln
 \endln
 \inst{s$dmp}{ent}{}{entry point}
 \inst{}{jsr}{gtsmi}{load dump arg as small integer}
-\inst{}{err}{088,dump argumen}{is not integer}
-\inst{}{err}{089,dump argumen}{is negative or too large}
+\inst{}{err}{088,dump argument}{is not integer}
+\inst{}{err}{089,dump argument}{is negative or too large}
 \inst{}{jsr}{dumpr}{else call dump routine}
 \inst{}{brn}{exnul}{and return null as result}
 \vfill\break
@@ -26265,7 +26265,7 @@ dupl\endln
 \endln
 \inst{s$dup}{ent}{}{entry point}
 \inst{}{jsr}{gtsmi}{get second argument as small integr}
-\inst{}{err}{090,dupl second}{is not integer}
+\inst{}{err}{090,dupl second argument}{is not integer}
 \inst{}{ppm}{sdup7}{jump if negative or too big}
 \inst{}{mov}{xr,wb}{save duplication factor}
 \inst{}{jsr}{gtstg}{get first arg as string}
@@ -26330,7 +26330,7 @@ here if not a string\endln
 \lnie
 \endln
 \inst{sdup4}{jsr}{gtpat}{convert argument to pattern}
-\inst{}{err}{091,dupl first a}{is not a string or pattern}
+\inst{}{err}{091,dupl first argument}{is not a string or pattern}
 \lnie
 \endln
 \lnie
@@ -26380,12 +26380,12 @@ eject\endln
 \endln
 \inst{s$ejc}{ent}{}{entry point}
 \inst{}{jsr}{iofcb}{call fcblk routine}
-\inst{}{err}{092,eject argume}{is not a suitable name}
+\inst{}{err}{092,eject argument}{is not a suitable name}
 \inst{}{ppm}{sejc1}{null argument}
-\inst{}{err}{093,eject file d}{not exist}
+\inst{}{err}{093,eject file does}{not exist}
 \inst{}{jsr}{sysef}{call eject file function}
-\inst{}{err}{093,eject file d}{not exist}
-\inst{}{err}{094,eject file d}{not permit page eject}
+\inst{}{err}{093,eject file does}{not exist}
+\inst{}{err}{094,eject file does}{not permit page eject}
 \inst{}{err}{095,eject caused}{non-recoverable output error}
 \inst{}{brn}{exnul}{return null as result}
 \lnie
@@ -26406,13 +26406,13 @@ endfile\endln
 \endln
 \inst{s$enf}{ent}{}{entry point}
 \inst{}{jsr}{iofcb}{call fcblk routine}
-\inst{}{err}{096,endfile argu}{is not a suitable name}
-\inst{}{err}{097,endfile argu}{is null}
+\inst{}{err}{096,endfile argument}{is not a suitable name}
+\inst{}{err}{097,endfile argument}{is null}
 \inst{}{err}{098,endfile file}{does not exist}
 \inst{}{jsr}{sysen}{call endfile routine}
 \inst{}{err}{098,endfile file}{does not exist}
 \inst{}{err}{099,endfile file}{does not permit endfile}
-\inst{}{err}{100,endfile caus}{non-recoverable output error}
+\inst{}{err}{100,endfile caused}{non-recoverable output error}
 \inst{}{mov}{xl,wb}{remember vrblk ptr from iofcb call}
 \inst{}{mov}{xl,xr}{copy pointer}
 \lnie
@@ -26423,9 +26423,9 @@ loop to find trtrf block\endln
 \endln
 \inst{senf1}{mov}{xr,xl}{remember previous entry}
 \inst{}{mov}{trval(xr),xr}{chain along}
-\inst{}{bne}{(xr),=b$trt,exnu}{skip out if chain end}
-\inst{}{bne}{trtyp(xr),=trtfc}{loop if not found}
-\inst{}{mov}{trval(xr),trval(}{remove trtrf}
+\inst{}{bne}{(xr),=b$trt,exnul}{skip out if chain end}
+\inst{}{bne}{trtyp(xr),=trtfc,senf1}{loop if not found}
+\inst{}{mov}{trval(xr),trval(xl)}{remove trtrf}
 \inst{}{mov}{trtrf(xr),enfch}{point to head of iochn}
 \inst{}{mov}{trfpt(xr),wc}{point to fcblk}
 \inst{}{mov}{wb,xr}{filearg1 vrblk from iofcb}
@@ -26441,7 +26441,7 @@ find fcblk\endln
 \inst{senf2}{mov}{xl,xr}{copy ptr}
 \inst{}{mov}{num02(xl),xl}{get next link}
 \inst{}{bze}{xl,senf4}{stop if chain end}
-\inst{}{beq}{num03(xl),wc,sen}{jump if fcblk found}
+\inst{}{beq}{num03(xl),wc,senf3}{jump if fcblk found}
 \inst{}{brn}{senf2}{loop}
 \lnie
 \endln
@@ -26449,7 +26449,7 @@ find fcblk\endln
 remove fcblk\endln
 \lnie
 \endln
-\inst{senf3}{mov}{num02(xl),num02(}{delete fcblk from chain}
+\inst{senf3}{mov}{num02(xl),num02(xr)}{delete fcblk from chain}
 \lnie
 \endln
 \lnie
@@ -26473,8 +26473,8 @@ eq\endln
 \endln
 \inst{s$eqf}{ent}{}{entry point}
 \inst{}{jsr}{acomp}{call arithmetic comparison routine}
-\inst{}{err}{101,eq first arg}{is not numeric}
-\inst{}{err}{102,eq second ar}{is not numeric}
+\inst{}{err}{101,eq first argument}{is not numeric}
+\inst{}{err}{102,eq second argument}{is not numeric}
 \inst{}{ppm}{exfal}{fail if lt}
 \inst{}{ppm}{exnul}{return null if eq}
 \inst{}{ppm}{exfal}{fail if gt}
@@ -26491,7 +26491,7 @@ eval\endln
 \ifmac{.cevb}
 \asmac{else}
 \inst{}{jsr}{gtexp}{convert to expression}
-\inst{}{err}{103,eval argumen}{is not expression}
+\inst{}{err}{103,eval argument}{is not expression}
 \asmac{fi}
 \inst{}{lcw}{wc}{load next code word}
 \inst{}{bne}{wc,=ofne$,sevl1}{jump if called by value}
@@ -26509,7 +26509,7 @@ here if called by value\endln
 \ifmac{.cevb}
 \inst{}{mov}{wc,-(xs)}{save code word}
 \inst{}{jsr}{gtexp}{convert to expression}
-\inst{}{err}{103,eval argumen}{is not expression}
+\inst{}{err}{103,eval argument}{is not expression}
 \inst{}{zer}{r$ccb}{forget interim code block}
 \inst{}{zer}{wb}{set flag for by value}
 \asmac{else}
@@ -26530,7 +26530,7 @@ here if called by name\endln
 \inst{sevl2}{mov}{=num01,wb}{set flag for by name}
 \ifmac{.cevb}
 \inst{}{jsr}{gtexp}{convert to expression}
-\inst{}{err}{103,eval argumen}{is not expression}
+\inst{}{err}{103,eval argument}{is not expression}
 \inst{}{zer}{r$ccb}{forget interim code block}
 \inst{}{mov}{=num01,wb}{set flag for by name}
 \asmac{fi}
@@ -26558,10 +26558,10 @@ exit\endln
 \inst{}{jsr}{gbcol}{compact memory by collecting}
 \asmac{fi}
 \inst{}{jsr}{gbcol}{compact memory by collecting}
-\inst{}{err}{288,exit second}{is not a string}
+\inst{}{err}{288,exit second argument}{is not a string}
 \inst{}{mov}{xr,xl}{copy second arg string pointer}
 \inst{}{jsr}{gtstg}{convert arg to string}
-\inst{}{err}{104,exit first a}{is not suitable integer or string}
+\inst{}{err}{104,exit first argument}{is not suitable integer or string}
 \inst{}{mov}{xl,-(xs)}{save second argument}
 \inst{}{mov}{xr,xl}{copy first arg string ptr}
 \inst{}{jsr}{gtint}{check it is integer}
@@ -26578,8 +26578,8 @@ merge to call osint exit routine\endln
 \inst{}{mov}{=headv,xr}{point to v.v string}
 \inst{}{mov}{(xs)+,wa}{provide second argument scblk}
 \inst{}{jsr}{sysxi}{call external routine}
-\inst{}{err}{105,exit action}{available in this implementation}
-\inst{}{err}{106,exit action}{irrecoverable error}
+\inst{}{err}{105,exit action not}{available in this implementation}
+\inst{}{err}{106,exit action caused}{irrecoverable error}
 \inst{}{ieq}{exnul}{return if argument 0}
 \inst{}{igt}{sext2}{skip if positive}
 \inst{}{ngi}{}{make positive}
@@ -26679,7 +26679,7 @@ field\endln
 \inst{}{jsr}{gtnvr}{point to vrblk}
 \inst{}{ppm}{sfld1}{jump (error) if not variable name}
 \inst{}{mov}{vrfnc(xr),xr}{else point to function block}
-\inst{}{bne}{(xr),=b$dfc,sfld}{error if not datatype function}
+\inst{}{bne}{(xr),=b$dfc,sfld1}{error if not datatype function}
 \lnie
 \endln
 \lnie
@@ -26687,7 +26687,7 @@ here if first argument is a datatype function name\endln
 \lnie
 \endln
 \inst{}{bze}{wb,exfal}{fail if argument number is zero}
-\inst{}{bgt}{wb,fargs(xr),exf}{fail if too large}
+\inst{}{bgt}{wb,fargs(xr),exfal}{fail if too large}
 \inst{}{wtb}{wb}{else convert to byte offset}
 \inst{}{add}{wb,xr}{point to field name}
 \inst{}{mov}{dfflb(xr),xr}{load vrblk pointer}
@@ -26698,7 +26698,7 @@ here if first argument is a datatype function name\endln
 here for bad first argument\endln
 \lnie
 \endln
-\inst{sfld1}{erb}{108,field first}{is not datatype name}
+\inst{sfld1}{erb}{108,field first argument}{is not datatype name}
 \vfill\break
 
 \lnie
@@ -26714,7 +26714,7 @@ fence\endln
 \inst{}{mov}{xr,xl}{save pointer to it}
 \inst{}{mov}{(xs)+,xr}{get argument}
 \inst{}{jsr}{gtpat}{convert to pattern}
-\inst{}{err}{259,fence argume}{is not pattern}
+\inst{}{err}{259,fence argument}{is not pattern}
 \inst{}{jsr}{pconc}{concatenate to p$fnc node}
 \inst{}{mov}{xr,xl}{save ptr to concatenated pattern}
 \inst{}{mov}{=p$fna,wb}{set for p$fna pcode}
@@ -26734,8 +26734,8 @@ ge\endln
 \endln
 \inst{s$gef}{ent}{}{entry point}
 \inst{}{jsr}{acomp}{call arithmetic comparison routine}
-\inst{}{err}{109,ge first arg}{is not numeric}
-\inst{}{err}{110,ge second ar}{is not numeric}
+\inst{}{err}{109,ge first argument}{is not numeric}
+\inst{}{err}{110,ge second argument}{is not numeric}
 \inst{}{ppm}{exfal}{fail if lt}
 \inst{}{ppm}{exnul}{return null if eq}
 \inst{}{ppm}{exnul}{return null if gt}
@@ -26749,8 +26749,8 @@ gt\endln
 \endln
 \inst{s$gtf}{ent}{}{entry point}
 \inst{}{jsr}{acomp}{call arithmetic comparison routine}
-\inst{}{err}{111,gt first arg}{is not numeric}
-\inst{}{err}{112,gt second ar}{is not numeric}
+\inst{}{err}{111,gt first argument}{is not numeric}
+\inst{}{err}{112,gt second argument}{is not numeric}
 \inst{}{ppm}{exfal}{fail if lt}
 \inst{}{ppm}{exfal}{fail if eq}
 \inst{}{ppm}{exnul}{return null if gt}
@@ -26769,7 +26769,7 @@ host\endln
 \inst{}{mov}{(xs)+,xl}{get second arg}
 \inst{}{mov}{(xs)+,wa}{get first arg}
 \inst{}{jsr}{syshs}{enter syshs routine}
-\inst{}{err}{254,erroneous ar}{for host}
+\inst{}{err}{254,erroneous argument}{for host}
 \inst{}{err}{255,error during}{execution of host}
 \inst{}{ppm}{shst1}{store host string}
 \inst{}{ppm}{exnul}{return null result}
@@ -26840,13 +26840,13 @@ input\endln
 \inst{s$inp}{ent}{}{entry point}
 \inst{}{zer}{wb}{input flag}
 \inst{}{jsr}{ioput}{call input/output assoc. routine}
-\inst{}{err}{113,input third}{is not a string}
-\inst{}{err}{114,inappropriat}{second argument for input}
-\inst{}{err}{115,inappropriat}{first argument for input}
-\inst{}{err}{116,inappropriat}{file specification for input}
+\inst{}{err}{113,input third argument}{is not a string}
+\inst{}{err}{114,inappropriate}{second argument for input}
+\inst{}{err}{115,inappropriate}{first argument for input}
+\inst{}{err}{116,inappropriate}{file specification for input}
 \inst{}{ppm}{exfal}{fail if file does not exist}
-\inst{}{err}{117,input file c}{be read}
-\inst{}{err}{289,input channe}{currently in use}
+\inst{}{err}{117,input file cannot}{be read}
+\inst{}{err}{289,input channel}{currently in use}
 \inst{}{brn}{exnul}{return null string}
 \vfill\break
 
@@ -26865,13 +26865,13 @@ insert\endln
 \inst{}{ppm}{exfal}{fail if out of range}
 \inst{}{mov}{wc,wb}{copy to proper reg}
 \inst{}{jsr}{gtsmi}{get replace position}
-\inst{}{err}{278,insert secon}{argument not integer}
+\inst{}{err}{278,insert second}{argument not integer}
 \inst{}{ppm}{exfal}{fail if out of range}
 \inst{}{bze}{wc,exfal}{fail if zero}
 \inst{}{dcv}{wc}{decrement to get offset}
 \inst{}{mov}{wc,wa}{put in proper register}
 \inst{}{mov}{(xs)+,xr}{get buffer}
-\inst{}{beq}{(xr),=b$bct,sins}{press on if type ok}
+\inst{}{beq}{(xr),=b$bct,sins1}{press on if type ok}
 \inst{}{erb}{279,insert first}{argument is not a buffer}
 \lnie
 \endln
@@ -26880,7 +26880,7 @@ here when everything loaded up\endln
 \lnie
 \endln
 \inst{sins1}{jsr}{insbf}{call to insert}
-\inst{}{err}{280,insert fourt}{argument is not a string}
+\inst{}{err}{280,insert fourth}{argument is not a string}
 \inst{}{ppm}{exfal}{fail if out of range}
 \inst{}{brn}{exnul}{else ok - exit with null}
 \vfill\break
@@ -26960,8 +26960,8 @@ le\endln
 \endln
 \inst{s$lef}{ent}{}{entry point}
 \inst{}{jsr}{acomp}{call arithmetic comparison routine}
-\inst{}{err}{118,le first arg}{is not numeric}
-\inst{}{err}{119,le second ar}{is not numeric}
+\inst{}{err}{118,le first argument}{is not numeric}
+\inst{}{err}{119,le second argument}{is not numeric}
 \inst{}{ppm}{exnul}{return null if lt}
 \inst{}{ppm}{exnul}{return null if eq}
 \inst{}{ppm}{exfal}{fail if gt}
@@ -26992,8 +26992,8 @@ leq\endln
 \endln
 \inst{s$leq}{ent}{}{entry point}
 \inst{}{jsr}{lcomp}{call string comparison routine}
-\inst{}{err}{122,leq first ar}{is not a string}
-\inst{}{err}{123,leq second a}{is not a string}
+\inst{}{err}{122,leq first argument}{is not a string}
+\inst{}{err}{123,leq second argument}{is not a string}
 \inst{}{ppm}{exfal}{fail if llt}
 \inst{}{ppm}{exnul}{return null if leq}
 \inst{}{ppm}{exfal}{fail if lgt}
@@ -27007,8 +27007,8 @@ lge\endln
 \endln
 \inst{s$lge}{ent}{}{entry point}
 \inst{}{jsr}{lcomp}{call string comparison routine}
-\inst{}{err}{124,lge first ar}{is not a string}
-\inst{}{err}{125,lge second a}{is not a string}
+\inst{}{err}{124,lge first argument}{is not a string}
+\inst{}{err}{125,lge second argument}{is not a string}
 \inst{}{ppm}{exfal}{fail if llt}
 \inst{}{ppm}{exnul}{return null if leq}
 \inst{}{ppm}{exnul}{return null if lgt}
@@ -27022,8 +27022,8 @@ lgt\endln
 \endln
 \inst{s$lgt}{ent}{}{entry point}
 \inst{}{jsr}{lcomp}{call string comparison routine}
-\inst{}{err}{126,lgt first ar}{is not a string}
-\inst{}{err}{127,lgt second a}{is not a string}
+\inst{}{err}{126,lgt first argument}{is not a string}
+\inst{}{err}{127,lgt second argument}{is not a string}
 \inst{}{ppm}{exfal}{fail if llt}
 \inst{}{ppm}{exfal}{fail if leq}
 \inst{}{ppm}{exnul}{return null if lgt}
@@ -27037,8 +27037,8 @@ lle\endln
 \endln
 \inst{s$lle}{ent}{}{entry point}
 \inst{}{jsr}{lcomp}{call string comparison routine}
-\inst{}{err}{128,lle first ar}{is not a string}
-\inst{}{err}{129,lle second a}{is not a string}
+\inst{}{err}{128,lle first argument}{is not a string}
+\inst{}{err}{129,lle second argument}{is not a string}
 \inst{}{ppm}{exnul}{return null if llt}
 \inst{}{ppm}{exnul}{return null if leq}
 \inst{}{ppm}{exfal}{fail if lgt}
@@ -27052,8 +27052,8 @@ llt\endln
 \endln
 \inst{s$llt}{ent}{}{entry point}
 \inst{}{jsr}{lcomp}{call string comparison routine}
-\inst{}{err}{130,llt first ar}{is not a string}
-\inst{}{err}{131,llt second a}{is not a string}
+\inst{}{err}{130,llt first argument}{is not a string}
+\inst{}{err}{131,llt second argument}{is not a string}
 \inst{}{ppm}{exnul}{return null if llt}
 \inst{}{ppm}{exfal}{fail if leq}
 \inst{}{ppm}{exfal}{fail if lgt}
@@ -27067,8 +27067,8 @@ lne\endln
 \endln
 \inst{s$lne}{ent}{}{entry point}
 \inst{}{jsr}{lcomp}{call string comparison routine}
-\inst{}{err}{132,lne first ar}{is not a string}
-\inst{}{err}{133,lne second a}{is not a string}
+\inst{}{err}{132,lne first argument}{is not a string}
+\inst{}{err}{133,lne second argument}{is not a string}
 \inst{}{ppm}{exnul}{return null if llt}
 \inst{}{ppm}{exfal}{fail if leq}
 \inst{}{ppm}{exnul}{return null if lgt}
@@ -27084,20 +27084,20 @@ ln\endln
 \inst{s$lnf}{ent}{}{entry point}
 \inst{}{mov}{(xs)+,xr}{get argument}
 \inst{}{jsr}{gtrea}{convert to real}
-\inst{}{err}{306,ln argument}{numeric}
+\inst{}{err}{306,ln argument not}{numeric}
 \inst{}{ldr}{rcval(xr)}{load accumulator with argument}
 \inst{}{req}{slnf1}{overflow if argument is 0}
 \inst{}{rlt}{slnf2}{error if argument less than 0}
 \inst{}{lnf}{}{take natural logarithm}
 \inst{}{rno}{exrea}{if no overflow, return result in ra}
-\inst{slnf1}{erb}{307,ln produced}{overflow}
+\inst{slnf1}{erb}{307,ln produced real}{overflow}
 \lnie
 \endln
 \lnie
 here for bad argument\endln
 \lnie
 \endln
-\inst{slnf2}{erb}{307,ln produced}{}
+\inst{slnf2}{erb}{307,ln produced realreal}{}
 \vfill\break
 
 \asmac{fi}
@@ -27116,7 +27116,7 @@ local\endln
 \inst{}{jsr}{gtnvr}{point to vrblk}
 \inst{}{ppm}{sloc1}{jump if not variable name}
 \inst{}{mov}{vrfnc(xr),xr}{else load function pointer}
-\inst{}{bne}{(xr),=b$pfc,sloc}{jump if not program defined}
+\inst{}{bne}{(xr),=b$pfc,sloc1}{jump if not program defined}
 \lnie
 \endln
 \lnie
@@ -27124,7 +27124,7 @@ here if we have a program defined function name\endln
 \lnie
 \endln
 \inst{}{bze}{wb,exfal}{fail if second arg is zero}
-\inst{}{bgt}{wb,pfnlo(xr),exf}{or too large}
+\inst{}{bgt}{wb,pfnlo(xr),exfal}{or too large}
 \inst{}{add}{fargs(xr),wb}{else adjust offset to include args}
 \inst{}{wtb}{wb}{convert to bytes}
 \inst{}{add}{wb,xr}{point to local pointer}
@@ -27136,7 +27136,7 @@ here if we have a program defined function name\endln
 here if first argument is no good\endln
 \lnie
 \endln
-\inst{sloc1}{erb}{135,local first}{is not a program function name}
+\inst{sloc1}{erb}{135,local first arg}{is not a program function name}
 \ifmac{.cnld}
 \asmac{else}
 \vfill\break
@@ -27149,11 +27149,11 @@ load\endln
 \endln
 \inst{s$lod}{ent}{}{entry point}
 \inst{}{jsr}{gtstg}{load library name}
-\inst{}{err}{136,load second}{is not a string}
+\inst{}{err}{136,load second argument}{is not a string}
 \inst{}{mov}{xr,xl}{save library name}
 \inst{}{jsr}{xscni}{prepare to scan first argument}
-\inst{}{err}{137,load first a}{is not a string}
-\inst{}{err}{138,load first a}{is null}
+\inst{}{err}{137,load first argument}{is not a string}
+\inst{}{err}{138,load first argument}{is null}
 \inst{}{mov}{xl,-(xs)}{stack library name}
 \inst{}{mov}{=ch$pp,wc}{set delimiter one = left paren}
 \inst{}{mov}{wc,xl}{set delimiter two = left paren}
@@ -27161,7 +27161,7 @@ load\endln
 \inst{}{jsr}{xscan}{scan function name}
 \inst{}{mov}{xr,-(xs)}{save ptr to function name}
 \inst{}{bnz}{wa,slod1}{jump if left paren found}
-\inst{}{erb}{139,load first a}{is missing a left paren}
+\inst{}{erb}{139,load first argument}{is missing a left paren}
 \lnie
 \endln
 \lnie
@@ -27169,7 +27169,7 @@ here after successfully scanning function name\endln
 \lnie
 \endln
 \inst{slod1}{jsr}{gtnvr}{locate vrblk}
-\inst{}{err}{140,load first a}{has null function name}
+\inst{}{err}{140,load first argument}{has null function name}
 \inst{}{mov}{xr,lodfn}{save vrblk pointer}
 \inst{}{zer}{lodna}{zero count of arguments}
 \lnie
@@ -27184,7 +27184,7 @@ loop to scan argument datatype names\endln
 \inst{}{jsr}{xscan}{scan next argument name}
 \inst{}{icv}{lodna}{bump argument count}
 \inst{}{bnz}{wa,slod3}{jump if ok delimiter was found}
-\inst{}{erb}{141,load first a}{is missing a right paren}
+\inst{}{erb}{141,load first argument}{is missing a right paren}
 \vfill\break
 
 \lnie
@@ -27306,9 +27306,9 @@ now load the external function and perform definition\endln
 \inst{}{mov}{(xs),xl}{load library name}
 \inst{}{mov}{wb,(xs)}{store efblk pointer}
 \inst{}{jsr}{sysld}{call function to load external func}
-\inst{}{err}{142,load functio}{does not exist}
-\inst{}{err}{143,load functio}{caused input error during load}
-\inst{}{err}{328,load functio}{- insufficient memory}
+\inst{}{err}{142,load function}{does not exist}
+\inst{}{err}{143,load function}{caused input error during load}
+\inst{}{err}{328,load function}{- insufficient memory}
 \inst{}{mov}{(xs)+,xl}{recall efblk pointer}
 \inst{}{mov}{xr,efcod(xl)}{store code pointer}
 \inst{}{mov}{lodfn,xr}{point to vrblk for function}
@@ -27325,11 +27325,11 @@ lpad\endln
 \endln
 \inst{s$lpd}{ent}{}{entry point}
 \inst{}{jsr}{gtstg}{get pad character}
-\inst{}{err}{144,lpad third a}{is not a string}
+\inst{}{err}{144,lpad third argument}{is not a string}
 \inst{}{plc}{xr}{point to character (null is blank)}
 \inst{}{lch}{wb,(xr)}{load pad character}
 \inst{}{jsr}{gtsmi}{get pad length}
-\inst{}{err}{145,lpad second}{is not integer}
+\inst{}{err}{145,lpad second argument}{is not integer}
 \inst{}{ppm}{slpd4}{skip if negative or large}
 \lnie
 \endln
@@ -27338,7 +27338,7 @@ merge to check first arg\endln
 \lnie
 \endln
 \inst{slpd1}{jsr}{gtstg}{get first argument (string to pad)}
-\inst{}{err}{146,lpad first a}{is not a string}
+\inst{}{err}{146,lpad first argument}{is not a string}
 \inst{}{bge}{wa,wc,exixr}{return 1st arg if too long to pad}
 \inst{}{mov}{xr,xl}{else move ptr to string to pad}
 \lnie
@@ -27407,8 +27407,8 @@ lt\endln
 \endln
 \inst{s$ltf}{ent}{}{entry point}
 \inst{}{jsr}{acomp}{call arithmetic comparison routine}
-\inst{}{err}{147,lt first arg}{is not numeric}
-\inst{}{err}{148,lt second ar}{is not numeric}
+\inst{}{err}{147,lt first argument}{is not numeric}
+\inst{}{err}{148,lt second argument}{is not numeric}
 \inst{}{ppm}{exnul}{return null if lt}
 \inst{}{ppm}{exfal}{fail if eq}
 \inst{}{ppm}{exfal}{fail if gt}
@@ -27422,8 +27422,8 @@ ne\endln
 \endln
 \inst{s$nef}{ent}{}{entry point}
 \inst{}{jsr}{acomp}{call arithmetic comparison routine}
-\inst{}{err}{149,ne first arg}{is not numeric}
-\inst{}{err}{150,ne second ar}{is not numeric}
+\inst{}{err}{149,ne first argument}{is not numeric}
+\inst{}{err}{150,ne second argument}{is not numeric}
 \inst{}{ppm}{exnul}{return null if lt}
 \inst{}{ppm}{exfal}{fail if eq}
 \inst{}{ppm}{exnul}{return null if gt}
@@ -27440,7 +27440,7 @@ notany\endln
 \inst{}{mov}{=p$nay,xl}{pcode for multi-char arg}
 \inst{}{mov}{=p$nad,wc}{set pcode for expr arg}
 \inst{}{jsr}{patst}{call common routine to build node}
-\inst{}{err}{151,notany argum}{is not a string or expression}
+\inst{}{err}{151,notany argument}{is not a string or expression}
 \inst{}{mov}{xr,-(xs)}{stack result}
 \inst{}{lcw}{xr}{get next code word}
 \inst{}{bri}{(xr)}{execute it}
@@ -27454,8 +27454,8 @@ opsyn\endln
 \endln
 \inst{s$ops}{ent}{}{entry point}
 \inst{}{jsr}{gtsmi}{load third argument}
-\inst{}{err}{152,opsyn third}{is not integer}
-\inst{}{err}{153,opsyn third}{is negative or too large}
+\inst{}{err}{152,opsyn third argument}{is not integer}
+\inst{}{err}{153,opsyn third argument}{is negative or too large}
 \inst{}{mov}{wc,wb}{if ok, save third argumnet}
 \inst{}{mov}{(xs)+,xr}{load second argument}
 \inst{}{jsr}{gtnvr}{locate variable block}
@@ -27470,7 +27470,7 @@ here for function opsyn (third arg zero)\endln
 \endln
 \inst{}{mov}{(xs)+,xr}{load first argument}
 \inst{}{jsr}{gtnvr}{get vrblk pointer}
-\inst{}{err}{155,opsyn first}{is not natural variable name}
+\inst{}{err}{155,opsyn first arg}{is not natural variable name}
 \lnie
 \endln
 \lnie
@@ -27536,7 +27536,7 @@ loop to search for name match\endln
 here if bad operator name\endln
 \lnie
 \endln
-\inst{sops5}{erb}{156,opsyn first}{is not correct operator name}
+\inst{sops5}{erb}{156,opsyn first arg}{is not correct operator name}
 \lnie
 \endln
 \lnie
@@ -27558,8 +27558,8 @@ or\endln
 \inst{s$orf}{ent}{}{entry point}
 \inst{}{mnz}{wb}{signal two arguments}
 \inst{}{jsr}{sbool}{call string boolean routine}
-\inst{}{err}{xxx,or first arg}{is not a string}
-\inst{}{err}{xxx,or second ar}{is not a string}
+\inst{}{err}{xxx,or first argument}{is not a string}
+\inst{}{err}{xxx,or second argument}{is not a string}
 \inst{}{err}{xxx,or arguments}{not same length}
 \inst{}{ppm}{exits}{null string arguments}
 \lnie
@@ -27586,12 +27586,12 @@ output\endln
 \inst{}{mov}{=num03,wb}{output flag}
 \inst{}{jsr}{ioput}{call input/output assoc. routine}
 \inst{}{err}{157,output third}{argument is not a string}
-\inst{}{err}{158,inappropriat}{second argument for output}
-\inst{}{err}{159,inappropriat}{first argument for output}
-\inst{}{err}{160,inappropriat}{file specification for output}
+\inst{}{err}{158,inappropriate}{second argument for output}
+\inst{}{err}{159,inappropriate}{first argument for output}
+\inst{}{err}{160,inappropriate}{file specification for output}
 \inst{}{ppm}{exfal}{fail if file does not exist}
-\inst{}{err}{161,output file}{be written to}
-\inst{}{err}{290,output chann}{currently in use}
+\inst{}{err}{161,output file cannot}{be written to}
+\inst{}{err}{290,output channel}{currently in use}
 \inst{}{brn}{exnul}{return null string}
 \vfill\break
 
@@ -27630,7 +27630,7 @@ prototype\endln
 \asmac{else}
 \inst{}{beq}{wa,=b$bct,spr05}{jump if buffer}
 \asmac{fi}
-\inst{}{erb}{164,prototype ar}{is not valid object}
+\inst{}{erb}{164,prototype argument}{is not valid object}
 \lnie
 \endln
 \lnie
@@ -27688,7 +27688,7 @@ remdr\endln
 \inst{s$rmd}{ent}{}{entry point}
 \ifmac{.cmth}
 \inst{}{jsr}{arith}{get two integers or two reals}
-\inst{}{err}{166,remdr first}{is not numeric}
+\inst{}{err}{166,remdr first argument}{is not numeric}
 \inst{}{err}{165,remdr second}{argument is not numeric}
 \inst{}{ppm}{srm06}{if real}
 \asmac{else}
@@ -27734,7 +27734,7 @@ make sign of result match sign of first argument\endln
 fail first argument\endln
 \lnie
 \endln
-\inst{srm04}{erb}{166,remdr first}{is not numeric}
+\inst{srm04}{erb}{166,remdr first argument}{is not numeric}
 \lnie
 \endln
 \lnie
@@ -27814,10 +27814,10 @@ used directly as the replace table.\endln
 \endln
 \inst{s$rpl}{ent}{}{entry point}
 \inst{}{jsr}{gtstg}{load third argument as string}
-\inst{}{err}{168,replace thir}{argument is not a string}
+\inst{}{err}{168,replace third}{argument is not a string}
 \inst{}{mov}{xr,xl}{save third arg ptr}
 \inst{}{jsr}{gtstg}{get second argument}
-\inst{}{err}{169,replace seco}{argument is not a string}
+\inst{}{err}{169,replace second}{argument is not a string}
 \lnie
 \endln
 \lnie
@@ -27917,7 +27917,7 @@ here to perform translate using table in xl.\endln
 \endln
 \ifmac{.cnbf}
 \inst{srpl5}{jsr}{gtstg}{get first argument}
-\inst{}{err}{170,replace firs}{argument is not a string}
+\inst{}{err}{170,replace first}{argument is not a string}
 \asmac{else}
 \lnie
 \endln
@@ -27926,7 +27926,7 @@ if first arg is a buffer, perform translate in place.\endln
 \lnie
 \endln
 \inst{srpl5}{jsr}{gtstb}{get first argument}
-\inst{}{err}{170,replace firs}{argument is not a string or buffer}
+\inst{}{err}{170,replace first}{argument is not a string or buffer}
 \inst{}{bnz}{wb,srpl7}{branch if buffer}
 \asmac{fi}
 \inst{}{bze}{wa,exnul}{return null if null argument}
@@ -27952,7 +27952,7 @@ if first arg is a buffer, perform translate in place.\endln
 error point\endln
 \lnie
 \endln
-\inst{srpl6}{erb}{171,null or uneq}{long 2nd, 3rd args to replace}
+\inst{srpl6}{erb}{171,null or unequally}{long 2nd, 3rd args to replace}
 \ifmac{.cnbf}
 \asmac{else}
 \lnie
@@ -27980,13 +27980,13 @@ rewind\endln
 \endln
 \inst{s$rew}{ent}{}{entry point}
 \inst{}{jsr}{iofcb}{call fcblk routine}
-\inst{}{err}{172,rewind argum}{is not a suitable name}
-\inst{}{err}{173,rewind argum}{is null}
-\inst{}{err}{174,rewind file}{not exist}
+\inst{}{err}{172,rewind argument}{is not a suitable name}
+\inst{}{err}{173,rewind argument}{is null}
+\inst{}{err}{174,rewind file does}{not exist}
 \inst{}{jsr}{sysrw}{call system rewind function}
-\inst{}{err}{174,rewind file}{not exist}
-\inst{}{err}{175,rewind file}{not permit rewind}
-\inst{}{err}{176,rewind cause}{non-recoverable error}
+\inst{}{err}{174,rewind file does}{not exist}
+\inst{}{err}{175,rewind file does}{not permit rewind}
+\inst{}{err}{176,rewind caused}{non-recoverable error}
 \inst{}{brn}{exnul}{exit with null result if no error}
 \vfill\break
 
@@ -27999,10 +27999,10 @@ reverse\endln
 \inst{s$rvs}{ent}{}{entry point}
 \ifmac{.cnbf}
 \inst{}{jsr}{gtstg}{load string argument}
-\inst{}{err}{177,reverse argu}{is not a string}
+\inst{}{err}{177,reverse argument}{is not a string}
 \asmac{else}
 \inst{}{jsr}{gtstb}{load string or buffer argument}
-\inst{}{err}{177,reverse argu}{is not a string or buffer}
+\inst{}{err}{177,reverse argument}{is not a string or buffer}
 \inst{}{bnz}{wb,srvs3}{branch if buffer}
 \asmac{fi}
 \inst{}{bze}{wa,exixr}{return argument if null}
@@ -28071,11 +28071,11 @@ rpad\endln
 \endln
 \inst{s$rpd}{ent}{}{entry point}
 \inst{}{jsr}{gtstg}{get pad character}
-\inst{}{err}{178,rpad third a}{is not a string}
+\inst{}{err}{178,rpad third argument}{is not a string}
 \inst{}{plc}{xr}{point to character (null is blank)}
 \inst{}{lch}{wb,(xr)}{load pad character}
 \inst{}{jsr}{gtsmi}{get pad length}
-\inst{}{err}{179,rpad second}{is not integer}
+\inst{}{err}{179,rpad second argument}{is not integer}
 \inst{}{ppm}{srpd3}{skip if negative or large}
 \lnie
 \endln
@@ -28084,7 +28084,7 @@ merge to check first arg.\endln
 \lnie
 \endln
 \inst{srpd1}{jsr}{gtstg}{get first argument (string to pad)}
-\inst{}{err}{180,rpad first a}{is not a string}
+\inst{}{err}{180,rpad first argument}{is not a string}
 \inst{}{bge}{wa,wc,exixr}{return 1st arg if too long to pad}
 \inst{}{mov}{xr,xl}{else move ptr to string to pad}
 \lnie
@@ -28149,8 +28149,8 @@ rtab\endln
 \inst{}{mov}{=p$rtb,wb}{set pcode for integer arg case}
 \inst{}{mov}{=p$rtd,wa}{set pcode for expression arg case}
 \inst{}{jsr}{patin}{call common routine to build node}
-\inst{}{err}{181,rtab argumen}{is not integer or expression}
-\inst{}{err}{182,rtab argumen}{is negative or too large}
+\inst{}{err}{181,rtab argument}{is not integer or expression}
+\inst{}{err}{182,rtab argument}{is negative or too large}
 \inst{}{mov}{xr,-(xs)}{stack result}
 \inst{}{lcw}{xr}{get next code word}
 \inst{}{bri}{(xr)}{execute it}
@@ -28168,26 +28168,26 @@ set\endln
 \ifmac{.cusr}
 \inst{}{mov}{(xs)+,xr}{get second arg (offset)}
 \inst{}{jsr}{gtrea}{convert to real}
-\inst{}{err}{324,set second a}{not numeric}
+\inst{}{err}{324,set second argument}{not numeric}
 \inst{}{ldr}{rcval(xr)}{load accumulator with argument}
 \asmac{else}
 \inst{}{mov}{(xs)+,r$io1}{save second arg (offset)}
 \asmac{fi}
 \inst{}{jsr}{iofcb}{call fcblk routine}
-\inst{}{err}{291,set first ar}{is not a suitable name}
-\inst{}{err}{292,set first ar}{is null}
-\inst{}{err}{295,set file doe}{not exist}
+\inst{}{err}{291,set first argument}{is not a suitable name}
+\inst{}{err}{292,set first argument}{is null}
+\inst{}{err}{295,set file does}{not exist}
 \ifmac{.cusr}
 \asmac{else}
 \inst{}{mov}{r$io1,wb}{load second arg}
 \asmac{fi}
 \inst{}{mov}{r$io2,wc}{load third arg}
 \inst{}{jsr}{sysst}{call system set routine}
-\inst{}{err}{293,inappropriat}{second argument to set}
-\inst{}{err}{294,inappropriat}{third argument to set}
-\inst{}{err}{295,set file doe}{not exist}
-\inst{}{err}{296,set file doe}{not permit setting file pointer}
-\inst{}{err}{297,set caused n}{i/o error}
+\inst{}{err}{293,inappropriate}{second argument to set}
+\inst{}{err}{294,inappropriate}{third argument to set}
+\inst{}{err}{295,set file does}{not exist}
+\inst{}{err}{296,set file does}{not permit setting file pointer}
+\inst{}{err}{297,set caused non-recoverable}{i/o error}
 \ifmac{.cusr}
 \inst{}{rti}{exrea}{return real position if not able}
 \inst{}{brn}{exint}{to return integer position}
@@ -28224,8 +28224,8 @@ rpos\endln
 \inst{}{mov}{=p$rps,wb}{set pcode for integer arg case}
 \inst{}{mov}{=p$rpd,wa}{set pcode for expression arg case}
 \inst{}{jsr}{patin}{call common routine to build node}
-\inst{}{err}{185,rpos argumen}{is not integer or expression}
-\inst{}{err}{186,rpos argumen}{is negative or too large}
+\inst{}{err}{185,rpos argument}{is not integer or expression}
+\inst{}{err}{186,rpos argument}{is negative or too large}
 \inst{}{mov}{xr,-(xs)}{stack result}
 \inst{}{lcw}{xr}{get next code word}
 \inst{}{bri}{(xr)}{execute it}
@@ -28262,7 +28262,7 @@ setexit\endln
 \inst{}{ppm}{sstx2}{jump if not natural variable}
 \inst{}{mov}{vrlbl(xr),xl}{else load label}
 \inst{}{beq}{xl,=stndl,sstx2}{jump if label is not defined}
-\inst{}{bne}{(xl),=b$trt,sstx}{jump if not trapped}
+\inst{}{bne}{(xl),=b$trt,sstx1}{jump if not trapped}
 \inst{}{mov}{trlbl(xl),xl}{else load ptr to real label code}
 \lnie
 \endln
@@ -28281,7 +28281,7 @@ here to set/reset setexit trap\endln
 here if bad argument\endln
 \lnie
 \endln
-\inst{sstx2}{erb}{187,setexit argu}{is not label name or null}
+\inst{sstx2}{erb}{187,setexit argument}{is not label name or null}
 \ifmac{.cmth}
 \lnie
 \endln
@@ -28310,7 +28310,7 @@ sqrt\endln
 \inst{s$sqr}{ent}{}{entry point}
 \inst{}{mov}{(xs)+,xr}{get argument}
 \inst{}{jsr}{gtrea}{convert to real}
-\inst{}{err}{313,sqrt argumen}{not numeric}
+\inst{}{err}{313,sqrt argument}{not numeric}
 \inst{}{ldr}{rcval(xr)}{load accumulator with argument}
 \inst{}{rlt}{ssqr1}{negative number}
 \inst{}{sqr}{}{take square root}
@@ -28321,7 +28321,7 @@ sqrt\endln
 here if bad argument\endln
 \lnie
 \endln
-\inst{ssqr1}{erb}{314,sqrt argumen}{negative}
+\inst{ssqr1}{erb}{314,sqrt argument}{negative}
 \vfill\break
 
 \asmac{fi}
@@ -28354,7 +28354,7 @@ span\endln
 \inst{}{mov}{=p$spn,xl}{set pcode for multi-char arg}
 \inst{}{mov}{=p$spd,wc}{set pcode for expression arg}
 \inst{}{jsr}{patst}{call common routine to build node}
-\inst{}{err}{188,span argumen}{is not a string or expression}
+\inst{}{err}{188,span argument}{is not a string or expression}
 \inst{}{mov}{xr,-(xs)}{stack result}
 \inst{}{lcw}{xr}{get next code word}
 \inst{}{bri}{(xr)}{execute it}
@@ -28369,10 +28369,10 @@ size\endln
 \inst{s$si$}{ent}{}{entry point}
 \ifmac{.cnbf}
 \inst{}{jsr}{gtstg}{load string argument}
-\inst{}{err}{189,size argumen}{is not a string}
+\inst{}{err}{189,size argument}{is not a string}
 \asmac{else}
 \inst{}{jsr}{gtstb}{load string argument}
-\inst{}{err}{189,size argumen}{is not a string or buffer}
+\inst{}{err}{189,size argument}{is not a string or buffer}
 \asmac{fi}
 \lnie
 \endln
@@ -28394,7 +28394,7 @@ stoptr\endln
 \inst{}{zer}{xl}{indicate stoptr case}
 \inst{}{jsr}{trace}{call trace procedure}
 \inst{}{err}{190,stoptr first}{argument is not appropriate name}
-\inst{}{err}{191,stoptr secon}{argument is not trace type}
+\inst{}{err}{191,stoptr second}{argument is not trace type}
 \inst{}{brn}{exnul}{return null}
 \vfill\break
 
@@ -28410,7 +28410,7 @@ substr\endln
 \inst{}{ppm}{exfal}{jump if negative or too large}
 \inst{}{mov}{xr,sbssv}{save third argument}
 \inst{}{jsr}{gtsmi}{load second argument}
-\inst{}{err}{193,substr secon}{argument is not integer}
+\inst{}{err}{193,substr second}{argument is not integer}
 \inst{}{ppm}{exfal}{jump if out of range}
 \inst{}{mov}{xr,wc}{save second argument}
 \inst{}{bze}{wc,exfal}{jump if second argument zero}
@@ -28461,8 +28461,8 @@ table\endln
 \inst{}{mov}{(xs)+,xl}{get initial lookup value}
 \inst{}{ica}{xs}{pop second argument}
 \inst{}{jsr}{gtsmi}{load argument}
-\inst{}{err}{195,table argume}{is not integer}
-\inst{}{err}{196,table argume}{is out of range}
+\inst{}{err}{195,table argument}{is not integer}
+\inst{}{err}{196,table argument}{is out of range}
 \inst{}{bnz}{wc,stbl1}{jump if non-zero}
 \inst{}{mov}{=tbnbk,wc}{else supply default value}
 \lnie
@@ -28512,7 +28512,7 @@ trace\endln
 \lnie
 \endln
 \inst{s$tra}{ent}{}{entry point}
-\inst{}{beq}{num03(xs),=nulls}{jump if first argument is null}
+\inst{}{beq}{num03(xs),=nulls,str02}{jump if first argument is null}
 \inst{}{mov}{(xs)+,xr}{load fourth argument}
 \inst{}{zer}{xl}{tentatively set zero pointer}
 \inst{}{beq}{xr,=nulls,str01}{jump if 4th argument is null}
@@ -28530,7 +28530,7 @@ here with vrblk or zero in xl\endln
 \inst{}{jsr}{trbld}{build trblk for trace call}
 \inst{}{mov}{xr,xl}{move trblk pointer for trace}
 \inst{}{jsr}{trace}{call trace procedure}
-\inst{}{err}{198,trace first}{is not appropriate name}
+\inst{}{err}{198,trace first argument}{is not appropriate name}
 \inst{}{err}{199,trace second}{argument is not trace type}
 \inst{}{brn}{exnul}{return null}
 \lnie
@@ -28560,10 +28560,10 @@ trim\endln
 \inst{s$trm}{ent}{}{entry point}
 \ifmac{.cnbf}
 \inst{}{jsr}{gtstg}{load argument as string}
-\inst{}{err}{200,trim argumen}{is not a string}
+\inst{}{err}{200,trim argument}{is not a string}
 \asmac{else}
 \inst{}{jsr}{gtstb}{load argument as string}
-\inst{}{err}{200,trim argumen}{is not a string or buffer}
+\inst{}{err}{200,trim argument}{is not a string or buffer}
 \inst{}{bnz}{wb,strm0}{branch if buffer}
 \asmac{fi}
 \inst{}{bze}{wa,exnul}{return null if argument is null}
@@ -28642,7 +28642,7 @@ unload\endln
 \inst{s$unl}{ent}{}{entry point}
 \inst{}{mov}{(xs)+,xr}{load argument}
 \inst{}{jsr}{gtnvr}{point to vrblk}
-\inst{}{err}{201,unload argum}{is not natural variable name}
+\inst{}{err}{201,unload argument}{is not natural variable name}
 \inst{}{mov}{=stndf,xl}{get ptr to undefined function}
 \inst{}{jsr}{dffnc}{undefine named function}
 \inst{}{brn}{exnul}{return null as result}
@@ -28658,9 +28658,9 @@ xor\endln
 \inst{s$xor}{ent}{}{entry point}
 \inst{}{mnz}{wb}{signal two arguments}
 \inst{}{jsr}{sbool}{call string boolean routine}
-\inst{}{err}{xxx,xor first ar}{is not a string}
-\inst{}{err}{xxx,xor second a}{is not a string}
-\inst{}{err}{xxx,xor argument}{not same length}
+\inst{}{err}{xxx,xor first argument}{is not a string}
+\inst{}{err}{xxx,xor second argument}{is not a string}
+\inst{}{err}{xxx,xor arguments}{not same length}
 \inst{}{ppm}{exits}{null string arguments}
 \lnie
 \endln
@@ -28766,14 +28766,14 @@ working below the stack pointer.\endln
 \inst{}{beq}{wc,=b$art,arf01}{jump if arblk}
 \inst{}{beq}{wc,=b$vct,arf07}{jump if vcblk}
 \inst{}{beq}{wc,=b$tbt,arf10}{jump if tbblk}
-\inst{}{erb}{235,subscripted}{is not table or array}
+\inst{}{erb}{235,subscripted operand}{is not table or array}
 \lnie
 \endln
 \lnie
 here for array (arblk)\endln
 \lnie
 \endln
-\inst{arf01}{bne}{wa,arndm(xl),arf}{jump if wrong number of dims}
+\inst{arf01}{bne}{wa,arndm(xl),arf09}{jump if wrong number of dims}
 \inst{}{ldi}{intv0}{get initial subscript of zero}
 \inst{}{mov}{xr,xt}{point before subscripts}
 \inst{}{zer}{wa}{initial offset to bounds}
@@ -28794,7 +28794,7 @@ merge here first time\endln
 \inst{arf03}{mov}{-(xt),xr}{load next subscript}
 \inst{}{sti}{arfsi}{save current subscript}
 \inst{}{ldi}{icval(xr)}{load integer value in case}
-\inst{}{beq}{(xr),=b$icl,arf0}{jump if it was an integer}
+\inst{}{beq}{(xr),=b$icl,arf04}{jump if it was an integer}
 \vfill\break
 
 \lnie
@@ -28877,7 +28877,7 @@ here for vector\endln
 \inst{}{mfi}{wa,arf13}{get subscript as one word}
 \inst{}{add}{=vcvls,wa}{add offset for standard fields}
 \inst{}{wtb}{wa}{convert offset to bytes}
-\inst{}{bge}{wa,vclen(xl),arf}{fail if out of range subscript}
+\inst{}{bge}{wa,vclen(xl),arf13}{fail if out of range subscript}
 \inst{}{bze}{wb,arf05}{back to get value if value call}
 \lnie
 \endln
@@ -28894,7 +28894,7 @@ return name\endln
 here if subscript count is wrong\endln
 \lnie
 \endln
-\inst{arf09}{erb}{236,array refere}{with wrong number of subscripts}
+\inst{arf09}{erb}{236,array referenced}{with wrong number of subscripts}
 \lnie
 \endln
 \lnie
@@ -28913,14 +28913,14 @@ table\endln
 here for bad table reference\endln
 \lnie
 \endln
-\inst{arf11}{erb}{237,table refere}{with more than one subscript}
+\inst{arf11}{erb}{237,table referenced}{with more than one subscript}
 \lnie
 \endln
 \lnie
 here for bad subscript\endln
 \lnie
 \endln
-\inst{arf12}{erb}{238,array subscr}{is not integer}
+\inst{arf12}{erb}{238,array subscript}{is not integer}
 \lnie
 \endln
 \lnie
@@ -28964,8 +28964,8 @@ cfunc continues by executing the function\endln
 \lnie
 \endln
 \inst{cfunc}{rtn}{exfal}{}
-\inst{}{blt}{wa,fargs(xl),cfn}{jump if too few arguments}
-\inst{}{beq}{wa,fargs(xl),cfn}{jump if correct number of args}
+\inst{}{blt}{wa,fargs(xl),cfnc1}{jump if too few arguments}
+\inst{}{beq}{wa,fargs(xl),cfnc3}{jump if correct number of args}
 \lnie
 \endln
 \lnie
@@ -29313,9 +29313,9 @@ indir continues by executing the next code word\endln
 \endln
 \inst{indir}{rtn}{xl}{}
 \inst{}{mov}{(xs)+,xr}{load argument}
-\inst{}{beq}{(xr),=b$nml,indr}{jump if a name}
+\inst{}{beq}{(xr),=b$nml,indr2}{jump if a name}
 \inst{}{jsr}{gtnvr}{else convert to variable}
-\inst{}{err}{239,indirection}{is not name}
+\inst{}{err}{239,indirection operand}{is not name}
 \inst{}{bze}{wb,indr1}{skip if by value}
 \inst{}{mov}{xr,-(xs)}{else stack vrblk ptr}
 \inst{}{mov}{*vrval,-(xs)}{stack name offset}
@@ -29364,7 +29364,7 @@ pattern match routines (p$xxx) for full details.\endln
 \inst{match}{rtn}{exixr}{}
 \inst{}{mov}{(xs)+,xr}{load pattern operand}
 \inst{}{jsr}{gtpat}{convert to pattern}
-\inst{}{err}{240,pattern matc}{right operand is not pattern}
+\inst{}{err}{240,pattern match}{right operand is not pattern}
 \inst{}{mov}{xr,xl}{if ok, save pattern pointer}
 \inst{}{bnz}{wb,mtch1}{jump if not match by name}
 \inst{}{mov}{(xs),wa}{else load name offset}
@@ -29383,12 +29383,12 @@ merge here with subject value on stack\endln
 \endln
 \ifmac{.cnbf}
 \inst{mtch1}{jsr}{gtstg}{convert subject to string}
-\inst{}{err}{241,pattern matc}{left operand is not a string}
+\inst{}{err}{241,pattern match}{left operand is not a string}
 \inst{}{mov}{wb,-(xs)}{stack match type code}
 \asmac{else}
 \inst{mtch1}{mov}{wb,wc}{save match type in wc}
 \inst{}{jsr}{gtstb}{convert subject to string}
-\inst{}{err}{241,pattern matc}{left operand is not a string or buffer}
+\inst{}{err}{241,pattern match}{left operand is not a string or buffer}
 \inst{}{mov}{wb,r$pmb}{set to zero/bcblk if string/buffer}
 \inst{}{mov}{wc,-(xs)}{stack match type code}
 \asmac{fi}
@@ -29446,7 +29446,7 @@ function call and return.\endln
 \endln
 \inst{retrn}{rtn}{(xr)}{}
 \inst{}{bnz}{kvfnc,rtn01}{jump if not level zero}
-\inst{}{erb}{242,function ret}{from level zero}
+\inst{}{erb}{242,function return}{from level zero}
 \lnie
 \endln
 \lnie
@@ -29560,7 +29560,7 @@ get value of function\endln
 \endln
 \inst{rtn07}{mov}{xl,rtnbp}{save block pointer}
 \inst{}{mov}{vrval(xl),xl}{load value}
-\inst{}{beq}{(xl),=b$trt,rtn0}{loop back if trapped}
+\inst{}{beq}{(xl),=b$trt,rtn07}{loop back if trapped}
 \inst{}{mov}{xl,rtnfv}{else save function result value}
 \inst{}{mov}{(xs)+,rtnsv}{save original function value}
 \ifmac{.cnpf}
@@ -29570,7 +29570,7 @@ get value of function\endln
 \inst{}{bze}{xl,rtn7c}{no action if none}
 \inst{}{bze}{kvpfl,rtn7c}{jump if no profiling}
 \inst{}{jsr}{prflu}{else profile last func stmt}
-\inst{}{beq}{kvpfl,=num02,rtn}{branch on value of profile keywd}
+\inst{}{beq}{kvpfl,=num02,rtn7a}{branch on value of profile keywd}
 \lnie
 \endln
 \lnie
@@ -29625,7 +29625,7 @@ loop to find value block\endln
 \endln
 \inst{rtn09}{mov}{xl,wa}{save block pointer}
 \inst{}{mov}{vrval(xl),xl}{load pointer to next value}
-\inst{}{beq}{(xl),=b$trt,rtn0}{loop back if trapped}
+\inst{}{beq}{(xl),=b$trt,rtn09}{loop back if trapped}
 \inst{}{mov}{wa,xl}{else restore last block pointer}
 \inst{}{mov}{(xs)+,vrval(xl)}{restore old variable value}
 \inst{}{bct}{wb,rtn08}{loop till all processed}
@@ -29660,9 +29660,9 @@ retrn (continued)\endln
 here for nreturn\endln
 \lnie
 \endln
-\inst{}{beq}{(xr),=b$nml,rtn1}{jump if is a name}
+\inst{}{beq}{(xr),=b$nml,rtn11}{jump if is a name}
 \inst{}{jsr}{gtnvr}{else try convert to variable name}
-\inst{}{err}{243,function res}{in nreturn is not name}
+\inst{}{err}{243,function result}{in nreturn is not name}
 \inst{}{mov}{xr,xl}{if ok, copy vrblk (name base) ptr}
 \inst{}{mov}{*vrval,wa}{set name offset}
 \inst{}{brn}{rtn12}{and merge}
@@ -29720,7 +29720,7 @@ stcov continues by issuing the error message\endln
 \inst{}{ldi}{intvt}{get 10}
 \inst{}{sti}{kvstc}{set as new count}
 \inst{}{jsr}{stgcc}{recompute countdown counters}
-\inst{}{erb}{244,statement co}{exceeds value of stlimit keyword}
+\inst{}{erb}{244,statement count}{exceeds value of stlimit keyword}
 \vfill\break
 
 \lnie
@@ -29739,7 +29739,7 @@ brn  stmgo            jump to execute new statement\endln
 stmgo continues by executing the next statement\endln
 \lnie
 \endln
-\inst{stmgo}{rtn}{244,statement co}{}
+\inst{stmgo}{rtn}{244,statement countunt}{}
 \inst{}{mov}{xr,r$cod}{set new code block pointer}
 \inst{}{dcv}{stmct}{see if time to check something}
 \inst{}{bze}{stmct,stgo2}{jump if so}
@@ -30031,7 +30031,7 @@ systu -- print /time up/ and terminate\endln
 \inst{}{mov}{timup,wa}{check state of timeup switch}
 \inst{}{mnz}{timup}{set switch}
 \inst{}{bnz}{wa,stopr}{stop run if already set}
-\inst{}{erb}{245,translation/}{time expired}
+\inst{}{erb}{245,translation/execution}{time expired}
 \vfill\break
 {\bf spitbol--\rm utility procedures}
 \vskip1em
@@ -30171,7 +30171,7 @@ associated with an expression variable fails.\endln
 loop here to check for successive trblks\endln
 \lnie
 \endln
-\inst{acs02}{bne}{(xr),=b$trt,acs1}{jump if not trapped}
+\inst{acs02}{bne}{(xr),=b$trt,acs18}{jump if not trapped}
 \lnie
 \endln
 \lnie
@@ -30233,7 +30233,7 @@ here for input association\endln
 \inst{}{mov}{kvtrm,actrm}{temp to hold trim keyword}
 \inst{}{mov}{trfpt(xr),xl}{get file ctrl blk ptr or zero}
 \inst{}{bnz}{xl,acs06}{jump if not standard input file}
-\inst{}{beq}{trter(xr),=v$ter}{jump if terminal}
+\inst{}{beq}{trter(xr),=v$ter,acs21}{jump if terminal}
 \lnie
 \endln
 \lnie
@@ -30285,7 +30285,7 @@ loop to chase to end of trblk chain and store value\endln
 \endln
 \inst{acs08}{mov}{xr,xl}{save pointer to this trblk}
 \inst{}{mov}{trnxt(xr),xr}{load forward pointer}
-\inst{}{beq}{(xr),=b$trt,acs0}{loop if this is another trblk}
+\inst{}{beq}{(xr),=b$trt,acs08}{loop if this is another trblk}
 \inst{}{mov}{wb,trnxt(xl)}{else store result at end of chain}
 \inst{}{mov}{(xs)+,xr}{restore initial trblk pointer}
 \inst{}{mov}{(xs)+,wa}{restore name offset}
@@ -30490,11 +30490,11 @@ error returns\endln
 \lnie
 \endln
 \inst{acs22}{mov}{xr,dnamp}{pop unused scblk}
-\inst{}{erb}{202,input from f}{caused non-recoverable error}
+\inst{}{erb}{202,input from file}{caused non-recoverable error}
 \lnie
 \endln
 \inst{acs23}{mov}{xr,dnamp}{pop unused scblk}
-\inst{}{erb}{203,input file r}{has incorrect format}
+\inst{}{erb}{203,input file record}{has incorrect format}
 \inst{}{enp}{}{end procedure acess}
 \vfill\break
 
@@ -30800,7 +30800,7 @@ jsr  alobf            call to create buffer\endln
 here for mxlen exceeded\endln
 \lnie
 \endln
-\inst{alb01}{erb}{273,buffer size}{value of maxlngth keyword}
+\inst{alb01}{erb}{273,buffer size exceeds}{value of maxlngth keyword}
 \inst{}{enp}{}{end procedure alobf}
 \vfill\break
 
@@ -30876,7 +30876,7 @@ merge here with xr pointing beyond new block\endln
 come here if string is too long\endln
 \lnie
 \endln
-\inst{alcs2}{erb}{205,string lengt}{exceeds value of maxlngth keyword}
+\inst{alcs2}{erb}{205,string length}{exceeds value of maxlngth keyword}
 \inst{}{enp}{}{end procedure alocs}
 \vfill\break
 
@@ -31113,7 +31113,7 @@ entry point\endln
 here if right arg is an integer\endln
 \lnie
 \endln
-\inst{arth1}{bne}{(xr),=b$icl,arth}{jump if left arg not integer}
+\inst{arth1}{bne}{(xr),=b$icl,arth3}{jump if left arg not integer}
 \lnie
 \endln
 \lnie
@@ -31158,7 +31158,7 @@ arith (continued)\endln
 here if right argument is real\endln
 \lnie
 \endln
-\inst{arth4}{beq}{(xr),=b$rcl,arth}{jump if left arg real}
+\inst{arth4}{beq}{(xr),=b$rcl,arth5}{jump if left arg real}
 \inst{}{jsr}{gtrea}{else convert to real}
 \inst{}{ppm}{arth7}{error if unconvertible}
 \lnie
@@ -31237,7 +31237,7 @@ merge back here to assign result to expression variable.\endln
 \endln
 \inst{asg01}{add}{wa,xl}{point to variable value}
 \inst{}{mov}{(xl),xr}{load variable value}
-\inst{}{beq}{(xr),=b$trt,asg0}{jump if trapped}
+\inst{}{beq}{(xr),=b$trt,asg02}{jump if trapped}
 \inst{}{mov}{wb,(xl)}{else perform assignment}
 \inst{}{zer}{xl}{clear garbage value in xl}
 \inst{}{exi}{}{and return to asign caller}
@@ -31292,7 +31292,7 @@ loop to chase down trblk chain and assign value at end\endln
 \endln
 \inst{asg05}{mov}{xr,wc}{save ptr to this trblk}
 \inst{}{mov}{trnxt(xr),xr}{point to next trblk}
-\inst{}{beq}{(xr),=b$trt,asg0}{loop back if another trblk}
+\inst{}{beq}{(xr),=b$trt,asg05}{loop back if another trblk}
 \inst{}{mov}{wc,xr}{else point back to last trblk}
 \inst{}{mov}{wb,trval(xr)}{store value at end of chain}
 \inst{}{mov}{(xs)+,xr}{restore ptr to first trblk}
@@ -31312,7 +31312,7 @@ here to move to next trblk on chain\endln
 \lnie
 \endln
 \inst{asg07}{mov}{trnxt(xr),xr}{point to next trblk on chain}
-\inst{}{beq}{(xr),=b$trt,asg0}{loop back if another trblk}
+\inst{}{beq}{(xr),=b$trt,asg06}{loop back if another trblk}
 \inst{}{exi}{}{else end of chain, return to caller}
 \lnie
 \endln
@@ -31349,13 +31349,13 @@ here for output association\endln
 \inst{asg10}{bze}{kvoup,asg07}{ignore output assoc if output off}
 \inst{asg1b}{mov}{xr,xl}{copy trblk pointer}
 \inst{}{mov}{trnxt(xr),xr}{point to next trblk}
-\inst{}{beq}{(xr),=b$trt,asg1}{loop back if another trblk}
+\inst{}{beq}{(xr),=b$trt,asg1b}{loop back if another trblk}
 \inst{}{mov}{xl,xr}{else point back to last trblk}
 \ifmac{.cnbf}
 \inst{}{mov}{trval(xr),-(xs)}{stack value to output}
 \asmac{else}
 \inst{}{mov}{trval(xr),xr}{get value to output}
-\inst{}{beq}{(xr),=b$bct,asg1}{branch if buffer}
+\inst{}{beq}{(xr),=b$bct,asg11}{branch if buffer}
 \inst{}{mov}{xr,-(xs)}{stack value to output}
 \asmac{fi}
 \inst{}{jsr}{gtstg}{convert to string}
@@ -31375,8 +31375,8 @@ here for output to file\endln
 \lnie
 \endln
 \inst{asg1a}{jsr}{sysou}{call system output routine}
-\inst{}{err}{206,output cause}{file overflow}
-\inst{}{err}{207,output cause}{non-recoverable error}
+\inst{}{err}{206,output caused}{file overflow}
+\inst{}{err}{207,output caused}{non-recoverable error}
 \inst{}{exi}{}{else all done, return to caller}
 \lnie
 \endln
@@ -31393,20 +31393,20 @@ here to print a string to standard output or terminal\endln
 \lnie
 \endln
 \ifmac{.csou}
-\inst{asg13}{beq}{trter(xl),=v$ter}{jump if terminal output}
+\inst{asg13}{beq}{trter(xl),=v$ter,asg1a}{jump if terminal output}
 \inst{}{icv}{wa}{signal standard output}
 \inst{}{brn}{asg1a}{use sysou to perform output}
 \asmac{else}
 \ifmac{.cnbf}
 \inst{asg13}{jsr}{prtst}{print string value}
 \asmac{else}
-\inst{asg13}{bne}{(xr),=b$bct,asg1}{branch if not buffer}
+\inst{asg13}{bne}{(xr),=b$bct,asg1c}{branch if not buffer}
 \inst{}{mov}{xr,-(xs)}{stack buffer}
 \inst{}{jsr}{gtstg}{convert to string}
 \inst{}{ppm}{}{always succeeds}
 \inst{asg1c}{jsr}{prtst}{print string value}
 \asmac{fi}
-\inst{}{beq}{trter(xl),=v$ter}{jump if terminal output}
+\inst{}{beq}{trter(xl),=v$ter,asg20}{jump if terminal output}
 \inst{}{jsr}{prtnl}{end of line}
 \inst{}{exi}{}{return to caller}
 \asmac{fi}
@@ -31426,7 +31426,7 @@ here for keyword assignment\endln
 \inst{}{beq}{xl,=k$etx,asg19}{jump if errtext}
 \inst{}{mov}{wb,xr}{copy value to be assigned}
 \inst{}{jsr}{gtint}{convert to integer}
-\inst{}{err}{208,keyword valu}{assigned is not integer}
+\inst{}{err}{208,keyword value}{assigned is not integer}
 \inst{}{ldi}{icval(xr)}{else load value}
 \inst{}{beq}{xl,=k$stl,asg16}{jump if special case of stlimit}
 \inst{}{mfi}{wa,asg18}{else get addr integer, test ovflow}
@@ -31439,7 +31439,7 @@ here for keyword assignment\endln
 \inst{}{beq}{xl,=k$mxl,asg24}{jump if special case of maxlngth}
 \inst{}{beq}{xl,=k$fls,asg26}{jump if special case of fullscan}
 \inst{}{blt}{xl,=k$p$$,asg15}{jump unless protected}
-\inst{}{erb}{209,keyword in a}{is protected}
+\inst{}{erb}{209,keyword in assignment}{is protected}
 \lnie
 \endln
 \lnie
@@ -31488,7 +31488,7 @@ here for special case of errtype\endln
 here if value assigned is out of range\endln
 \lnie
 \endln
-\inst{asg18}{erb}{210,keyword valu}{assigned is negative or too large}
+\inst{asg18}{erb}{210,keyword value}{assigned is negative or too large}
 \lnie
 \endln
 \lnie
@@ -31497,7 +31497,7 @@ here for special case of errtext\endln
 \endln
 \inst{asg19}{mov}{wb,-(xs)}{stack value}
 \inst{}{jsr}{gtstg}{convert to string}
-\inst{}{err}{211,value assign}{to keyword errtext not a string}
+\inst{}{err}{211,value assigned}{to keyword errtext not a string}
 \inst{}{mov}{xr,r$etx}{make assignment}
 \inst{}{exi}{}{return to caller}
 \ifmac{.csou}
@@ -31540,7 +31540,7 @@ here for keyword maxlngth\endln
 \lnie
 \endln
 \inst{asg24}{bge}{wa,=mnlen,asg15}{if acceptable value}
-\inst{}{erb}{287,value assign}{to keyword maxlngth is too small}
+\inst{}{erb}{287,value assigned}{to keyword maxlngth is too small}
 \lnie
 \endln
 \lnie
@@ -31548,7 +31548,7 @@ here for keyword fullscan\endln
 \lnie
 \endln
 \inst{asg26}{bnz}{wa,asg15}{if acceptable value}
-\inst{}{erb}{274,value assign}{to keyword fullscan is zero}
+\inst{}{erb}{274,value assigned}{to keyword fullscan is zero}
 \lnie
 \endln
 \inst{}{enp}{}{end procedure asign}
@@ -31587,7 +31587,7 @@ ppm  loc              transfer loc if failure\endln
 \inst{asinp}{prc}{r,1}{entry point, recursive}
 \inst{}{add}{wa,xl}{point to variable}
 \inst{}{mov}{(xl),xr}{load current contents}
-\inst{}{beq}{(xr),=b$trt,asnp}{jump if trapped}
+\inst{}{beq}{(xr),=b$trt,asnp1}{jump if trapped}
 \inst{}{mov}{wb,(xl)}{else perform assignment}
 \inst{}{zer}{xl}{clear garbage value in xl}
 \inst{}{exi}{}{return to asinp caller}
@@ -31903,7 +31903,7 @@ blocks from all value fields (the copy is untrapped)\endln
 loop to get value at end of trblk chain\endln
 \lnie
 \endln
-\inst{cop03}{bne}{(xl),=b$trt,cop0}{jump if not trapped}
+\inst{cop03}{bne}{(xl),=b$trt,cop04}{jump if not trapped}
 \inst{}{mov}{trval(xl),xl}{else point to next value}
 \inst{}{brn}{cop03}{and loop back}
 \vfill\break
@@ -31937,7 +31937,7 @@ loop through buckets in table\endln
 \lnie
 \endln
 \inst{cop06}{mov}{(xs),xr}{load table pointer}
-\inst{}{beq}{wc,tblen(xr),cop}{jump to exit if all done}
+\inst{}{beq}{wc,tblen(xr),cop09}{jump to exit if all done}
 \inst{}{mov}{wc,wb}{else copy offset}
 \inst{}{sub}{*tenxt,wb}{subtract link offset to merge}
 \inst{}{add}{wb,xr}{next bucket header less link offset}
@@ -31950,7 +31950,7 @@ loop through teblks on one chain\endln
 \endln
 \inst{cop07}{mov}{tenxt(xr),xl}{load pointer to next teblk}
 \inst{}{mov}{(xs),tenxt(xr)}{set end of chain pointer in case}
-\inst{}{beq}{(xl),=b$tbt,cop0}{back for next bucket if chain end}
+\inst{}{beq}{(xl),=b$tbt,cop06}{back for next bucket if chain end}
 \inst{}{sub}{wb,xr}{point to head of previous block}
 \inst{}{mov}{xr,-(xs)}{stack ptr to previous block}
 \inst{}{mov}{*tesi$,wa}{set size of teblk}
@@ -31969,7 +31969,7 @@ loop to set real value after removing trap chain\endln
 \lnie
 \endln
 \inst{cop08}{mov}{teval(xl),xl}{load value}
-\inst{}{beq}{(xl),=b$trt,cop0}{loop back if trapped}
+\inst{}{beq}{(xl),=b$trt,cop08}{loop back if trapped}
 \inst{}{mov}{xl,teval(xr)}{store untrapped value in teblk}
 \inst{}{zer}{wb}{zero offset within teblk}
 \inst{}{brn}{cop07}{back for next teblk}
@@ -32087,7 +32087,7 @@ jsr  cdgex            call to build expression\endln
 \lnie
 \endln
 \inst{cdgex}{prc}{r,0}{entry point, recursive}
-\inst{}{blo}{(xl),=b$vr$,cdgx}{jump if not variable}
+\inst{}{blo}{(xl),=b$vr$,cdgx1}{jump if not variable}
 \lnie
 \endln
 \lnie
@@ -32113,7 +32113,7 @@ here if not variable, build exblk\endln
 \asmac{fi}
 \inst{}{mov}{(xr),wa}{get type word}
 \inst{}{bne}{wa,=b$cmt,cdgx2}{call by value if not cmblk}
-\inst{}{bge}{cmtyp(xr),=c$$nm}{jump if cmblk only by value}
+\inst{}{bge}{cmtyp(xr),=c$$nm,cdgx2}{jump if cmblk only by value}
 \vfill\break
 
 \lnie
@@ -32211,7 +32211,7 @@ the code is generated in the current ccblk (see cdwrd).\endln
 merge here for operand yielding value (e.g. constant)\endln
 \lnie
 \endln
-\inst{cgn01}{erb}{212,syntax error}{value used where name is required}
+\inst{cgn01}{erb}{212,syntax error:}{value used where name is required}
 \lnie
 \endln
 \lnie
@@ -32316,7 +32316,7 @@ here to generate code for defered expression\endln
 \lnie
 \endln
 \inst{cgn09}{mov}{cmrop(xl),xr}{check if variable}
-\inst{}{bhi}{(xr),=b$vr$,cgn0}{treat *variable as simple var}
+\inst{}{bhi}{(xr),=b$vr$,cgn02}{treat *variable as simple var}
 \inst{}{mov}{xr,xl}{copy ptr to expression tree}
 \ifmac{.cevb}
 \inst{}{mov}{=num01,wa}{return name}
@@ -32552,7 +32552,7 @@ here to generate code for function call\endln
 loop to generate code for arguments\endln
 \lnie
 \endln
-\inst{cgv06}{beq}{wb,cmlen(xl),cgv}{jump if all generated}
+\inst{cgv06}{beq}{wb,cmlen(xl),cgv07}{jump if all generated}
 \inst{}{jsr}{cmgen}{else gen value code for next arg}
 \inst{}{brn}{cgv06}{back to generate next argument}
 \lnie
@@ -32727,7 +32727,7 @@ now to fill in the skip offset to o$slc,o$sld\endln
 \inst{}{mov}{=oslc$,wa}{load o$slc ptr for next alternative}
 \inst{}{mov}{wb,xr}{copy offset (destroy garbage xr)}
 \inst{}{ica}{xr}{bump extra time for test}
-\inst{}{blt}{xr,cmlen(xl),cgv}{loop back if not last alternative}
+\inst{}{blt}{xr,cmlen(xl),cgv16}{loop back if not last alternative}
 \lnie
 \endln
 \lnie
@@ -32788,7 +32788,7 @@ here for assignment\endln
 \lnie
 \endln
 \inst{cgv21}{mov}{cmlop(xl),xr}{load left operand pointer}
-\inst{}{blo}{(xr),=b$vr$,cgv2}{jump if not variable}
+\inst{}{blo}{(xr),=b$vr$,cgv22}{jump if not variable}
 \lnie
 \endln
 \lnie
@@ -32814,7 +32814,7 @@ here if not simple variable assignment\endln
 here for pattern replacement\endln
 \lnie
 \endln
-\inst{}{mov}{cmrop(xr),cmlop(}{save pattern ptr in safe place}
+\inst{}{mov}{cmrop(xr),cmlop(xl)}{save pattern ptr in safe place}
 \inst{}{mov}{cmlop(xr),xr}{load subject ptr}
 \inst{}{jsr}{cdgnm}{gen code by name for subject}
 \inst{}{mov}{cmlop(xl),xr}{load pattern ptr}
@@ -32847,7 +32847,7 @@ here for concatenation\endln
 \lnie
 \endln
 \inst{cgv24}{mov}{cmlop(xl),xr}{load left operand ptr}
-\inst{}{bne}{(xr),=b$cmt,cgv1}{ordinary binop if not cmblk}
+\inst{}{bne}{(xr),=b$cmt,cgv18}{ordinary binop if not cmblk}
 \inst{}{mov}{cmtyp(xr),wb}{load cmblk type code}
 \inst{}{beq}{wb,=c$int,cgv25}{special case if interrogation}
 \inst{}{beq}{wb,=c$neg,cgv25}{or negation}
@@ -32888,7 +32888,7 @@ here for unops with arg by name (binary $ . merge)\endln
 \inst{cgv27}{mov}{cmrop(xl),xr}{load right operand ptr}
 \inst{}{jsr}{cdgnm}{gen code by name for right arg}
 \inst{}{mov}{cmopn(xl),xr}{get operator code word}
-\inst{}{bne}{(xr),=o$kwv,cgv2}{gen call unless keyword value}
+\inst{}{bne}{(xr),=o$kwv,cgv20}{gen call unless keyword value}
 \vfill\break
 
 \lnie
@@ -33126,7 +33126,7 @@ here we have a block we can use\endln
 \asmac{else}
 \inst{}{add}{*num04,wa}{adjust for test (four words)}
 \asmac{fi}
-\inst{}{blo}{wa,cclen(xr),cdw}{jump if room in this block}
+\inst{}{blo}{wa,cclen(xr),cdwd4}{jump if room in this block}
 \lnie
 \endln
 \lnie
@@ -33185,7 +33185,7 @@ here with room in current block\endln
 here if compiled code is too long for cdblk\endln
 \lnie
 \endln
-\inst{cdwd5}{erb}{213,syntax error}{statement is too complicated.}
+\inst{cdwd5}{erb}{213,syntax error:}{statement is too complicated.}
 \inst{}{enp}{}{end procedure cdwrd}
 \vfill\break
 
@@ -33478,7 +33478,7 @@ also special entry after control card error\endln
 \ifmac{.cinc}
 \inst{}{bnz}{cnind,cmpc2}{if within include file}
 \asmac{fi}
-\inst{}{bne}{stage,=stgic,cmp}{skip unless initial compile}
+\inst{}{bne}{stage,=stgic,cmp02}{skip unless initial compile}
 \inst{cmpc2}{jsr}{readr}{read next input image}
 \inst{}{bze}{xr,cmp09}{jump if no input available}
 \inst{}{jsr}{nexts}{acquire next source image}
@@ -33503,7 +33503,7 @@ and comments (by skipping to next semi-colon)\endln
 skip to semi-colon\endln
 \lnie
 \endln
-\inst{cmp03}{bge}{scnpt,scnil,cmp0}{end loop if end of image}
+\inst{cmp03}{bge}{scnpt,scnil,cmp09}{end loop if end of image}
 \inst{}{lch}{wc,(xr)+}{get char}
 \inst{}{icv}{scnpt}{advance offset}
 \inst{}{bne}{wc,=ch$sm,cmp03}{loop if not semi-colon}
@@ -33606,7 +33606,7 @@ here after scanning out label\endln
 \inst{}{ppm}{}{dummy (impossible) error return}
 \inst{}{mov}{xr,cmlbl(xs)}{store label pointer}
 \inst{}{bnz}{vrlen(xr),cmp11}{jump if not system label}
-\inst{}{bne}{vrsvp(xr),=v$end}{jump if not end label}
+\inst{}{bne}{vrsvp(xr),=v$end,cmp11}{jump if not end label}
 \lnie
 \endln
 \lnie
@@ -33623,8 +33623,8 @@ here for end label scanned out\endln
 here check for valid initial transfer\endln
 \lnie
 \endln
-\inst{}{beq}{vrlbl(xr),=stndl}{jump if not defined (error)}
-\inst{}{mov}{vrlbl(xr),cmtra(}{else set initial entry pointer}
+\inst{}{beq}{vrlbl(xr),=stndl,cmp08}{jump if not defined (error)}
+\inst{}{mov}{vrlbl(xr),cmtra(xs)}{else set initial entry pointer}
 \inst{}{jsr}{scane}{scan next element}
 \inst{}{beq}{xl,=t$smc,cmp10}{jump if ok (end of image)}
 \lnie
@@ -33633,7 +33633,7 @@ here check for valid initial transfer\endln
 here for bad transfer label\endln
 \lnie
 \endln
-\inst{cmp08}{erb}{215,syntax error}{undefined or erroneous entry label}
+\inst{cmp08}{erb}{215,syntax error:}{undefined or erroneous entry label}
 \lnie
 \endln
 \lnie
@@ -33642,8 +33642,8 @@ here for end of input (no end label detected)\endln
 \endln
 \inst{cmp09}{zer}{xr}{clear garbage xr value}
 \inst{}{add}{=stgnd,stage}{adjust stage appropriately}
-\inst{}{beq}{stage,=stgxe,cmp}{jump if code call (ok)}
-\inst{}{erb}{216,syntax error}{missing end line}
+\inst{}{beq}{stage,=stgxe,cmp10}{jump if code call (ok)}
+\inst{}{erb}{216,syntax error:}{missing end line}
 \lnie
 \endln
 \lnie
@@ -33665,10 +33665,10 @@ cmpil (continued)\endln
 here after processing label other than end\endln
 \lnie
 \endln
-\inst{cmp11}{bne}{stage,=stgic,cmp}{jump if code call - redef. ok}
-\inst{}{beq}{vrlbl(xr),=stndl}{else check for redefinition}
+\inst{cmp11}{bne}{stage,=stgic,cmp12}{jump if code call - redef. ok}
+\inst{}{beq}{vrlbl(xr),=stndl,cmp12}{else check for redefinition}
 \inst{}{zer}{cmlbl(xs)}{leave first label decln undisturbed}
-\inst{}{erb}{217,syntax error}{duplicate label}
+\inst{}{erb}{217,syntax error:}{duplicate label}
 \lnie
 \endln
 \lnie
@@ -33762,7 +33762,7 @@ cmpil (continued)\endln
 here for duplicated goto field\endln
 \lnie
 \endln
-\inst{cmp17}{erb}{218,syntax error}{duplicated goto field}
+\inst{cmp17}{erb}{218,syntax error:}{duplicated goto field}
 \lnie
 \endln
 \lnie
@@ -33804,7 +33804,7 @@ here for simple success goto (label)\endln
 here for complex success goto\endln
 \lnie
 \endln
-\inst{cmp20}{beq}{xr,cmfgo(xs),cmp}{no code if same as fgoto}
+\inst{cmp20}{beq}{xr,cmfgo(xs),cmp22}{no code if same as fgoto}
 \inst{}{zer}{wb}{else set ok value for cdgvl in wb}
 \inst{}{jsr}{cdgcg}{generate code for success goto}
 \inst{}{brn}{cmp22}{jump to deal with fgoto}
@@ -33958,8 +33958,8 @@ cmpil (continued)\endln
 now set fill in pointers for this statement\endln
 \lnie
 \endln
-\inst{cmp28}{mov}{cmffc(xs),cmffp(}{copy failure fill in flag}
-\inst{}{mov}{cmsoc(xs),cmsop(}{copy success fill in offset}
+\inst{cmp28}{mov}{cmffc(xs),cmffp(xs)}{copy failure fill in flag}
+\inst{}{mov}{cmsoc(xs),cmsop(xs)}{copy success fill in offset}
 \inst{}{mov}{xr,cmpcd(xs)}{save ptr to this cdblk}
 \inst{}{bnz}{cmtra(xs),cmp29}{jump if initial entry already set}
 \inst{}{mov}{xr,cmtra(xs)}{else set ptr here as default}
@@ -33969,7 +33969,7 @@ now set fill in pointers for this statement\endln
 here after compiling one statement\endln
 \lnie
 \endln
-\inst{cmp29}{blt}{stage,=stgce,cmp}{jump if not end line just done}
+\inst{cmp29}{blt}{stage,=stgce,cmp01}{jump if not end line just done}
 \inst{}{bze}{cswls,cmp30}{skip if -nolist}
 \inst{}{jsr}{listr}{list last line}
 \lnie
@@ -33990,7 +33990,7 @@ here at end of goto field\endln
 \inst{cmp31}{mov}{cmfgo(xs),wb}{get fail goto}
 \inst{}{orb}{cmsgo(xs),wb}{or in success goto}
 \inst{}{bnz}{wb,cmp18}{ok if non-null field}
-\inst{}{erb}{219,syntax error}{empty goto field}
+\inst{}{erb}{219,syntax error:}{empty goto field}
 \lnie
 \endln
 \lnie
@@ -34035,7 +34035,7 @@ jsr  cncrd            call to process control cards\endln
 loop here if more than one control card\endln
 \lnie
 \endln
-\inst{cnc01}{bge}{scnpt,scnil,cnc0}{return if end of image}
+\inst{cnc01}{bge}{scnpt,scnil,cnc09}{return if end of image}
 \inst{}{mov}{r$cim,xr}{point to image}
 \inst{}{plc}{xr,scnpt}{char ptr for first char}
 \inst{}{lch}{wa,(xr)+}{get first char}
@@ -34049,9 +34049,9 @@ loop here if more than one control card\endln
 \inst{}{bnz}{xl,cnc06}{fail unless control card name}
 \inst{}{mov}{=ccnoc,wa}{no. of chars to be compared}
 \ifmac{.cicc}
-\inst{}{blt}{sclen(xr),wa,cnc}{ fail if too few chars}
+\inst{}{blt}{sclen(xr),wa,cnc08}{ fail if too few chars}
 \asmac{else}
-\inst{}{blt}{sclen(xr),wa,cnc}{ fail if too few chars}
+\inst{}{blt}{sclen(xr),wa,cnc06}{ fail if too few chars}
 \asmac{fi}
 \inst{}{mov}{xr,xl}{point to control card name}
 \inst{}{zer}{wb}{zero offset for substring}
@@ -34087,7 +34087,7 @@ inner loop to match card name chars\endln
 here to initiate the loop\endln
 \lnie
 \endln
-\inst{cnc04}{cne}{schar(xl),(xr),c}{comp. up to cfp$c chars at once}
+\inst{cnc04}{cne}{schar(xl),(xr),cnc05}{comp. up to cfp$c chars at once}
 \inst{}{bct}{wa,cnc03}{loop if more words to compare}
 \vfill\break
 
@@ -34162,7 +34162,7 @@ not matched yet. align std names ptr and try again\endln
 invalid control card name\endln
 \lnie
 \endln
-\inst{cnc06}{erb}{247,invalid cont}{statement}
+\inst{cnc06}{erb}{247,invalid control}{statement}
 \lnie
 \endln
 \lnie
@@ -34268,7 +34268,7 @@ producing a core dump at compilation time\endln
 \lnie
 \endln
 \inst{cnc16}{mnz}{cswls}{set switch}
-\inst{}{beq}{stage,=stgic,cnc}{done if compile time}
+\inst{}{beq}{stage,=stgic,cnc08}{done if compile time}
 \lnie
 \endln
 \lnie
@@ -34386,7 +34386,7 @@ merge with count of lines to skip\endln
 \endln
 \inst{cnc29}{add}{wc,lstlc}{bump line count}
 \inst{}{lct}{wc,wc}{convert to loop counter}
-\inst{}{blt}{lstlc,lstnp,cnc3}{jump if fits on page}
+\inst{}{blt}{lstlc,lstnp,cnc30}{jump if fits on page}
 \inst{}{jsr}{prtps}{eject}
 \inst{}{jsr}{listt}{list title}
 \inst{}{brn}{cnc09}{merge}
@@ -34527,7 +34527,7 @@ follow collation sequence determined by the interface.\endln
 \inst{}{jsr}{scane}{scan quoted file name}
 \inst{}{zer}{scncc}{clear scane flag}
 \inst{}{bne}{xl,=t$con,cnc06}{if not constant}
-\inst{}{bne}{(xr),=b$scl,cnc0}{ if not string constant}
+\inst{}{bne}{(xr),=b$scl,cnc06}{ if not string constant}
 \inst{}{mov}{xr,r$ifn}{save file name}
 \inst{}{mov}{r$inc,xl}{examine include file name table}
 \inst{}{zer}{wb}{lookup by value}
@@ -34595,8 +34595,8 @@ make note of the complete file name for error messages\endln
 \inst{}{mov}{xr,dnamp}{release allocated scblk}
 \asmac{fi}
 \inst{}{zer}{rdnln}{restart line counter for new file}
-\inst{}{beq}{stage,=stgic,cnc}{if initial compile}
-\inst{}{bne}{cnind,=num01,cnc}{if not first execute-time nesting}
+\inst{}{beq}{stage,=stgic,cnc09}{if initial compile}
+\inst{}{bne}{cnind,=num01,cnc09}{if not first execute-time nesting}
 \lnie
 \endln
 \lnie
@@ -34613,7 +34613,7 @@ here for -include during execute-time compile\endln
 here for excessive include file nesting\endln
 \lnie
 \endln
-\inst{cnc42}{erb}{284,excessively}{include files}
+\inst{cnc42}{erb}{284,excessively nested}{include files}
 \lnie
 \endln
 \lnie
@@ -34634,10 +34634,10 @@ here if include file could not be opened\endln
 \endln
 \inst{cnc44}{jsr}{scane}{scan integer after -line}
 \inst{}{bne}{xl,=t$con,cnc06}{jump if no line number}
-\inst{}{bne}{(xr),=b$icl,cnc0}{jump if not integer}
+\inst{}{bne}{(xr),=b$icl,cnc06}{jump if not integer}
 \inst{}{ldi}{icval(xr)}{fetch integer line number}
 \inst{}{ile}{cnc06}{error if negative or zero}
-\inst{}{beq}{stage,=stgic,cnc}{skip if initial compile}
+\inst{}{beq}{stage,=stgic,cnc45}{skip if initial compile}
 \inst{}{mfi}{cmpln}{set directly for other compiles}
 \inst{}{brn}{cnc46}{no need to set rdnln}
 \inst{cnc45}{sbi}{intv1}{adjust number by one}
@@ -34648,7 +34648,7 @@ here if include file could not be opened\endln
 \inst{}{zer}{scncc}{clear scane flag}
 \inst{}{beq}{xl,=t$smc,cnc47}{done if no file name}
 \inst{}{bne}{xl,=t$con,cnc06}{error if not constant}
-\inst{}{bne}{(xr),=b$scl,cnc0}{if not string constant}
+\inst{}{bne}{(xr),=b$scl,cnc06}{if not string constant}
 \inst{}{jsr}{newfn}{record new file name}
 \inst{}{brn}{cnc09}{merge}
 \lnie
@@ -34797,7 +34797,7 @@ jsr  dffnc            call to define function\endln
 \inst{dffnc}{prc}{e,0}{entry point}
 \ifmac{.cnld}
 \asmac{else}
-\inst{}{bne}{(xl),=b$efc,dffn}{skip if new function not external}
+\inst{}{bne}{(xl),=b$efc,dffn1}{skip if new function not external}
 \inst{}{icv}{efuse(xl)}{else increment its use count}
 \lnie
 \endln
@@ -34807,7 +34807,7 @@ here after dealing with new function use count\endln
 \endln
 \inst{dffn1}{mov}{xr,wa}{save vrblk pointer}
 \inst{}{mov}{vrfnc(xr),xr}{load old function pointer}
-\inst{}{bne}{(xr),=b$efc,dffn}{jump if old function not external}
+\inst{}{bne}{(xr),=b$efc,dffn2}{jump if old function not external}
 \inst{}{mov}{efuse(xr),wb}{else get use count}
 \inst{}{dcv}{wb}{decrement}
 \inst{}{mov}{wb,efuse(xr)}{store decremented value}
@@ -34834,7 +34834,7 @@ for system variable, check for illegal redefinition\endln
 \inst{}{mov}{svbit(xl),wb}{load bit indicators}
 \inst{}{anb}{btfnc,wb}{is it a system function}
 \inst{}{zrb}{wb,dffn3}{redef ok if not}
-\inst{}{erb}{248,attempted re}{of system function}
+\inst{}{erb}{248,attempted redefinition}{of system function}
 \lnie
 \endln
 \lnie
@@ -34891,7 +34891,7 @@ continue after block deletion\endln
 \lnie
 \endln
 \inst{dtch2}{mov}{(xl),xl}{point to next value}
-\inst{}{bne}{(xl),=b$trt,dtch}{jump at chain end}
+\inst{}{bne}{(xl),=b$trt,dtch6}{jump at chain end}
 \inst{}{mov}{trtyp(xl),wa}{get trap block type}
 \inst{}{beq}{wa,=trtin,dtch3}{jump if input}
 \inst{}{beq}{wa,=trtou,dtch3}{jump if output}
@@ -34908,7 +34908,7 @@ delete an old association\endln
 \inst{}{mov}{xr,wb}{... and xr}
 \inst{}{mov}{trtrf(xl),xl}{point to trtrf trap block}
 \inst{}{bze}{xl,dtch5}{jump if no iochn}
-\inst{}{bne}{(xl),=b$trt,dtch}{jump if input, output, terminal}
+\inst{}{bne}{(xl),=b$trt,dtch5}{jump if input, output, terminal}
 \lnie
 \endln
 \lnie
@@ -34921,7 +34921,7 @@ loop to search iochn chain for name ptr\endln
 \inst{}{mov}{ionmb(xl),wc}{get name base}
 \inst{}{add}{ionmo(xl),wc}{add offset}
 \inst{}{bne}{wc,dtcnm,dtch4}{loop if no match}
-\inst{}{mov}{trtrf(xl),trtrf(}{remove name from chain}
+\inst{}{mov}{trtrf(xl),trtrf(xr)}{remove name from chain}
 \vfill\break
 
 \lnie
@@ -34965,7 +34965,7 @@ jsr  dtype            call to get datatype\endln
 \lnie
 \endln
 \inst{dtype}{prc}{e,0}{entry point}
-\inst{}{beq}{(xr),=b$pdt,dtyp}{  jump if prog.defined}
+\inst{}{beq}{(xr),=b$pdt,dtyp1}{  jump if prog.defined}
 \inst{}{mov}{(xr),xr}{load type word}
 \inst{}{lei}{xr}{get entry point id (block code)}
 \inst{}{wtb}{xr}{convert to byte offset}
@@ -35095,9 +35095,9 @@ loop to find value and skip if null\endln
 \lnie
 \endln
 \inst{dmp02}{mov}{vrval(xl),xl}{load value}
-\inst{}{beq}{dmarg,=num03,dmp}{skip null value check if dump(3)}
+\inst{}{beq}{dmarg,=num03,dmp2a}{skip null value check if dump(3)}
 \inst{}{beq}{xl,=nulls,dmp01}{loop for next vrblk if null value}
-\inst{dmp2a}{beq}{(xl),=b$trt,dmp0}{loop back if value is trapped}
+\inst{dmp2a}{beq}{(xl),=b$trt,dmp02}{loop back if value is trapped}
 \lnie
 \endln
 \lnie
@@ -35182,7 +35182,7 @@ here we move out on the chain\endln
 \inst{dmp07}{mov}{dmpsb,wb}{restore wb}
 \inst{}{mov}{dmpch,xl}{copy chain pointer}
 \asmac{else}
-\inst{}{bhi}{wa,sclen(xr),dmp}{jump if entering length high}
+\inst{}{bhi}{wa,sclen(xr),dmp06}{jump if entering length high}
 \inst{}{plc}{xr}{else point to chars of old string}
 \inst{}{cmc}{dmp08,dmp07}{compare, insert if new is llt old}
 \inst{}{brn}{dmp08}{or if leq (we had shorter length)}
@@ -35300,7 +35300,7 @@ loop to dump keyword values\endln
 here after completing partial dump\endln
 \lnie
 \endln
-\inst{dmp13}{beq}{dmarg,=num01,dmp}{exit if partial dump complete}
+\inst{dmp13}{beq}{dmarg,=num01,dmp27}{exit if partial dump complete}
 \inst{}{mov}{dnamb,xr}{else point to first dynamic block}
 \lnie
 \endln
@@ -35373,7 +35373,7 @@ here for table (others merge)\endln
 \inst{}{jsr}{prtvl}{print block value (for title)}
 \inst{}{mov}{dmpsa,wa}{recover offset}
 \inst{}{jsr}{prtnl}{end print line}
-\inst{}{beq}{(xr),=b$tbt,dmp2}{jump if table}
+\inst{}{beq}{(xr),=b$tbt,dmp22}{jump if table}
 \inst{}{dca}{wa}{point before first word}
 \lnie
 \endln
@@ -35393,9 +35393,9 @@ loop to find value and ignore nulls\endln
 \lnie
 \endln
 \inst{dmp21}{mov}{vrval(xr),xr}{load next value}
-\inst{}{beq}{dmarg,=num03,dmp}{skip null value check if dump(3)}
+\inst{}{beq}{dmarg,=num03,dmp2b}{skip null value check if dump(3)}
 \inst{}{beq}{xr,=nulls,dmp20}{loop back if null value}
-\inst{dmp2b}{beq}{(xr),=b$trt,dmp2}{loop back if trapped}
+\inst{dmp2b}{beq}{(xr),=b$trt,dmp21}{loop back if trapped}
 \inst{}{jsr}{prtnv}{else print name = value}
 \inst{}{brn}{dmp20}{loop back for next field}
 \vfill\break
@@ -35439,7 +35439,7 @@ loop to find value and ignore if null\endln
 \endln
 \inst{dmp25}{mov}{teval(xr),xr}{load next value}
 \inst{}{beq}{xr,=nulls,dmp24}{ignore if null value}
-\inst{}{beq}{(xr),=b$trt,dmp2}{loop back if trapped}
+\inst{}{beq}{(xr),=b$trt,dmp25}{loop back if trapped}
 \inst{}{mov}{wc,dmpsv}{else save offset pointer}
 \inst{}{jsr}{prtnv}{print name = value}
 \inst{}{mov}{dmpsv,wc}{reload offset}
@@ -35451,7 +35451,7 @@ here to move to next hash chain\endln
 \lnie
 \endln
 \inst{dmp26}{mov}{(xs)+,xl}{restore tbblk pointer}
-\inst{}{bne}{wc,tblen(xl),dmp}{loop back if more buckets to go}
+\inst{}{bne}{wc,tblen(xl),dmp23}{loop back if more buckets to go}
 \inst{}{mov}{xl,xr}{else copy table pointer}
 \inst{}{add}{wc,xr}{point to following block}
 \inst{}{brn}{dmp14}{loop back to process next block}
@@ -35758,7 +35758,7 @@ control returns to failp on failure of evaluation\endln
 \endln
 \inst{evalp}{prc}{r,1}{entry point (recursive)}
 \inst{}{mov}{parm1(xr),xl}{load expression pointer}
-\inst{}{beq}{(xl),=b$exl,evlp}{jump if exblk case}
+\inst{}{beq}{(xl),=b$exl,evlp1}{jump if exblk case}
 \lnie
 \endln
 \lnie
@@ -35949,7 +35949,7 @@ ppm  loc              transfer loc if evaluation fails\endln
 \lnie
 \endln
 \inst{evalx}{prc}{r,1}{entry point, recursive}
-\inst{}{beq}{(xr),=b$exl,evlx}{jump if exblk case}
+\inst{}{beq}{(xr),=b$exl,evlx2}{jump if exblk case}
 \lnie
 \endln
 \lnie
@@ -36021,7 +36021,7 @@ flptr --------------- *exflc, fail offset in exblk\endln
 \inst{}{mov}{kvstn,exstm(xr)}{remember stmnt number}
 \inst{}{add}{*excod,xr}{point to first code word}
 \inst{}{lcp}{xr}{set code pointer}
-\inst{}{bne}{stage,=stgxt,evl}{jump if not execution time}
+\inst{}{bne}{stage,=stgxt,evlx0}{jump if not execution time}
 \inst{}{mov}{=stgee,stage}{evaluating expression}
 \lnie
 \endln
@@ -36046,7 +36046,7 @@ come here if successful return by value (see o$rvl)\endln
 \endln
 \inst{evlx3}{mov}{(xs)+,xr}{load value}
 \inst{}{bze}{num01(xs),evlx5}{jump if called by value}
-\inst{}{erb}{249,expression e}{by name returned value}
+\inst{}{erb}{249,expression evaluated}{by name returned value}
 \lnie
 \endln
 \lnie
@@ -36079,7 +36079,7 @@ here for failure in expression evaluation (see o$fex)\endln
 restore environment\endln
 \lnie
 \endln
-\inst{evlx7}{bne}{stage,=stgee,evl}{skip if was not previously xt}
+\inst{evlx7}{bne}{stage,=stgee,evlx8}{skip if was not previously xt}
 \inst{}{mov}{=stgxt,stage}{execute time}
 \lnie
 \endln
@@ -36444,7 +36444,7 @@ merge here when xr set up with proper concatenation dvblk\endln
 \inst{exp4a}{bnz}{scnbl,exp26}{merge bop if blanks, else error}
 \lnie
 dcv  scnse            adjust start of element location\endln
-\inst{}{erb}{220,syntax error}{missing operator}
+\inst{}{erb}{220,syntax error:}{missing operator}
 \lnie
 \endln
 \lnie
@@ -36457,7 +36457,7 @@ this is an erronous contruction\endln
 \endln
 \lnie
 dcv  scnse            adjust start of element location\endln
-\inst{exp05}{erb}{221,syntax error}{missing operand}
+\inst{exp05}{erb}{221,syntax error:}{missing operand}
 \lnie
 \endln
 \lnie
@@ -36496,7 +36496,7 @@ here for lbr (s=0,1)\endln
 this is an illegal use of left bracket\endln
 \lnie
 \endln
-\inst{exp08}{erb}{222,syntax error}{invalid use of left bracket}
+\inst{exp08}{erb}{222,syntax error:}{invalid use of left bracket}
 \lnie
 \endln
 \lnie
@@ -36537,7 +36537,7 @@ increment argument count and continue\endln
 \inst{}{zer}{-(xs)}{set new level for parameter}
 \inst{}{zer}{wa}{set new state}
 \inst{}{bgt}{wb,=num02,exp01}{loop back unless outer level}
-\inst{}{erb}{223,syntax error}{invalid use of comma}
+\inst{}{erb}{223,syntax error:}{invalid use of comma}
 \vfill\break
 
 \lnie
@@ -36559,7 +36559,7 @@ otherwise it must terminate a function or grouping\endln
 \inst{exp12}{beq}{wb,=num01,exp20}{end of normal goto}
 \inst{}{beq}{wb,=num05,exp13}{end of function arguments}
 \inst{}{beq}{wb,=num04,exp14}{end of grouping / selection}
-\inst{}{erb}{224,syntax error}{unbalanced right parenthesis}
+\inst{}{erb}{224,syntax error:}{unbalanced right parenthesis}
 \lnie
 \endln
 \lnie
@@ -36649,7 +36649,7 @@ otherwise it must terminate a subscript list.\endln
 \inst{exp18}{mov}{=c$arr,xl}{set cmtyp for array reference}
 \inst{}{beq}{wb,=num03,exp15}{jump to build cmblk if end arrayref}
 \inst{}{beq}{wb,=num02,exp20}{jump if end of direct goto}
-\inst{}{erb}{225,syntax error}{unbalanced right bracket}
+\inst{}{erb}{225,syntax error:}{unbalanced right bracket}
 \vfill\break
 
 \lnie
@@ -36692,28 +36692,28 @@ here at normal end of expression\endln
 missing right paren\endln
 \lnie
 \endln
-\inst{exp21}{erb}{226,syntax error}{missing right paren}
+\inst{exp21}{erb}{226,syntax error:}{missing right paren}
 \lnie
 \endln
 \lnie
 missing right paren in goto field\endln
 \lnie
 \endln
-\inst{exp22}{erb}{227,syntax error}{right paren missing from goto}
+\inst{exp22}{erb}{227,syntax error:}{right paren missing from goto}
 \lnie
 \endln
 \lnie
 missing bracket in goto\endln
 \lnie
 \endln
-\inst{exp23}{erb}{228,syntax error}{right bracket missing from goto}
+\inst{exp23}{erb}{228,syntax error:}{right bracket missing from goto}
 \lnie
 \endln
 \lnie
 missing array bracket\endln
 \lnie
 \endln
-\inst{exp24}{erb}{229,syntax error}{missing right array bracket}
+\inst{exp24}{erb}{229,syntax error:}{missing right array bracket}
 \vfill\break
 
 \lnie
@@ -36726,7 +36726,7 @@ expan (continued)\endln
 loop here when an operator causes an operator dump\endln
 \lnie
 \endln
-\inst{exp25}{mov}{229,syntax error}{}
+\inst{exp25}{mov}{229,syntax error::}{}
 \inst{}{jsr}{expop}{pop one operator}
 \inst{}{mov}{expsv,xr}{restore op dv pointer and merge}
 \lnie
@@ -36745,7 +36745,7 @@ loop here till this condition is met.\endln
 \endln
 \inst{exp26}{mov}{num01(xs),xl}{load operator dvptr from stack}
 \inst{}{ble}{xl,=num05,exp27}{jump if bottom of stack level}
-\inst{}{blt}{dvrpr(xr),dvlpr(}{else pop if new prec is lo}
+\inst{}{blt}{dvrpr(xr),dvlpr(xl),exp25}{else pop if new prec is lo}
 \lnie
 \endln
 \lnie
@@ -36821,7 +36821,7 @@ ppm  loc              transfer loc if not a pattern match\endln
 \endln
 \inst{expap}{prc}{e,1}{entry point}
 \inst{}{mov}{xl,-(xs)}{save xl}
-\inst{}{bne}{(xr),=b$cmt,expp}{no match if not complex}
+\inst{}{bne}{(xr),=b$cmt,expp2}{no match if not complex}
 \inst{}{mov}{cmtyp(xr),wa}{else load type code}
 \inst{}{beq}{wa,=c$cnc,expp1}{concatenation is a match}
 \inst{}{beq}{wa,=c$pmt,expp1}{binary question mark is a match}
@@ -36833,9 +36833,9 @@ here for alternation. change (a b) / c to a qm (b / c)\endln
 \lnie
 \endln
 \inst{}{mov}{cmlop(xr),xl}{load left operand pointer}
-\inst{}{bne}{(xl),=b$cmt,expp}{not match if left opnd not complex}
-\inst{}{bne}{cmtyp(xl),=c$cnc}{not match if left op not conc}
-\inst{}{mov}{cmrop(xl),cmlop(}{xr points to (b / c)}
+\inst{}{bne}{(xl),=b$cmt,expp2}{not match if left opnd not complex}
+\inst{}{bne}{cmtyp(xl),=c$cnc,expp2}{not match if left op not conc}
+\inst{}{mov}{cmrop(xl),cmlop(xr)}{xr points to (b / c)}
 \inst{}{mov}{xr,cmrop(xl)}{set xl opnds to a, (b / c)}
 \inst{}{mov}{xl,xr}{point to this altered node}
 \lnie
@@ -36887,7 +36887,7 @@ jsr  expdm            call to dump operators\endln
 loop to dump operators\endln
 \lnie
 \endln
-\inst{exdm1}{ble}{num01(xs),=num05}{jump if stack bottom (saved level}
+\inst{exdm1}{ble}{num01(xs),=num05,exdm2}{jump if stack bottom (saved level}
 \inst{}{jsr}{expop}{else pop one operator}
 \inst{}{brn}{exdm1}{and loop back}
 \lnie
@@ -36932,7 +36932,7 @@ jsr  expop            call to pop operator\endln
 \endln
 \inst{expop}{prc}{n,0}{entry point}
 \inst{}{mov}{num01(xs),xr}{load operator dv pointer}
-\inst{}{beq}{dvlpr(xr),=lluno}{jump if unary}
+\inst{}{beq}{dvlpr(xr),=lluno,expo2}{jump if unary}
 \lnie
 \endln
 \lnie
@@ -36951,7 +36951,7 @@ common exit point\endln
 \lnie
 \endln
 \inst{expo1}{mov}{=b$cmt,(xr)}{store type code for cmblk}
-\inst{}{mov}{dvtyp(xl),cmtyp(}{store cmblk node type code}
+\inst{}{mov}{dvtyp(xl),cmtyp(xr)}{store cmblk node type code}
 \inst{}{mov}{xl,cmopn(xr)}{store dvptr (=ptr to dac o$xxx)}
 \inst{}{mov}{wa,cmlen(xr)}{store cmblk length}
 \inst{}{mov}{xr,(xs)}{store resulting node ptr on stack}
@@ -38409,7 +38409,7 @@ loop to find value down trblk chain\endln
 \lnie
 \endln
 \inst{gtar4}{mov}{teval(xl),xl}{load value}
-\inst{}{beq}{(xl),=b$trt,gtar}{loop till value found}
+\inst{}{beq}{(xl),=b$trt,gtar4}{loop till value found}
 \inst{}{mov}{xl,wc}{copy value}
 \inst{}{mov}{cnvtp,xl}{restore teblk pointer}
 \vfill\break
@@ -38553,7 +38553,7 @@ impossible conversion return\endln
 array size too large\endln
 \lnie
 \endln
-\inst{gta9b}{erb}{260,conversion a}{size exceeds maximum permitted}
+\inst{gta9b}{erb}{260,conversion array}{size exceeds maximum permitted}
 \inst{}{enp}{}{procedure gtarr}
 \vfill\break
 
@@ -38584,8 +38584,8 @@ without returning to this routine.\endln
 \lnie
 \endln
 \inst{gtcod}{prc}{e,1}{entry point}
-\inst{}{beq}{(xr),=b$cds,gtcd}{jump if already code}
-\inst{}{beq}{(xr),=b$cdc,gtcd}{jump if already code}
+\inst{}{beq}{(xr),=b$cds,gtcd1}{jump if already code}
+\inst{}{beq}{(xr),=b$cdc,gtcd1}{jump if already code}
 \lnie
 \endln
 \lnie
@@ -38656,7 +38656,7 @@ without returning to this routine.\endln
 \lnie
 \endln
 \inst{gtexp}{prc}{e,1}{entry point}
-\inst{}{blo}{(xr),=b$e$$,gtex}{jump if already an expression}
+\inst{}{blo}{(xr),=b$e$$,gtex1}{jump if already an expression}
 \inst{}{mov}{xr,-(xs)}{store argument for gtstg}
 \inst{}{jsr}{gtstg}{convert argument to string}
 \inst{}{ppm}{gtex2}{jump if unconvertible}
@@ -38701,7 +38701,7 @@ here we convert a string by compilation\endln
 \ifmac{.cevb}
 \inst{}{mov}{(xs)+,wa}{restore value/name flag}
 \asmac{fi}
-\inst{}{bne}{scnpt,scnil,gtex}{error if not end of image}
+\inst{}{bne}{scnpt,scnil,gtex2}{error if not end of image}
 \inst{}{zer}{wb}{set ok value for cdgex call}
 \inst{}{mov}{xr,xl}{copy tree pointer}
 \inst{}{jsr}{cdgex}{build expression block}
@@ -38753,7 +38753,7 @@ ppm  loc              transfer loc for convert impossible\endln
 \lnie
 \endln
 \inst{gtint}{prc}{e,1}{entry point}
-\inst{}{beq}{(xr),=b$icl,gtin}{jump if already an integer}
+\inst{}{beq}{(xr),=b$icl,gtin2}{jump if already an integer}
 \inst{}{mov}{wa,gtina}{else save wa}
 \inst{}{mov}{wb,gtinb}{save wb}
 \inst{}{jsr}{gtnum}{convert to numeric}
@@ -39347,7 +39347,7 @@ ppm  loc              transfer loc if convert impossible\endln
 \lnie
 \endln
 \inst{gtnvr}{prc}{e,1}{entry point}
-\inst{}{bne}{(xr),=b$nml,gnv0}{jump if not name}
+\inst{}{bne}{(xr),=b$nml,gnv02}{jump if not name}
 \inst{}{mov}{nmbas(xr),xr}{else load name base if name}
 \inst{}{blo}{xr,state,gnv07}{skip if vrblk (in static region)}
 \lnie
@@ -39411,7 +39411,7 @@ loop to search hash chain\endln
 merge here with string ptr (like vrblk) in xl\endln
 \lnie
 \endln
-\inst{gnv04}{bne}{wa,vrlen(xl),gnv}{back for next vrblk if lengths ne}
+\inst{gnv04}{bne}{wa,vrlen(xl),gnv03}{back for next vrblk if lengths ne}
 \inst{}{add}{*vrchs,xl}{else point to chars of chain entry}
 \inst{}{lct}{wb,gnvnw}{get word counter to control loop}
 \inst{}{mov}{gnvst,xr}{point to chars of new name}
@@ -39660,7 +39660,7 @@ ppm  loc              transfer loc if convert impossible\endln
 \lnie
 \endln
 \inst{gtpat}{prc}{e,1}{entry point}
-\inst{}{bhi}{(xr),=p$aaa,gtpt}{jump if pattern already}
+\inst{}{bhi}{(xr),=p$aaa,gtpt5}{jump if pattern already}
 \lnie
 \endln
 \lnie
@@ -39718,7 +39718,7 @@ here if argument is not convertible to string\endln
 \lnie
 \endln
 \inst{gtpt2}{mov}{=p$exa,wb}{set pcode for expression in case}
-\inst{}{blo}{(xr),=b$e$$,gtpt}{jump to build node if expression}
+\inst{}{blo}{(xr),=b$e$$,gtpt3}{jump to build node if expression}
 \lnie
 \endln
 \lnie
@@ -39851,7 +39851,7 @@ ppm  loc              transfer loc for lt 0, gt dnamb\endln
 \endln
 \inst{gtsmi}{prc}{n,2}{entry point}
 \inst{}{mov}{(xs)+,xr}{load argument}
-\inst{}{beq}{(xr),=b$icl,gtsm}{skip if already an integer}
+\inst{}{beq}{(xr),=b$icl,gtsm1}{skip if already an integer}
 \lnie
 \endln
 \lnie
@@ -39997,7 +39997,7 @@ ppm  loc              transfer loc if convert impossible\endln
 \endln
 \inst{gtstg}{prc}{n,1}{entry point}
 \inst{}{mov}{(xs)+,xr}{load argument, pop stack}
-\inst{}{beq}{(xr),=b$scl,gts3}{jump if already a string}
+\inst{}{beq}{(xr),=b$scl,gts30}{jump if already a string}
 \lnie
 \endln
 \lnie
@@ -40541,11 +40541,11 @@ ppm  loc              transfer loc if not ok variable\endln
 \lnie
 \endln
 \inst{gtvar}{prc}{e,1}{entry point}
-\inst{}{bne}{(xr),=b$nml,gtvr}{jump if not a name}
+\inst{}{bne}{(xr),=b$nml,gtvr2}{jump if not a name}
 \inst{}{mov}{nmofs(xr),wa}{else load name offset}
 \inst{}{mov}{nmbas(xr),xl}{load name base}
-\inst{}{beq}{(xl),=b$evt,gtvr}{error if expression variable}
-\inst{}{bne}{(xl),=b$kvt,gtvr}{all ok if not keyword variable}
+\inst{}{beq}{(xl),=b$evt,gtvr1}{error if expression variable}
+\inst{}{bne}{(xl),=b$kvt,gtvr3}{all ok if not keyword variable}
 \lnie
 \endln
 \lnie
@@ -40572,7 +40572,7 @@ here for name obtained\endln
 \lnie
 \endln
 \inst{gtvr3}{bhi}{xl,state,gtvr4}{all ok if not natural variable}
-\inst{}{beq}{vrsto(xl),=b$vre}{error if protected variable}
+\inst{}{beq}{vrsto(xl),=b$vre,gtvr1}{error if protected variable}
 \lnie
 \endln
 \lnie
@@ -40774,7 +40774,7 @@ here for buffers, ident only if lengths and chars same\endln
 \lnie
 \endln
 \inst{}{mov}{bclen(xr),wc}{load arg 1 length}
-\inst{}{bne}{wc,bclen(xl),ide}{differ if lengths differ}
+\inst{}{bne}{wc,bclen(xl),iden1}{differ if lengths differ}
 \inst{}{bze}{wc,iden7}{identical if length 0}
 \inst{}{mov}{bcbuf(xr),xr}{arg 1 buffer block}
 \inst{}{mov}{bcbuf(xl),xl}{arg 2 buffer block}
@@ -40795,9 +40795,9 @@ check if string/buffer comparison\endln
 here if arg 1 is a buffer\endln
 \lnie
 \endln
-\inst{}{bne}{(xl),=b$scl,iden}{jump if arg 2 is not string}
+\inst{}{bne}{(xl),=b$scl,iden1}{jump if arg 2 is not string}
 \inst{}{mov}{bclen(xr),wc}{load arg 1 length}
-\inst{}{bne}{wc,sclen(xl),ide}{differ if lengths differ}
+\inst{}{bne}{wc,sclen(xl),iden1}{differ if lengths differ}
 \inst{}{bze}{wc,iden7}{identical if length 0}
 \inst{}{mov}{bcbuf(xr),xr}{arg 1 buffer block}
 \inst{}{brn}{idn2a}{compare characters}
@@ -40807,9 +40807,9 @@ here if arg 1 is a buffer\endln
 here if arg 1 is a string\endln
 \lnie
 \endln
-\inst{idn0a}{bne}{(xl),=b$bct,iden}{jump if arg 2 is not buffer}
+\inst{idn0a}{bne}{(xl),=b$bct,iden1}{jump if arg 2 is not buffer}
 \inst{}{mov}{sclen(xr),wc}{load arg 1 length}
-\inst{}{bne}{wc,bclen(xl),ide}{differ if lengths differ}
+\inst{}{bne}{wc,bclen(xl),iden1}{differ if lengths differ}
 \inst{}{bze}{wc,iden7}{identical if length 0}
 \inst{}{mov}{bcbuf(xl),xl}{arg 2 buffer block}
 \inst{}{brn}{idn2a}{compare characters}
@@ -40832,7 +40832,7 @@ here for strings, ident only if lengths and chars same\endln
 \lnie
 \endln
 \inst{iden2}{mov}{sclen(xr),wc}{load arg 1 length}
-\inst{}{bne}{wc,sclen(xl),ide}{differ if lengths differ}
+\inst{}{bne}{wc,sclen(xl),iden1}{differ if lengths differ}
 \lnie
 \endln
 \lnie
@@ -40901,8 +40901,8 @@ here for reals, ident if same values\endln
 here for names, ident if bases and offsets same\endln
 \lnie
 \endln
-\inst{iden6}{bne}{nmofs(xr),nmofs(}{differ if different offset}
-\inst{}{bne}{nmbas(xr),nmbas(}{differ if different base}
+\inst{iden6}{bne}{nmofs(xr),nmofs(xl),iden1}{differ if different offset}
+\inst{}{bne}{nmbas(xr),nmbas(xl),iden1}{differ if different base}
 \lnie
 \endln
 \lnie
@@ -40962,7 +40962,7 @@ case for ordinary variables.\endln
 \inst{}{zer}{xl}{zero trfpt}
 \inst{}{jsr}{trbld}{build trblk}
 \inst{}{mov}{wc,xl}{recall vrblk pointer}
-\inst{}{mov}{vrsvp(xl),trter(}{store svblk pointer}
+\inst{}{mov}{vrsvp(xl),trter(xr)}{store svblk pointer}
 \inst{}{mov}{xr,vrval(xl)}{store trblk ptr in vrblk}
 \inst{}{mov}{=b$vra,vrget(xl)}{set trapped access}
 \inst{}{mov}{=b$vrv,vrsto(xl)}{set trapped store}
@@ -41047,7 +41047,7 @@ number of characters in that object.\endln
 \inst{}{add}{wc,wa}{add buffer len to string len}
 \inst{}{sub}{inssb,wa}{bias out component being replaced}
 \inst{}{mov}{bcbuf(xr),xr}{point to bfblk}
-\inst{}{bgt}{wa,bfalc(xr),ins}{fail if result exceeds allocation}
+\inst{}{bgt}{wa,bfalc(xr),ins06}{fail if result exceeds allocation}
 \inst{}{mov}{(xs),xr}{restore bcblk ptr}
 \inst{}{mov}{wc,wa}{get buffer length}
 \inst{}{sub}{insab,wa}{subtract to get shift length}
@@ -41056,10 +41056,10 @@ number of characters in that object.\endln
 \inst{}{mov}{bclen(xr),wb}{get old bclen}
 \inst{}{mov}{wc,bclen(xr)}{stuff new length}
 \inst{}{bze}{wa,ins04}{skip shift if nothing to do}
-\inst{}{beq}{inssb,insln,ins0}{skip shift if lengths match}
+\inst{}{beq}{inssb,insln,ins04}{skip shift if lengths match}
 \inst{}{mov}{bcbuf(xr),xr}{point to bfblk}
 \inst{}{mov}{xl,-(xs)}{save scblk ptr}
-\inst{}{blo}{inssb,insln,ins0}{brn if shift is for more room}
+\inst{}{blo}{inssb,insln,ins01}{brn if shift is for more room}
 \vfill\break
 
 \lnie
@@ -41350,8 +41350,8 @@ loop to find file arg1 trblk\endln
 \lnie
 \endln
 \inst{iofc1}{mov}{vrval(xr),xr}{get possible trblk ptr}
-\inst{}{bne}{(xr),=b$trt,iofc}{fail if end of chain}
-\inst{}{bne}{trtyp(xr),=trtfc}{loop if not file arg trblk}
+\inst{}{bne}{(xr),=b$trt,iofc4}{fail if end of chain}
+\inst{}{bne}{trtyp(xr),=trtfc,iofc1}{loop if not file arg trblk}
 \inst{}{mov}{trfpt(xr),wa}{get fcblk ptr}
 \inst{}{mov}{wb,xr}{copy arg}
 \inst{}{exi}{}{return}
@@ -41648,8 +41648,8 @@ loop to end of trblk chain if any\endln
 \endln
 \inst{iop02}{mov}{xr,xl}{copy blk ptr}
 \inst{}{mov}{vrval(xr),xr}{load ptr to next trblk}
-\inst{}{bne}{(xr),=b$trt,iop0}{   jump if not trapped}
-\inst{}{bne}{trtyp(xr),ioptt,}{loop if not same assocn}
+\inst{}{bne}{(xr),=b$trt,iop03}{   jump if not trapped}
+\inst{}{bne}{trtyp(xr),ioptt,iop02}{loop if not same assocn}
 \inst{}{mov}{trnxt(xr),xr}{get value and delete old trblk}
 \lnie
 \endln
@@ -41693,8 +41693,8 @@ search possible trblk chain to pick up the fcblk\endln
 \endln
 \inst{iop05}{mov}{xr,wb}{remember blk ptr}
 \inst{}{mov}{vrval(xr),xr}{chain along}
-\inst{}{bne}{(xr),=b$trt,iop0}{jump if end of trblk chain}
-\inst{}{bne}{trtyp(xr),=trtfc}{loop if more to go}
+\inst{}{bne}{(xr),=b$trt,iop06}{jump if end of trblk chain}
+\inst{}{bne}{trtyp(xr),=trtfc,iop05}{loop if more to go}
 \inst{}{mov}{xr,r$iot}{point to file arg1 trblk}
 \inst{}{mov}{trfpt(xr),wa}{get fcblk ptr from trblk}
 \lnie
@@ -41772,7 +41772,7 @@ a new trblk is needed\endln
 \inst{}{jsr}{trbld}{make the block}
 \inst{}{mov}{xr,r$iot}{copy trtrf ptr}
 \inst{}{mov}{r$iop,xl}{point to preceding blk}
-\inst{}{mov}{vrval(xl),vrval(}{copy value field to trblk}
+\inst{}{mov}{vrval(xl),vrval(xr)}{copy value field to trblk}
 \inst{}{mov}{xr,vrval(xl)}{link new trblk into chain}
 \inst{}{mov}{xl,xr}{point to predecessor blk}
 \inst{}{jsr}{setvr}{set trace intercepts}
@@ -41839,7 +41839,7 @@ i/o file does not exist\endln
 \inst{iop17}{mov}{r$iop,xr}{is there a trblk to release}
 \inst{}{bze}{xr,iopa7}{if not}
 \inst{}{mov}{vrval(xr),xl}{point to trblk}
-\inst{}{mov}{vrval(xl),vrval(}{unsplice it}
+\inst{}{mov}{vrval(xl),vrval(xr)}{unsplice it}
 \inst{}{jsr}{setvr}{adjust trace intercepts}
 \inst{iopa7}{exi}{5}{i/o file does not exist}
 \lnie
@@ -41851,7 +41851,7 @@ i/o file cannot be read/written\endln
 \inst{iop18}{mov}{r$iop,xr}{is there a trblk to release}
 \inst{}{bze}{xr,iopa7}{if not}
 \inst{}{mov}{vrval(xr),xl}{point to trblk}
-\inst{}{mov}{vrval(xl),vrval(}{unsplice it}
+\inst{}{mov}{vrval(xl),vrval(xr)}{unsplice it}
 \inst{}{jsr}{setvr}{adjust trace intercepts}
 \inst{iopa8}{exi}{6}{i/o file cannot be read/written}
 \vfill\break
@@ -41877,8 +41877,8 @@ search loop\endln
 \endln
 \inst{iop20}{mov}{trtrf(xr),xr}{next link of chain}
 \inst{}{bze}{xr,iop21}{not found}
-\inst{}{bne}{wc,ionmb(xr),iop}{no match}
-\inst{}{beq}{wb,ionmo(xr),iop}{exit if matched}
+\inst{}{bne}{wc,ionmb(xr),iop20}{no match}
+\inst{}{beq}{wb,ionmo(xr),iop22}{exit if matched}
 \inst{}{brn}{iop20}{loop}
 \lnie
 \endln
@@ -41911,7 +41911,7 @@ see if fcblk already on chain\endln
 \lnie
 \endln
 \inst{iop23}{bze}{xl,iop24}{not on if end of chain}
-\inst{}{beq}{num03(xl),r$iof,}{dont duplicate if find it}
+\inst{}{beq}{num03(xl),r$iof,iop25}{dont duplicate if find it}
 \inst{}{mov}{num02(xl),xl}{get next link}
 \inst{}{brn}{iop23}{loop}
 \lnie
@@ -42054,7 +42054,7 @@ jsr  kwnam            call to get pseudo-variable name\endln
 here if not keyword name\endln
 \lnie
 \endln
-\inst{kwnm1}{erb}{251,keyword oper}{is not name of defined keyword}
+\inst{kwnm1}{erb}{251,keyword operand}{is not name of defined keyword}
 \inst{}{enp}{}{end procedure kwnam}
 \vfill\break
 
@@ -42111,7 +42111,7 @@ ppm  loc              transfer loc if arg1 lgt arg2\endln
 \ifmac{.ccmc}
 \inst{}{mov}{wc,wa}{arg 2 length to wa}
 \inst{}{jsr}{syscm}{compare (xl,wa=arg2  xr,wb=arg1)}
-\inst{}{err}{283,string lengt}{exceeded for generalized lexical comparison}
+\inst{}{err}{283,string length}{exceeded for generalized lexical comparison}
 \inst{}{ppm}{lcmp4}{arg 2 lt arg 1, lgt exit}
 \inst{}{ppm}{lcmp3}{arg 2 gt arg 1, llt exit}
 \inst{}{exi}{4}{else identical strings, leq exit}
@@ -42256,7 +42256,7 @@ entry point\endln
 \inst{listr}{prc}{e,0}{entry point}
 \inst{}{bnz}{cnttl,list5}{jump if -title or -stitl}
 \inst{}{bnz}{lstpf,list4}{immediate exit if already listed}
-\inst{}{bge}{lstlc,lstnp,list}{jump if no room}
+\inst{}{bge}{lstlc,lstnp,list6}{jump if no room}
 \lnie
 \endln
 \lnie
@@ -42270,7 +42270,7 @@ here after printing title (if needed)\endln
 \inst{}{mov}{lstsn,xr}{load statement number}
 \inst{}{bze}{xr,list2}{jump if no statement number}
 \inst{}{mti}{xr}{else get stmnt number as integer}
-\inst{}{bne}{stage,=stgic,lis}{skip if execute time}
+\inst{}{bne}{stage,=stgic,list1}{skip if execute time}
 \inst{}{beq}{wa,=ch$as,list2}{no stmnt number list if comment}
 \inst{}{beq}{wa,=ch$mn,list2}{no stmnt no. if control card}
 \lnie
@@ -42360,7 +42360,7 @@ eject to new page and list title\endln
 \endln
 \inst{list6}{jsr}{prtps}{eject}
 \inst{}{bze}{prich,list7}{skip if listing to regular printer}
-\inst{}{beq}{r$ttl,=nulls,lis}{terminal listing omits null title}
+\inst{}{beq}{r$ttl,=nulls,list0}{terminal listing omits null title}
 \lnie
 \endln
 \lnie
@@ -42632,7 +42632,7 @@ here if argument is not an integer\endln
 \lnie
 \endln
 \inst{ptin2}{mov}{xl,wb}{copy expr arg case pcode}
-\inst{}{blo}{(xr),=b$e$$,ptin}{all ok if expression arg}
+\inst{}{blo}{(xr),=b$e$$,ptin1}{all ok if expression arg}
 \inst{}{exi}{1}{else take error exit for wrong type}
 \lnie
 \endln
@@ -42807,7 +42807,7 @@ since evalp always reevaluates expressions.\endln
 \lnie
 \endln
 \inst{pats7}{mov}{wc,wb}{set pcode for expression argument}
-\inst{}{blo}{(xr),=b$e$$,pats}{jump to exit if expression arg}
+\inst{}{blo}{(xr),=b$e$$,pats1}{jump to exit if expression arg}
 \inst{}{exi}{1}{else take wrong type error exit}
 \inst{}{enp}{}{end procedure patst}
 \vfill\break
@@ -42989,7 +42989,7 @@ now check for special case of alternation node where\endln
 parm1 points to a node and must be copied like pthen.\endln
 \lnie
 \endln
-\inst{}{bne}{(xr),=p$alt,pcnc}{loop back if not}
+\inst{}{bne}{(xr),=p$alt,pcnc1}{loop back if not}
 \inst{}{mov}{parm1(xr),xr}{else load pointer to alternative}
 \inst{}{jsr}{pcopy}{copy it}
 \inst{}{mov}{(xt),xr}{restore ptr to new node}
@@ -43243,7 +43243,7 @@ end of allocation. merge back into routine\endln
 \inst{}{wtb}{wa}{get as baus}
 \inst{}{add}{*num02,wa}{offset includes table header}
 \inst{}{mov}{pftbl,xr}{get table start}
-\inst{}{bge}{wa,num01(xr),pfl}{ if out of table, skip it}
+\inst{}{bge}{wa,num01(xr),pflu3}{ if out of table, skip it}
 \inst{}{add}{wa,xr}{else point to entry}
 \inst{}{ldi}{(xr)}{get nr of executions so far}
 \inst{}{adi}{intv1}{nudge up one}
@@ -43465,7 +43465,7 @@ jsr  prtch            call to print character\endln
 \endln
 \inst{prtch}{prc}{e,0}{entry point}
 \inst{}{mov}{xr,-(xs)}{save xr}
-\inst{}{bne}{profs,prlen,prch}{jump if room in buffer}
+\inst{}{bne}{profs,prlen,prch1}{jump if room in buffer}
 \inst{}{jsr}{prtnl}{else print this line}
 \lnie
 \endln
@@ -43526,7 +43526,7 @@ error occured\endln
 \lnie
 \endln
 \inst{prtc2}{zer}{erich}{prevent looping}
-\inst{}{erb}{252,error on pri}{to interactive channel}
+\inst{}{erb}{252,error on printing}{to interactive channel}
 \inst{}{brn}{prtc1}{return}
 \inst{}{enp}{}{procedure prtic}
 \vfill\break
@@ -43763,7 +43763,7 @@ file full or no output file for load module\endln
 \endln
 \inst{prnl2}{bnz}{prtef,prnl3}{jump if not first time}
 \inst{}{mnz}{prtef}{mark first occurrence}
-\inst{}{erb}{253,print limit}{on standard output channel}
+\inst{}{erb}{253,print limit exceeded}{on standard output channel}
 \lnie
 \endln
 \lnie
@@ -43833,7 +43833,7 @@ here for case of non-natural variable\endln
 \lnie
 \endln
 \inst{prn02}{mov}{wa,wb}{copy name offset}
-\inst{}{bne}{(xl),=b$pdt,prn0}{jump if array or table}
+\inst{}{bne}{(xl),=b$pdt,prn03}{jump if array or table}
 \lnie
 \endln
 \lnie
@@ -43872,7 +43872,7 @@ first we point to the parent tbblk if this is the case of\endln
 a table element. to do this, chase down the trnxt chain.\endln
 \lnie
 \endln
-\inst{prn03}{bne}{(xl),=b$tet,prn0}{jump if we got there (or not te)}
+\inst{prn03}{bne}{(xl),=b$tet,prn04}{jump if we got there (or not te)}
 \inst{}{mov}{tenxt(xl),xl}{else move out on chain}
 \inst{}{brn}{prn03}{and loop back}
 \lnie
@@ -43929,7 +43929,7 @@ loop to find value (chase down possible trblk chain)\endln
 \lnie
 \endln
 \inst{prn08}{mov}{vrval(xr),xr}{load value}
-\inst{}{beq}{(xr),=b$trt,prn0}{loop if that was a trblk}
+\inst{}{beq}{(xr),=b$trt,prn08}{loop if that was a trblk}
 \lnie
 \endln
 \lnie
@@ -44169,7 +44169,7 @@ jsr  prtpg            call for page eject\endln
 \lnie
 \endln
 \inst{prtpg}{prc}{e,0}{entry point}
-\inst{}{beq}{stage,=stgxt,prp}{jump if execution time}
+\inst{}{beq}{stage,=stgxt,prp01}{jump if execution time}
 \inst{}{bze}{lstlc,prp06}{return if top of page already}
 \inst{}{zer}{lstlc}{clear line count}
 \lnie
@@ -44717,7 +44717,7 @@ print datatype ( prototype ) blank number idval\endln
 \inst{}{mov}{tblen(xl),wa}{load length of block (=vclen)}
 \inst{}{btw}{wa}{convert to word count}
 \inst{}{sub}{=tbsi$,wa}{allow for standard fields}
-\inst{}{beq}{(xl),=b$tbt,prv1}{jump if table}
+\inst{}{beq}{(xl),=b$tbt,prv14}{jump if table}
 \inst{}{add}{=vctbd,wa}{for vcblk, adjust size}
 \lnie
 \endln
@@ -44864,7 +44864,7 @@ jsr  readr            call to read next image\endln
 \ifmac{.cinc}
 \inst{}{bnz}{cnind,reada}{if within include file}
 \asmac{fi}
-\inst{}{bne}{stage,=stgic,rea}{exit if not initial compile}
+\inst{}{bne}{stage,=stgic,read3}{exit if not initial compile}
 \inst{reada}{mov}{cswin,wa}{max read length}
 \inst{}{zer}{xl}{clear any dud value in xl}
 \inst{}{jsr}{alocs}{allocate buffer}
@@ -44883,7 +44883,7 @@ jsr  readr            call to read next image\endln
 \inst{}{mov}{wa,polcs}{new countdown start value}
 \inst{}{mov}{wa,polct}{new counter value}
 \asmac{fi}
-\inst{read0}{ble}{sclen(xr),cswin,}{ use smaller of string lnth ...}
+\inst{read0}{ble}{sclen(xr),cswin,read1}{ use smaller of string lnth ...}
 \inst{}{mov}{cswin,sclen(xr)}{... and xxx of -inxxx}
 \lnie
 \endln
@@ -44963,7 +44963,7 @@ here on end of file\endln
 \inst{}{jsr}{tfind}{allocate new teblk}
 \inst{}{ppm}{}{always possible to allocate block}
 \inst{}{mov}{r$sfc,teval(xl)}{record file name as entry value}
-\inst{}{beq}{stage,=stgic,rea}{if initial compile, reissue read}
+\inst{}{beq}{stage,=stgic,reada}{if initial compile, reissue read}
 \inst{}{bnz}{cnind,reada}{still reading from include file}
 \lnie
 \endln
@@ -46014,7 +46014,7 @@ here for illegal character (underline merges)\endln
 \lnie
 \endln
 \inst{scn07}{bze}{wb,scn10}{jump if scanning name or constant}
-\inst{}{erb}{230,syntax error}{illegal character}
+\inst{}{erb}{230,syntax error:}{illegal character}
 \vfill\break
 
 \lnie
@@ -46098,7 +46098,7 @@ common exit point (xr,xl) set\endln
 here if conversion error on numeric item\endln
 \lnie
 \endln
-\inst{scn14}{erb}{231,syntax error}{invalid numeric item}
+\inst{scn14}{erb}{231,syntax error:}{invalid numeric item}
 \lnie
 \endln
 \lnie
@@ -46164,7 +46164,7 @@ here if no matching quote found\endln
 \lnie
 \endln
 \inst{scn19}{mov}{wa,scnpt}{set updated scan pointer}
-\inst{}{erb}{232,syntax error}{unmatched string quote}
+\inst{}{erb}{232,syntax error:}{unmatched string quote}
 \lnie
 \endln
 \lnie
@@ -46345,7 +46345,7 @@ here for unary operator\endln
 \endln
 \inst{}{add}{*dvbs$,xr}{point to dv for unary op}
 \inst{}{mov}{=t$uop,xl}{set type for unary operator}
-\inst{}{ble}{scntp,=t$uok,scn}{ok unary if ok preceding element}
+\inst{}{ble}{scntp,=t$uok,scn13}{ok unary if ok preceding element}
 \vfill\break
 
 \lnie
@@ -46365,7 +46365,7 @@ merge here to require preceding blanks\endln
 fail operator in this position\endln
 \lnie
 \endln
-\inst{scn48}{erb}{233,syntax error}{invalid use of operator}
+\inst{scn48}{erb}{233,syntax error:}{invalid use of operator}
 \lnie
 \endln
 \lnie
@@ -46446,7 +46446,7 @@ jsr  scngf            call to scan goto field\endln
 \inst{}{jsr}{scane}{scan initial element}
 \inst{}{beq}{xl,=t$lpr,scng1}{skip if left paren (normal goto)}
 \inst{}{beq}{xl,=t$lbr,scng2}{skip if left bracket (direct goto)}
-\inst{}{erb}{234,syntax error}{goto field incorrect}
+\inst{}{erb}{234,syntax error:}{goto field incorrect}
 \lnie
 \endln
 \lnie
@@ -46532,10 +46532,10 @@ here if we have a vrblk\endln
 \endln
 \inst{}{mov}{xr,xl}{copy vrblk pointer}
 \inst{}{mov}{=b$vrl,vrget(xr)}{store normal get value}
-\inst{}{beq}{vrsto(xr),=b$vre}{skip if protected variable}
+\inst{}{beq}{vrsto(xr),=b$vre,setv1}{skip if protected variable}
 \inst{}{mov}{=b$vrs,vrsto(xr)}{store normal store value}
 \inst{}{mov}{vrval(xl),xl}{point to next entry on chain}
-\inst{}{bne}{(xl),=b$trt,setv}{jump if end of trblk chain}
+\inst{}{bne}{(xl),=b$trt,setv1}{jump if end of trblk chain}
 \inst{}{mov}{=b$vra,vrget(xr)}{store trapped routine address}
 \inst{}{mov}{=b$vrv,vrsto(xr)}{set trapped routine address}
 \lnie
@@ -46648,10 +46648,10 @@ sorta (continued)\endln
 \inst{}{mov}{xr,-(xs)}{stack pointer to sort array}
 \inst{}{mov}{r$sxr,xr}{get second arg}
 \inst{}{mov}{num01(xs),xl}{get ptr to key array}
-\inst{}{bne}{(xl),=b$vct,srt0}{jump if arblk}
+\inst{}{bne}{(xl),=b$vct,srt02}{jump if arblk}
 \inst{}{beq}{xr,=nulls,srt01}{jump if null second arg}
 \inst{}{jsr}{gtnvr}{get vrblk ptr for it}
-\inst{}{err}{257,erroneous 2n}{arg in sort/rsort of vector}
+\inst{}{err}{257,erroneous 2nd}{arg in sort/rsort of vector}
 \inst{}{mov}{xr,srtdf}{store datatype field name vrblk}
 \lnie
 \endln
@@ -46675,8 +46675,8 @@ here for array\endln
 \inst{}{wtb}{wa}{further convert to baus}
 \inst{}{mov}{*arvls,wb}{offset to first value if one}
 \inst{}{mov}{*arpro,wc}{offset before values if one dim.}
-\inst{}{beq}{arndm(xl),=num01}{jump in fact if one dim.}
-\inst{}{bne}{arndm(xl),=num02}{ fail unless two dimens}
+\inst{}{beq}{arndm(xl),=num01,srt04}{jump in fact if one dim.}
+\inst{}{bne}{arndm(xl),=num02,srt16}{ fail unless two dimens}
 \inst{}{ldi}{arlb2(xl)}{get lower bound 2 as default}
 \inst{}{beq}{xr,=nulls,srt03}{jump if default second arg}
 \inst{}{jsr}{gtint}{convert to integer}
@@ -46758,7 +46758,7 @@ loop through array\endln
 hunt along trblk chain\endln
 \lnie
 \endln
-\inst{srt06}{bne}{(xr),=b$trt,srt0}{jump out if not trblk}
+\inst{srt06}{bne}{(xr),=b$trt,srt07}{jump out if not trblk}
 \inst{}{mov}{trval(xr),xr}{get value field}
 \inst{}{brn}{srt06}{loop}
 \vfill\break
@@ -46836,7 +46836,7 @@ it as, root of tree.\endln
 \inst{}{mov}{xr,xl}{a(0) address}
 \inst{}{add}{wc,xl}{a(i) address}
 \inst{}{mov}{num01(xl),wb}{copy a(i+1)}
-\inst{}{mov}{num01(xr),num01(}{ move a(1) to a(i+1)}
+\inst{}{mov}{num01(xr),num01(xl)}{ move a(1) to a(i+1)}
 \inst{}{mov}{wb,num01(xr)}{complete exchange of a(1), a(i+1)}
 \inst{}{mov}{wc,wa}{n = i for sorth}
 \inst{}{mov}{*num01,wc}{i = 1 for sorth}
@@ -46895,8 +46895,8 @@ return point\endln
 error point\endln
 \lnie
 \endln
-\inst{srt16}{erb}{256,sort/rsort 1}{arg not suitable array or table}
-\inst{srt17}{erb}{258,sort/rsort 2}{arg out of range or non-integer}
+\inst{srt16}{erb}{256,sort/rsort 1st}{arg not suitable array or table}
+\inst{srt17}{erb}{258,sort/rsort 2nd}{arg out of range or non-integer}
 \lnie
 \endln
 \lnie
@@ -46957,7 +46957,7 @@ ppm  loc              key1 less than key2\endln
 \inst{}{add}{wb,xr}{add key2 offset}
 \inst{}{mov}{(xl),xl}{get key1}
 \inst{}{mov}{(xr),xr}{get key2}
-\inst{}{bne}{srtdf,=nulls,src}{jump if datatype field name used}
+\inst{}{bne}{srtdf,=nulls,src12}{jump if datatype field name used}
 \vfill\break
 
 \lnie
@@ -46989,7 +46989,7 @@ datatypes different.  now try for numeric\endln
 \ifmac{.cnbf}
 \ifmac{.cnsc}
 \inst{}{beq}{wc,=b$scl,src11}{do not allow conversion to number}
-\inst{}{beq}{(xr),=b$scl,src1}{if either arg is a string}
+\inst{}{beq}{(xr),=b$scl,src11}{if either arg is a string}
 \asmac{fi}
 \asmac{else}
 \lnie
@@ -47016,7 +47016,7 @@ here if key1 is a buffer, key2 known not to be a buffer.\endln
 if key2 is a string, then lcomp can proceed.\endln
 \lnie
 \endln
-\inst{}{beq}{(xr),=b$scl,src0}{j if keys 1/2 are buffer/string}
+\inst{}{beq}{(xr),=b$scl,src09}{j if keys 1/2 are buffer/string}
 \ifmac{.cnsc}
 \inst{}{brn}{src11}{prevent convert of key 1 to number}
 \asmac{else}
@@ -47030,7 +47030,7 @@ here if key1 is a string, key2 known not to be a string.\endln
 if key2 is a buffer, then lcomp can proceed.\endln
 \lnie
 \endln
-\inst{src13}{beq}{(xr),=b$bct,src0}{j if keys 1/2 are string/buffer}
+\inst{src13}{beq}{(xr),=b$bct,src09}{j if keys 1/2 are string/buffer}
 \ifmac{.cnsc}
 \inst{}{brn}{src11}{prevent convert of key 1 to number}
 \lnie
@@ -47043,8 +47043,8 @@ examine key2.  if it is a string or buffer, then do not\endln
 convert key2 to a number.\endln
 \lnie
 \endln
-\inst{src15}{beq}{(xr),=b$scl,src1}{j if key 2 is a string}
-\inst{}{beq}{(xr),=b$bct,src1}{j if key 2 is a buffer}
+\inst{src15}{beq}{(xr),=b$scl,src11}{j if key 2 is a string}
+\inst{}{beq}{(xr),=b$bct,src11}{j if key 2 is a buffer}
 \lnie
 \endln
 \lnie
@@ -47097,7 +47097,7 @@ keys are of same datatype\endln
 drop through or merge for identical or equal objects\endln
 \lnie
 \endln
-\inst{src08}{blt}{srts1,srts2,src0}{test offsets or key addrss instead}
+\inst{src08}{blt}{srts1,srts2,src04}{test offsets or key addrss instead}
 \inst{}{brn}{src06}{offset 1 greater}
 \vfill\break
 
@@ -47197,12 +47197,12 @@ jsr  sortf            call to search for field name\endln
 \lnie
 \endln
 \inst{sortf}{prc}{e,0}{entry point}
-\inst{}{bne}{(xl),=b$pdt,srtf}{return if not pdblk}
+\inst{}{bne}{(xl),=b$pdt,srtf3}{return if not pdblk}
 \inst{}{mov}{xr,-(xs)}{keep xr}
 \inst{}{mov}{srtfd,xr}{get possible former dfblk ptr}
 \inst{}{bze}{xr,srtf4}{jump if not}
-\inst{}{bne}{xr,pddfp(xl),srt}{jump if not right datatype}
-\inst{}{bne}{srtdf,srtff,srtf}{jump if not right field name}
+\inst{}{bne}{xr,pddfp(xl),srtf4}{jump if not right datatype}
+\inst{}{bne}{srtdf,srtff,srtf4}{jump if not right field name}
 \inst{}{add}{srtfo,xl}{add offset to required field}
 \lnie
 \endln
@@ -47444,7 +47444,7 @@ here for f,c,r\endln
 \inst{}{ppm}{trc16}{jump if bad name}
 \inst{}{ica}{xs}{pop stack}
 \inst{}{mov}{vrfnc(xr),xr}{point to function block}
-\inst{}{bne}{(xr),=b$pfc,trc1}{error if not program function}
+\inst{}{bne}{(xr),=b$pfc,trc17}{error if not program function}
 \inst{}{beq}{wa,=ch$lr,trc02}{jump if r (return)}
 \vfill\break
 
@@ -47477,7 +47477,7 @@ here for l to set/reset label trace\endln
 \inst{trc03}{jsr}{gtnvr}{point to vrblk}
 \inst{}{ppm}{trc16}{jump if bad name}
 \inst{}{mov}{vrlbl(xr),xl}{load label pointer}
-\inst{}{bne}{(xl),=b$trt,trc0}{jump if no old trace}
+\inst{}{bne}{(xl),=b$trt,trc04}{jump if no old trace}
 \inst{}{mov}{trlbl(xl),xl}{else delete old trace association}
 \lnie
 \endln
@@ -47579,9 +47579,9 @@ loop to search trblk chain\endln
 \lnie
 \endln
 \inst{trc11}{mov}{(xr),xl}{point to next entry}
-\inst{}{bne}{(xl),=b$trt,trc1}{ jump if not trblk}
-\inst{}{blt}{wc,trtyp(xl),trc}{jump if too far out on chain}
-\inst{}{beq}{wc,trtyp(xl),trc}{jump if this matches our type}
+\inst{}{bne}{(xl),=b$trt,trc13}{ jump if not trblk}
+\inst{}{blt}{wc,trtyp(xl),trc13}{jump if too far out on chain}
+\inst{}{beq}{wc,trtyp(xl),trc12}{jump if this matches our type}
 \inst{}{add}{*trnxt,xl}{else point to link field}
 \inst{}{mov}{xl,xr}{copy pointer}
 \inst{}{brn}{trc11}{and loop back}
@@ -48255,7 +48255,7 @@ stage=stgee           error during expression evaluation\endln
 \inst{}{sec}{}{start of error section}
 \lnie
 \endln
-\inst{error}{beq}{r$cim,=cmlab,cmp}{jump if error in scanning label}
+\inst{error}{beq}{r$cim,=cmlab,cmple}{jump if error in scanning label}
 \inst{}{mov}{wa,kvert}{save error code}
 \inst{}{zer}{scnrs}{reset rescan switch for scane}
 \inst{}{zer}{scngo}{reset goto switch for scane}
@@ -48384,7 +48384,7 @@ here after placing error flag as required\endln
 \inst{erra0}{jsr}{ermsg}{generate flag and error message}
 \inst{}{add}{=num03,lstlc}{bump page ctr for blank, error, blk}
 \inst{erra3}{zer}{xr}{in case of fatal error}
-\inst{}{bhi}{errft,=num03,sto}{pack up if several fatals}
+\inst{}{bhi}{errft,=num03,stopr}{pack up if several fatals}
 \lnie
 \endln
 \lnie
@@ -48393,7 +48393,7 @@ count error, inhibit execution if required\endln
 \endln
 \inst{}{icv}{cmerc}{bump error count}
 \inst{}{add}{cswer,noxeq}{inhibit xeq if -noerrors}
-\inst{}{bne}{stage,=stgic,cmp}{ special return if after end line}
+\inst{}{bne}{stage,=stgic,cmp10}{ special return if after end line}
 \vfill\break
 
 \lnie
@@ -48442,9 +48442,9 @@ helpful to set keyword errtext and for generality\endln
 these errors may be handled by the setexit mechanism.\endln
 \lnie
 \endln
-\inst{err04}{bge}{errft,=num03,lab}{abort if too many fatal errors}
+\inst{err04}{bge}{errft,=num03,labo1}{abort if too many fatal errors}
 \ifmac{.cpol}
-\inst{}{beq}{kvert,=nm320,err}{treat user interrupt specially}
+\inst{}{beq}{kvert,=nm320,err06}{treat user interrupt specially}
 \asmac{fi}
 \inst{}{zer}{r$ccb}{forget garbage code block}
 \inst{}{mov}{*cccod,cwcof}{set initial offset (mbe catspaw)}
@@ -48537,7 +48537,7 @@ merge here from err08 and err04 (error 320)\endln
 merge from err04\endln
 \lnie
 \endln
-\inst{err07}{bge}{errft,=num03,lab}{abort if too many fatal errors}
+\inst{err07}{bge}{errft,=num03,labo1}{abort if too many fatal errors}
 \inst{}{dcv}{kverl}{decrement errlimit}
 \inst{}{mov}{r$ert,xl}{load errtype trace pointer}
 \inst{}{jsr}{ktrex}{generate errtype trace if required}

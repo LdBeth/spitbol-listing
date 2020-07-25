@@ -4,10 +4,14 @@
            BLANK = SPAN(' ')
            EJECT  = BLANK 'ejc'
            COMMENT = '*' ( LEN(6) REM . CMT | NULL . CMT )
+* COMMENT FLAG
+           CMTFLG  = 0
 *           INSTRUCTION = BLANK ( )
            TITLE  = BLANK 'ttl' LEN(2) ( REM . ENTRY )
            TITSEG = ( BREAK('-') . MAINTL ) '-- ' REM . SUBTL
            MACRO   = '.' ( 'if' | 'then' | 'else' | 'fi' ) . KEY
+* MACRO NEST LEVEL COUNTER
+           NESTC   = 0
            INSTR   = ( TAB(5) . LABE ) LEN(2) ( TAB(10) . MEM )
 +                 ( LEN(2) ( TAB(28) . OPE ) (( NULL | BREAK(' ')) . PADD ) ' '
 +                 ( REM . CMT ) | NULL )
@@ -31,22 +35,30 @@ READ       LINE = INPUT                       :F(FIN)
 
 
 ISMAC      KEY 'if'                           :S(FMIF)
-           OUTPUT = '\asmac{' KEY '}'         :(READ)
+           TMP    = NESTC - 1
+           OUTPUT = '\asmac{' TMP '}{' KEY '}'
+           KEY 'fi'                           :F(READ)
+           NESTC  = NESTC - 1
+           OUTPUT = '\vskip6pt'               :(READ)
 FMIF       LINE MACRO SPAN(' ') RTAB(0) . SYM
-           OUTPUT = '\ifmac{' SYM '}'         :(READ)
-ISCOMMENT  OUTPUT = '\lnie'
-           OUTPUT = CMT '\endln'         :(READ)
+           OUTPUT = '\ifmac{' NESTC '}{' SYM '}'
+           NESTC  = NESTC + 1                 :(READ)
+ISCOMMENT  EQ(CMTFLG,1)                       :S(CONTCM)
+           OUTPUT = '\vskip6pt'
+CONTCM     OUTPUT = '\lnie'
+           OUTPUT = CMT '\endln'
+           CMTFLG = 1                         :(READ)
 ISEJC      OUTPUT = '\vfill\break'                      :(NEWPG)
 ISTIL      ENTRY TITSEG
            &ANCHOR = 0
 MLOOP      MAINTL ' ' =                         :S(MLOOP)
            &ANCHOR = 1
            OUTPUT = '\vfill\break'
-           OUTPUT = '{\bf ' MAINTL '--\rm ' SUBTL '}'
-           OUTPUT = '\vskip1em'                       :(READ)
+           OUTPUT = '\titl{' MAINTL '}{' SUBTL '}'      :(READ)
 ISINS      LABE   = TRIM(LABE)
            OPE    = OPE PADD
            OPE    = TRIM(OPE)
+           CMTFLG = 0
            OUTPUT = '\inst{' LABE '}{' MEM '}{' OPE '}{' CMT '}'
 +                                                     :(READ)
 FIN        OUTPUT = '\bye'

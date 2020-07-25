@@ -12,14 +12,18 @@
   \catcode`\_ = \other
 }
 
-\def\lnie{\begingroup\tt\deactivate\obeywhitespace}
+\def\lnie{\begingroup * \tt\deactivate\obeywhitespace}
 \def\endln{\endgroup\par}
-\def\asmac#1{\noindent\begingroup\it#1\endgroup\par}
-\def\ifmac#1{\vskip5pt\hrule\vskip3pt\noindent\begingroup\it if\ \bf #1\endgroup\par}
+\def\asmac#1#2{\noindent\hskip#1em\begingroup\it#2\endgroup\par}
+\def\ifmac#1#2{\vskip6pt\hrule\vskip3pt
+  \noindent\begingroup\hskip#1em\it if\ \bf #2\endgroup\par\vskip1pt}
 \def\inst#1#2#3#4{\begingroup
-      \hbox{\hbox to 0.5in{\tt #1\hfill} \hbox to 3in{\hbox to 3em{\bf #2\hfill}{\tt #3}\hfill}
+      \hbox{\hbox to 0.5in{\tt #1\hfill}
+      \hbox to 2.9in{\hbox to 2.5em{\bf #2\hfill}{\tt #3}\hfill}
       \hskip 0.2in {#4} \hfill}
-      \endgroup\par}
+      \endgroup\par
+      \vskip0.1pt}
+\def\titl#1#2{\begingroup {\bf #1 --\rm #2} \endgroup\vskip4em}
 
 \catcode`\$ = \other
 \catcode`\& = \other

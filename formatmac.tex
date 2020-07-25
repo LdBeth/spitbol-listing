@@ -14,8 +14,8 @@
 
 \def\lnie{\begingroup\tt\deactivate\obeywhitespace}
 \def\endln{\endgroup\par}
-\def\asmac#1{\begingroup\it#1\endgroup\par}
-\def\ifmac#1{\begingroup\it if\ \bf #1\endgroup\par}
+\def\asmac#1{\noindent\begingroup\it#1\endgroup\par}
+\def\ifmac#1{\noindent\begingroup\it if\ \bf #1\endgroup\par}
 \def\inst#1#2#3#4{\begingroup
       \hbox{{\hbox to 0.5in{\tt #1\hfill}} \hbox to 1.7in{{\bf #2}\hfill{\tt #3}}
       \hskip 0.4in{#4}}
@@ -23,3 +23,5 @@
 
 \catcode`\$ = \other
 \catcode`\& = \other
+
+\noindent

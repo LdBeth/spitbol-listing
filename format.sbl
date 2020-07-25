@@ -45,6 +45,7 @@ MLOOP      MAINTL ' ' =                         :S(MLOOP)
            OUTPUT = '{\bf ' MAINTL '--\rm ' SUBTL '}'
            OUTPUT = '\vskip1em'                       :(READ)
 ISINS      LABE   = TRIM(LABE)
+           OPE    = OPE PADD
            OPE    = TRIM(OPE)
            OUTPUT = '\inst{' LABE '}{' MEM '}{' OPE '}{' CMT '}'
 +                                                     :(READ)

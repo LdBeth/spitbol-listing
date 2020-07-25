@@ -1,0 +1,52 @@
+* THIS PROGRAM FORAMTS MINIMAL LISTING
+           &ANCHOR = 1
+* PATTERNS
+           BLANK = SPAN(' ')
+           EJECT  = BLANK 'ejc'
+           COMMENT = '*' ( LEN(6) REM . CMT | NULL . CMT )
+*           INSTRUCTION = BLANK ( )
+           TITLE  = BLANK 'ttl' LEN(2) ( REM . ENTRY )
+           TITSEG = ( BREAK('-') . MAINTL ) '-- ' REM . SUBTL
+           MACRO   = '.' ( 'if' | 'then' | 'else' | 'fi' ) . KEY
+           INSTR   = ( TAB(5) . LABE ) LEN(2) ( TAB(10) . MEM )
++                 ( LEN(2) ( TAB(28) . OPE ) (( NULL | BREAK(' ')) . PADD ) ' '
++                 ( REM . CMT ) | NULL )
+           OPE = ''
+           CMT = ''
+* PRELUDE
+           OUTPUT = '\input formatmac'
+
+* NEW PAGE
+NEWPG      OUTPUT = ''
+* READ LOOP
+READ       LINE = INPUT                       :F(FIN)
+
+* MATCH CASES
+           LINE  MACRO                        :S(ISMAC)
+           LINE  COMMENT                      :S(ISCOMMENT)
+           LINE  EJECT                        :S(ISEJC)
+           LINE  TITLE                        :S(ISTIL)
+           LINE  INSTR                        :S(ISINS)
+           LINE  ''                           :S(READ)F(END)
+
+
+ISMAC      KEY 'if'                           :S(FMIF)
+           OUTPUT = '\asmac{' KEY '}'         :(READ)
+FMIF       LINE MACRO SPAN(' ') RTAB(0) . SYM
+           OUTPUT = '\ifmac{' SYM '}'         :(READ)
+ISCOMMENT  OUTPUT = '\lnie'
+           OUTPUT = CMT '\endln'         :(READ)
+ISEJC      OUTPUT = '\vfill\break'                      :(NEWPG)
+ISTIL      ENTRY TITSEG
+           &ANCHOR = 0
+MLOOP      MAINTL ' ' =                         :S(MLOOP)
+           &ANCHOR = 1
+           OUTPUT = '\vfill\break'
+           OUTPUT = '{\bf ' MAINTL '--\rm ' SUBTL '}'
+           OUTPUT = '\vskip1em'                       :(READ)
+ISINS      LABE   = TRIM(LABE)
+           OPE    = TRIM(OPE)
+           OUTPUT = '\inst{' LABE '}{' MEM '}{' OPE '}{' CMT '}'
++                                                     :(READ)
+FIN        OUTPUT = '\bye'
+END

@@ -9,10 +9,12 @@
 *           INSTRUCTION = BLANK ( )
            TITLE  = BLANK 'ttl' LEN(2) ( REM . ENTRY )
            TITSEG = ( BREAK('-') . MAINTL ) '-- ' REM . SUBTL
-           MACRO   = '.' ( 'if' | 'then' | 'else' | 'fi' ) . KEY
+           MAC    = (( '.' TAB(5) ) . LABE ) LEN(2) ( LEN(5) . MEM )
++                   SPAN(' ') REM . CMT
+           CDMAC  = '.' ( 'if' | 'then' | 'else' | 'fi' ) . KEY
 * MACRO NEST LEVEL COUNTER
-           NESTC   = 0
-           INSTR   = ( TAB(5) . LABE ) LEN(2) ( TAB(10) . MEM )
+           NESTC  = 0
+           INSTR  = ( TAB(5) . LABE ) LEN(2) ( TAB(10) . MEM )
 +                 ( LEN(2) ( TAB(28) . OPE ) (( NULL | BREAK(' ')) . PADD ) ' '
 +                 ( REM . CMT ) | NULL )
            OPE = ''
@@ -26,7 +28,8 @@ NEWPG      OUTPUT = ''
 READ       LINE = INPUT                       :F(FIN)
 
 * MATCH CASES
-           LINE  MACRO                        :S(ISMAC)
+           LINE  CDMAC                        :S(ISCMAC)
+           LINE  MAC                          :S(ISMAC)
            LINE  COMMENT                      :S(ISCOMMENT)
            LINE  EJECT                        :S(ISEJC)
            LINE  TITLE                        :S(ISTIL)
@@ -34,13 +37,13 @@ READ       LINE = INPUT                       :F(FIN)
            LINE  ''                           :S(READ)F(END)
 
 
-ISMAC      KEY 'if'                           :S(FMIF)
+ISCMAC     KEY 'if'                           :S(FMIF)
            TMP    = NESTC - 1
            OUTPUT = '\asmac{' TMP '}{' KEY '}'
            KEY 'fi'                           :F(READ)
            NESTC  = NESTC - 1
            OUTPUT = '\vskip6pt'               :(READ)
-FMIF       LINE MACRO SPAN(' ') RTAB(0) . SYM
+FMIF       LINE TAB(7) LEN(5) . SYM
            OUTPUT = '\ifmac{' NESTC '}{' SYM '}'
            NESTC  = NESTC + 1                 :(READ)
 ISCOMMENT  EQ(CMTFLG,1)                       :S(CONTCM)
@@ -60,6 +63,9 @@ ISINS      LABE   = TRIM(LABE)
            OPE    = TRIM(OPE)
            CMTFLG = 0
            OUTPUT = '\inst{' LABE '}{' MEM '}{' OPE '}{' CMT '}'
++                                                     :(READ)
+ISMAC      CMTFLG = 0
+           OUTPUT = '\dfmc{' LABE '}{' MEM '}{' CMT '}'
 +                                                     :(READ)
 FIN        OUTPUT = '\bye'
 END

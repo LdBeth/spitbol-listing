@@ -10,7 +10,7 @@
            TITLE  = BLANK 'ttl' LEN(2) ( REM . ENTRY )
            TITSEG = ( BREAK('-') . MAINTL ) '-- ' REM . SUBTL
            MAC    = (( '.' TAB(5) ) . LABE ) LEN(2) ( LEN(5) . MEM )
-+                   SPAN(' ') REM . CMT
++                   ( SPAN(' ') REM . CMT | NULL . CMT )
            CDMAC  = '.' ( 'if' | 'then' | 'else' | 'fi' ) . KEY
 * MACRO NEST LEVEL COUNTER
            NESTC  = 0
